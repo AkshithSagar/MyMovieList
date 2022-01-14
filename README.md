@@ -4,10 +4,10 @@
 
 **Project Members-** <br />
 
-**Aarshee Bhattacharya** <br />
-**Akshith Sagar Ambati** <br />
-**Dhanush Pakanti** <br />
-**Ipshita Aggarwal** <br />
+* **Aarshee Bhattacharya** <br />
+* **Akshith Sagar Ambati** <br />
+* **Dhanush Pakanti** <br />
+* **Ipshita Aggarwal** <br />
 
 ### Tech stack <br />
 Platform | Technology
