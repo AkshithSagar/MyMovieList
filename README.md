@@ -4,9 +4,9 @@
 
 **Project Members-** <br />
 
-**Aarshee Bhattacharya 47122420** <br />
-**Akshith Sagar Ambati 87888206** <br />
-**Dhanush Pakanti 28079405** <br />
+**Aarshee Bhattacharya** <br />
+**Akshith Sagar Ambati** <br />
+**Dhanush Pakanti** <br />
 **Ipshita Aggarwal** <br />
 
 ### Tech stack <br />
