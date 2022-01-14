@@ -17,7 +17,7 @@ Back End |Golang
 Server   |
 Database |
 
-**The server and the databse needs to be decided as the project proceeds**
+**Note-The server and the databse needs to be decided as the project proceeds.**
 
 #### Description <br />
 
