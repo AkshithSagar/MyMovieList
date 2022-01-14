@@ -13,7 +13,7 @@
 
 >MyMovieList web application is a movie and show cataloging web application where the users can use a list-like system to track and score movies and shows.<br />
 >It can also be used as a discussion forum and a movie/show search database. <br />
->Below are some of the features that we plan to implement (they have not been prioritized yet)-<br />
+>Below are some of the features that we plan to implement (they have not been prioritized yet)<br />
 >Users can add movies/shows to their list and mark them as completed/currently watching/plan to watch.<br />
 >Users can add scores to the movies/shows and add a small review.<br />
 >Users can search for movies and shows based on genre and score.<br />
