@@ -27,18 +27,6 @@ func main() {
 		res.SendJSON(movies)
 	})
 
-	r.Post("/addMovie", func(w http.ResponseWriter, r *http.Request) {
-		res, req := yin.Event(w, r)
-		body := map[string]string{}
-		req.BindBody(&body)
-		movie := moviefeed.Movie{
-			Name:   body["name"],
-			Rating: body["rating"],
-		}
-		feed.Add(movie)
-		res.SendStatus(204)
-	})
-
 	http.ListenAndServe(":3000", r)
 
 }

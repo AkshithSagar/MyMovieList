@@ -31,16 +31,6 @@ func (feed *Feed) Get() []Movie {
 	return movies
 }
 
-func (feed *Feed) Add(movie Movie) {
-
-	stmt, _ := feed.DB.Prepare(`
-	INSERT INTO movies (name,rating) values (?,?) 
-	`)
-
-	stmt.Exec(movie.Name, movie.Rating)
-
-}
-
 func NewFeed(db *sql.DB) *Feed {
 	stmt, _ := db.Prepare(`
 	CREATE TABLE IF NOT EXISTS "movies" (
