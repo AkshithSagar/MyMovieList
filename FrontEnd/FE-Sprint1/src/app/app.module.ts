@@ -10,6 +10,7 @@ import { TopSuggestionsComponent } from './home-page/top-suggestions/top-suggest
 import { TopDiscussionsComponent } from './home-page/top-discussions/top-discussions.component';
 import { SuggestionListComponent } from './home-page/top-suggestions/suggestion-list/suggestion-list.component';
 import { SuggestionItemComponent } from './home-page/top-suggestions/suggestion-list/suggestion-item/suggestion-item.component';
+import { DiscussionListComponent } from './home-page/top-discussions/discussion-list/discussion-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SuggestionItemComponent } from './home-page/top-suggestions/suggestion-
     TopSuggestionsComponent,
     TopDiscussionsComponent,
     SuggestionListComponent,
-    SuggestionItemComponent
+    SuggestionItemComponent,
+    DiscussionListComponent
   ],
   imports: [
     BrowserModule,
