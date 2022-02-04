@@ -3,14 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { AddMovieComponent } from './add-movie/add-movie.component';
+import { HeaderComponent } from './header/header.component';
+import { AddMoviesComponent } from './add-movies/add-movies.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { TopSuggestionsComponent } from './home-page/top-suggestions/top-suggestions.component';
+import { TopDiscussionsComponent } from './home-page/top-discussions/top-discussions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    AddMovieComponent
+    HeaderComponent,
+    AddMoviesComponent,
+    HomePageComponent,
+    TopSuggestionsComponent,
+    TopDiscussionsComponent
   ],
   imports: [
     BrowserModule,
