@@ -49,7 +49,7 @@ Database |SQLite
 ###### Services Performed
 
 * Service 1- [Ingestion of movies into the database](https://github.com/AkshithSagar/MyMovieList/tree/main/backend/IngestiontoDatabase)
-* Service 2- Retrieval of movies from the database
+* Service 2- [Retrieval of movies from the database](https://github.com/AkshithSagar/MyMovieList/tree/main/backend/getAllMovies)
 
 ###### Testing
 
