@@ -1,0 +1,51 @@
+package main
+
+import (
+	"net/http"
+
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
+)
+
+type Movie struct {
+	Name        string
+	Description string
+	Review      string
+}
+type App struct {
+	DB *gorm.DB
+}
+
+func (a *App) Initialize(dbDriver string, dbURI string) {
+	db, err := gorm.Open(dbDriver, dbURI)
+	if err != nil {
+		panic("failed to connect database")
+	}
+	a.DB = db
+	a.DB.AutoMigrate(&Movie{})
+}
+
+func (a *App) handler(w http.ResponseWriter, r *http.Request) {
+
+	a.DB.Create(&Movie{Name: "Jersey"})
+
+	var movie Movie
+	a.DB.First(&movie, "name = ?", "Jersey")
+
+	w.WriteHeader(200)
+	w.Write([]byte(movie.Name))
+
+	a.DB.Delete(&movie)
+}
+
+func main() {
+	a := &App{}
+	a.Initialize("sqlite3", "test.db")
+
+	http.HandleFunc("/", a.handler)
+
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		panic(err)
+	}
+	defer a.DB.Close()
+}
