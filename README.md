@@ -39,4 +39,5 @@ Database |
 * Backend Programming Language
 * Install xcode using xcode-select --install
 * Install homebrew using /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-* Then we need to check if we have the newest version of homebrew
+* Then we need to check if we have the newest version of homebrew by using the command brew update
+* The next step is to install go using homebrew using the command brew install golang
