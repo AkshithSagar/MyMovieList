@@ -55,3 +55,7 @@ Database |
 ###### Testing
 
 * The testing of the API is done through the command line itself using the following commands-
+* curl http://localhost:8080
+* This command shows if the API is running correctly or not
+* curl http://localhost:8080/movies 
+* The command displays all the records of the particular table
