@@ -31,4 +31,37 @@ Database |
   * Users can search for other users based on their username and share their lists, discussions, reviews and comments.<br />
   * The application will provide average scores to movies and shows based on scores.<br />
 
+## Steps for backend setup on Windows <br />
+  * ( https://go.dev/doc/install "Download and Install Go")
+  * Install the SQLite browser of your choice, eg - ( "DB Browser for SQLite")
+  * Clone the github repository 
+  * Install a Windows gcc toolchain, eg - ( https://jmeubank.github.io/tdm-gcc/ "TDM-GCC")
+  * Install any packages for go using this gcc toolchain 
+  * The go program that you are willing to run must also be done through the gcc toolchain
+  * You can either use a text editor to see the source code or an IDE (we used VScode to develop the package)
+
+## GET - getAllMovies
+  * This endpoint returns all the movies stored in the database and their respective attributes 
+  * It can be tested using http://localhost:3000/getAllMovies
+  * Sample Result - 
+  ```json
+   {
+        "ID": 1,
+        "Name": "movie1",
+        "Desc": "description1",
+        "Review": "review1",
+        "Rating": "rating1",
+        "Genre": "genre1"
+    },
+    {
+        "ID": 2,
+        "Name": "movie2",
+        "Desc": "description2",
+        "Review": "review2",
+        "Rating": "rating2",
+        "Genre": "genre2"
+    }
+    
+  ```
+
 
