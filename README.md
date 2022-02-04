@@ -41,3 +41,13 @@ Database |
 * Install homebrew using /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 * Then we need to check if we have the newest version of homebrew by using the command brew update
 * The next step is to install go using homebrew using the command brew install golang
+* Then we need to setup the database and we have chosen sqlite3 so we install it by using the command brew install golang
+
+####### Setting up the environment
+
+* The IDE we used is Visual Studio Code and we just install the extension of go language on the IDE.
+
+######## Services Performed
+
+* Ingestion of movies into the database
+* Retrieval of movies from the database
