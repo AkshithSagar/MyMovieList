@@ -30,3 +30,13 @@ Database |
   * Users can see all reviews of the movies and shows that they search for new user profiles can be created.<br />
   * Users can search for other users based on their username and share their lists, discussions, reviews and comments.<br />
   * The application will provide average scores to movies and shows based on scores.<br />
+
+##### Backend Setup
+
+###### Steps for connecting to the database on mac
+
+* Database-SQLite
+* Backend Programming Language
+* Install xcode using xcode-select --install
+* Install homebrew using /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+* Then we need to check if we have the newest version of homebrew
