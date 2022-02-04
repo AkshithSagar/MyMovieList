@@ -32,10 +32,10 @@ Database |
   * The application will provide average scores to movies and shows based on scores.<br />
 
 ## Steps for backend setup on Windows <br />
-  * ( https://go.dev/doc/install "Download and Install Go")
+  * [Download and Install Go]( https://go.dev/doc/install)
   * Install the SQLite browser of your choice, eg - ( "DB Browser for SQLite")
   * Clone the github repository 
-  * Install a Windows gcc toolchain, eg - ( https://jmeubank.github.io/tdm-gcc/ "TDM-GCC")
+  * Install a Windows gcc toolchain, eg - [TDM-GCC]( https://jmeubank.github.io/tdm-gcc/ )
   * Install any packages for go using this gcc toolchain 
   * The go program that you are willing to run must also be done through the gcc toolchain
   * You can either use a text editor to see the source code or an IDE (we used VScode to develop the package)
@@ -61,7 +61,7 @@ Database |
         "Rating": "rating2",
         "Genre": "genre2"
     }
-    
+
   ```
 
 
