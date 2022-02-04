@@ -31,6 +31,35 @@ Database |
   * Users can search for other users based on their username and share their lists, discussions, reviews and comments.<br />
   * The application will provide average scores to movies and shows based on scores.<br />
 
+##### Backend Setup
+
+###### Steps for connecting to the database on mac
+
+* Database-SQLite
+* Backend Programming Language
+* Install xcode using xcode-select --install
+* Install homebrew using /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+* Then we need to check if we have the newest version of homebrew by using the command brew update
+* The next step is to install go using homebrew using the command brew install golang
+* Then we need to setup the database and we have chosen sqlite3 so we install it by using the command brew install golang
+
+###### Setting up the environment
+
+* The IDE we used is Visual Studio Code and we just install the extension of go language on the IDE.
+
+###### Services Performed
+
+* Service 1- Ingestion of movies into the database
+* Service 2- Retrieval of movies from the database
+
+###### Testing
+
+* The testing of the API is done through the command line itself using the following commands-
+* curl http://localhost:8080
+* This command shows if the API is running correctly or not
+* curl http://localhost:8080/movies 
+* The command displays all the records of the particular table
+
 ## Steps for backend setup on Windows <br />
   * [Download and Install Go]( https://go.dev/doc/install)
   * Install the SQLite browser of your choice, eg - ( "DB Browser for SQLite")
@@ -63,6 +92,4 @@ Database |
         "Genre": "genre2"
     }
 
-  ```
-
-
+  
