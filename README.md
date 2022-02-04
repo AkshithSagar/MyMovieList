@@ -14,8 +14,7 @@ Platform | Technology
 -------- | ---------
 Front End|Angular
 Back End |Golang
-Server   |
-Database |
+Database |SQLite
 
 **Note-The server and the databse needs to be decided as the project proceeds.**
 
