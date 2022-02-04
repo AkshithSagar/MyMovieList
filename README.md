@@ -30,3 +30,5 @@ Database |
   * Users can see all reviews of the movies and shows that they search for new user profiles can be created.<br />
   * Users can search for other users based on their username and share their lists, discussions, reviews and comments.<br />
   * The application will provide average scores to movies and shows based on scores.<br />
+
+
