@@ -8,6 +8,8 @@ import { AddMoviesComponent } from './add-movies/add-movies.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { TopSuggestionsComponent } from './home-page/top-suggestions/top-suggestions.component';
 import { TopDiscussionsComponent } from './home-page/top-discussions/top-discussions.component';
+import { SuggestionListComponent } from './home-page/top-suggestions/suggestion-list/suggestion-list.component';
+import { SuggestionItemComponent } from './home-page/top-suggestions/suggestion-list/suggestion-item/suggestion-item.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { TopDiscussionsComponent } from './home-page/top-discussions/top-discuss
     AddMoviesComponent,
     HomePageComponent,
     TopSuggestionsComponent,
-    TopDiscussionsComponent
+    TopDiscussionsComponent,
+    SuggestionListComponent,
+    SuggestionItemComponent
   ],
   imports: [
     BrowserModule,
