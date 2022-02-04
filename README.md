@@ -49,5 +49,9 @@ Database |
 
 ###### Services Performed
 
-* Ingestion of movies into the database
-* Retrieval of movies from the database
+* Service 1- Ingestion of movies into the database
+* Service 2- Retrieval of movies from the database
+
+###### Testing
+
+* The testing of the API is done through the command line itself using the following commands-
