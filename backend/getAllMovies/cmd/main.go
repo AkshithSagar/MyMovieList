@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	moviefeed "mymovielist/platform/moviefeed"
 	"net/http"
 
@@ -14,13 +13,13 @@ import (
 func main() {
 
 	db, _ := sql.Open("sqlite3", "./moviedatabaseV2.db")
-	fmt.Println("opened new db!", db)
+	//fmt.Println("opened new db!", db)
 	feed := moviefeed.NewFeed(db)
-	fmt.Println("new db created!")
+	//fmt.Println("new db created!")
 
 	r := chi.NewRouter()
 	r.Use(yin.SimpleLogger)
-	fmt.Println("at get movie!")
+	//fmt.Println("at get movie!")
 	r.Get("/getAllMovies", func(w http.ResponseWriter, r *http.Request) {
 		res, _ := yin.Event(w, r)
 		movies := feed.GetAllMovies()

@@ -3,7 +3,6 @@ package moviefeed
 //property injection - abstract the db - it's a good practice
 import (
 	"database/sql"
-	"fmt"
 )
 
 type Feed struct {
@@ -52,7 +51,7 @@ func NewFeed(db *sql.DB) *Feed {
 	`)
 
 	stmt.Exec()
-	fmt.Println("new db created!")
+	//fmt.Println("new db created!")
 
 	return &Feed{
 

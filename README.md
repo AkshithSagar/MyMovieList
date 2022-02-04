@@ -41,8 +41,9 @@ Database |
   * You can either use a text editor to see the source code or an IDE (we used VScode to develop the package)
 
 ## GET - getAllMovies
-  * This endpoint returns all the movies stored in the database and their respective attributes 
-  * It can be tested using http://localhost:3000/getAllMovies
+  * This endpoint returns all the movies stored in the database and their respective attributes
+  * Run the go program in the directory backend/getAllMovies/ using the command - go run .\cmd\main.go
+  * It can be tested using http://localhost:3000/getAllMovies on postman or any browser. 
   * Sample Result - 
   ```json
    {
