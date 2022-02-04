@@ -3,8 +3,11 @@
 ## Front End
 
 ## Back End
-* Installed golang for programming
+* Installed golang for programming (on Mac and Windows)
 * Installed sqlite3 for databse
+* Created two services in Go which connect to SQLite
+  * Ingestion of Movie
+  * Retrieval of all Movies
 
 ## Output for Service 1- Ingestion of Movies to the Database (sqlite3)
 
