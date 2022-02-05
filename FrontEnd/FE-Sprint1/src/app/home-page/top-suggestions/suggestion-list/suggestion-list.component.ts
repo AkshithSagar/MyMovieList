@@ -14,6 +14,7 @@ export class SuggestionListComponent implements OnInit {
     new Suggestions('Test Name3','Test Description 3', 'https://m.media-amazon.com/images/I/61aG6EicTIL._AC_SY741_.jpg'),
     new Suggestions('Test Name4', 'Test Description 4', 'https://m.media-amazon.com/images/I/91zzAMkVCUL._AC_SL1500_.jpg')
   ];
+  
   constructor() { }
 
   ngOnInit(): void {
