@@ -1,6 +1,20 @@
 # Accomplishments
 
 ## Front End
+* Installed NVM 0.39.1, Node 10.13.0, Angular CLI 10.2.1
+* Created two services in Angular which connect to Backend
+  * Home page to receive suggsetions on movies, discussions and news.
+  * Page to add new movies and discussions into the database.
+ 
+ ## Output for Service 1- Home Page
+ 
+https://user-images.githubusercontent.com/38401094/152626946-f15fab20-2439-455c-a628-7e81f1092122.mp4
+
+
+## Output for service 2- Add new movies and discussions
+
+https://user-images.githubusercontent.com/38401094/152626951-9666a38b-e4bf-44e6-b8e9-5f14e682c237.mp4
+
 
 ## Back End
 * Installed golang for programming (on Mac and Windows)
