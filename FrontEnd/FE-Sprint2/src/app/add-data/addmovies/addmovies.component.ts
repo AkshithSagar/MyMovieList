@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-addmovies',
@@ -14,7 +14,8 @@ export class AddmoviesComponent  {
     description:[''],
     review:[''],
     rating:[''],
-    genre:['']
+    genre:[''],
+    imageURL:['']
   });
   onSubmit(){
     console.log('form data is', this.profileForm.value);

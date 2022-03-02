@@ -1,11 +1,11 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
-    <mat-card fxFlex="500px" fxFlex.xs="100%">
-    <mat-card-title>Create a new entry</mat-card-title>
+    <mat-card fxFlex="600px" fxFlex.xs="100%">
+    <mat-card-title>Create a new  entry</mat-card-title>
         <form [formGroup]="profileForm" class = "form-container" autocomplete="off"  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
             <mat-card-content>
                 <mat-form-field>
-                    <input matInput type="text" placeholder="Movie name" formControlName="moviename">
-                    <mat-hint align ="end">Not nore than 60</mat-hint>
+                    <input matInput type="text" placeholder="Movie name" formControlName="moviename" maxlength="60">
+                    <mat-hint align ="end">Not more than 60</mat-hint>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>Genre</mat-label>
@@ -19,11 +19,11 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label >Give Description</mat-label>
-                    <textarea matInput formControlName="description"></textarea>
+                    <textarea matInput formControlName="description" rows="4"></textarea>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>Give Review</mat-label>
-                    <textarea matInput formControlName="review"></textarea>
+                    <textarea matInput formControlName="review" rows="5"></textarea>
                 </mat-form-field>
                 
                 
@@ -36,10 +36,13 @@
                       <mat-option value="4">4</mat-option>
                       <mat-option value="5">5</mat-option>
                     </mat-select>
+     
                 </mat-form-field>
-
-
                 
+                <mat-form-field appearance="fill">
+                    <mat-label >Image URL</mat-label>
+                    <textarea matInput formControlName="imageURL" rows="1"></textarea>
+                </mat-form-field>
 
             </mat-card-content>
             <mat-card-actions align="center">
