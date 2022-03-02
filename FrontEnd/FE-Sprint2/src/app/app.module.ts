@@ -13,7 +13,7 @@ import { SuggestionsComponent } from './home/suggestions/suggestions.component';
 import { DiscussionsComponent } from './home/discussions/discussions.component';
 import { AddDataComponent } from './add-data/add-data.component';
 import { AddmoviesComponent } from './add-data/addmovies/addmovies.component';
-import { AddDataModule } from './add-data/add-data.module';
+import { AddforumsComponent } from './add-data/addforums/addforums.component';
 
 
 @NgModule({
@@ -26,7 +26,8 @@ import { AddDataModule } from './add-data/add-data.module';
     SuggestionsComponent,
     DiscussionsComponent,
     AddDataComponent,
-    AddmoviesComponent
+    AddmoviesComponent,
+    AddforumsComponent
     
     ],
   imports: [
@@ -34,8 +35,7 @@ import { AddDataModule } from './add-data/add-data.module';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    RoutingModule,
-    AddDataModule
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

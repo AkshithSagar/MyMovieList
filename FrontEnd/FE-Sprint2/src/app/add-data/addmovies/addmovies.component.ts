@@ -13,12 +13,14 @@ export class AddmoviesComponent  {
     moviename:[''],
     description:[''],
     review:[''],
-    rating:['']
+    rating:[''],
+    genre:['']
   });
   onSubmit(){
     console.log('form data is', this.profileForm.value);
     console.log('save working');
     //write back end code to push form data to database..
+    this.profileForm.reset();
   }
   
 }

@@ -7,7 +7,16 @@
                     <input matInput type="text" placeholder="Movie name" formControlName="moviename">
                     <mat-hint align ="end">Not nore than 60</mat-hint>
                 </mat-form-field>
-                
+                <mat-form-field appearance="fill">
+                    <mat-label>Genre</mat-label>
+                    <mat-select formControlName="genre">
+                      <mat-option value="Action">Action</mat-option>
+                      <mat-option value="Sci-Fi">Sci-Fi</mat-option>
+                      <mat-option value="Anime">Anime</mat-option>
+                      <mat-option value="Family">Family</mat-option>
+                      <mat-option value="Romance">Romance</mat-option>
+                    </mat-select>
+                </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label >Give Description</mat-label>
                     <textarea matInput formControlName="description"></textarea>
@@ -16,6 +25,8 @@
                     <mat-label>Give Review</mat-label>
                     <textarea matInput formControlName="review"></textarea>
                 </mat-form-field>
+                
+                
                 <mat-form-field appearance="fill">
                     <mat-label>Rating</mat-label>
                     <mat-select formControlName="rating">
@@ -25,7 +36,9 @@
                       <mat-option value="4">4</mat-option>
                       <mat-option value="5">5</mat-option>
                     </mat-select>
-                  </mat-form-field>
+                </mat-form-field>
+
+
                 
 
             </mat-card-content>
