@@ -14,6 +14,8 @@ import { DiscussionsComponent } from './home/discussions/discussions.component';
 import { AddDataComponent } from './add-data/add-data.component';
 import { AddmoviesComponent } from './add-data/addmovies/addmovies.component';
 import { AddforumsComponent } from './add-data/addforums/addforums.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { AddforumsComponent } from './add-data/addforums/addforums.component';
     DiscussionsComponent,
     AddDataComponent,
     AddmoviesComponent,
-    AddforumsComponent
+    AddforumsComponent,
+    LoginComponent,
+    SignupComponent
     
     ],
   imports: [
