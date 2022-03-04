@@ -33,6 +33,7 @@ func TestCreateHandler(t *testing.T) {
 		"description": {testMovies.Description},
 		"genre":         {testMovies.Genre},
 		"review":{testMovies.Review}
+
 	}
 	form := strings.NewReader(data.Encode())
 	req, err := http.NewRequest("POST", "/movies", MoviesFormValues(*testMovies))
@@ -153,3 +154,21 @@ func TestViewHandler(t *testing.T) {
 		if status := rr.Code; status != http.StatusOK {
 			t.Errorf("Status code is invalid. Expected %d. Got %d instead", http.StatusOK, status)
 		}
+		data, err := ioutil.ReadAll(rr.Result().Body)
+		if err != nil {
+			t.Fatal(err)
+		}
+
+	
+	returnedMovies := Movies{}
+	if err := json.Unmarshal(data, &returnedMovies); err != nil {
+		t.Errorf("Returned star is invalid JSON. Got: %s", data)
+	}
+	if returnedMovies != movies {
+		t.Errorf("Returned star is invalid. Expected %+v. Got %+v instead", movies, returnedMovies)
+	}
+}
+
+teardown(app)
+}
+
