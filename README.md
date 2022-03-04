@@ -61,6 +61,15 @@ Database |SQLite
 * curl http://localhost:8080/movies 
 * The command displays all the records of the particular table
 
+###### Unit Testing
+
+* The code which was submitted previously under the file Connection to Databse and the unit test should be under the same folder
+* The file name for unit testing should be followed by the extension _test.go
+* There are two main functions used in unit testing-
+* The setup function is used for initializing an in memeory sqlite database
+* This is used to return the App pointer that we had declared in the main program
+* The teardown function is used to accept the same pointer and close the database
+
 ## Steps for backend setup on Windows <br />
   * [Download and Install Go]( https://go.dev/doc/install)
   * Install the SQLite browser of your choice, eg - ( "DB Browser for SQLite")
