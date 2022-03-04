@@ -13,7 +13,7 @@ import (
 
 func main() {
 
-	db, _ := sql.Open("sqlite3", "./moviedatabaseV2.db")
+	db, _ := sql.Open("sqlite3", "./moviedatabaseV3.db")
 	//fmt.Println("opened new db!", db)
 	feed := moviefeed.NewFeed(db)
 	//fmt.Println("new db created!")
