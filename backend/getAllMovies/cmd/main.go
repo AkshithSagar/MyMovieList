@@ -56,6 +56,18 @@ func main() {
 		res.SendStatus(204)
 	})
 
+	r.Post("/deleteMovieByID", func(w http.ResponseWriter, r *http.Request) {
+		res, req := yin.Event(w, r)
+		body := map[string]string{}
+		req.BindBody(&body)
+		id, _ := strconv.Atoi(body["movieid"])
+		movie := moviefeed.Movie{
+			ID: id,
+		}
+		feed.DeleteMovieByID(movie)
+		res.SendStatus(204)
+	})
+
 	http.ListenAndServe(":3000", r)
 
 }

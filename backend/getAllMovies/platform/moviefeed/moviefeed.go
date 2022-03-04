@@ -85,6 +85,14 @@ func (feed *Feed) UpdateMovieByID(movie Movie) {
 
 }
 
+func (feed *Feed) DeleteMovieByID(movie Movie) {
+
+	stmtt, err := feed.DB.Prepare("DELETE from movies WHERE ID = ?")
+	checkAndLog(err)
+	stmtt.Exec(movie.ID)
+
+}
+
 func checkAndLog(err error) {
 	if err != nil {
 		log.Fatal(err)
