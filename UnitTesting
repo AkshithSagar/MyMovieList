@@ -171,4 +171,42 @@ func TestViewHandler(t *testing.T) {
 
 teardown(app)
 }
+func TestDeleteHandler(t *testing.T) {
+	app := setup()
+
+	moviesTests := []struct {
+		movies Movies
+	}{
+		{movies: Movies{ID: 1, Name: "test/name", Description: "test desc", Genre: "test genre", Review: "test review"}},
+		{movies: Movies{ID: 2, Name: "test/another_name", Description: "test desc 2", Genre: "test genre", Review: "test review"}},
+	}
+
+	for _, tt := range moviesTests {
+
+		app.DB.Create(tt.movies)
+
+		req, err := http.NewRequest("DELETE", fmt.Sprintf("/movies/%s", tt.movies.Name), nil)
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		rr := httptest.NewRecorder()
+		r := mux.NewRouter()
+
+		r.HandleFunc("/movies/{name:.*}", app.DeleteHandler).Methods("DELETE")
+		r.ServeHTTP(rr, req)
+
+		if status := rr.Code; status != http.StatusNoContent {
+			t.Errorf("Status code is invalid. Expected %d. Got %d instead", http.StatusNoContent, status)
+		}
+
+		deletedStar := Movies{}
+		app.DB.Where("name = ?", tt.movies.Name).First(&deletedMovies)
+		if deletedMovies != (Movies{}) {
+			t.Errorf("Star still exists in db: %+v", tt.movies)
+		}
+	}
+
+	teardown(app)
+}
 
