@@ -4,17 +4,17 @@
         <form  [formGroup]="profileForm" class = "form-container" autocomplete="off"  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
             <mat-card-content>
                 <mat-form-field>
-                    <input matInput type="text" placeholder="Topic name" formControlName="moviename" maxlength="60">
+                    <input id="forumname" matInput type="text" placeholder="Topic name" formControlName="moviename" maxlength="60">
                     <mat-hint align ="end">Not more than 60</mat-hint>
                 </mat-form-field>
                 
                 <mat-form-field  appearance="fill">
                     <mat-label >Give Description</mat-label>
-                    <textarea matInput formControlName="description" rows="10" ></textarea>
+                    <textarea id = "forumdescription" matInput formControlName="description" rows="10" ></textarea>
                 </mat-form-field>
             </mat-card-content>
             <mat-card-actions align="center">
-                <button mat-raised-button color="warn" (click)="onSubmit()">Create</button>
+                <button id="submitbutton" mat-raised-button color="warn" (click)="onSubmit()">Create</button>
             </mat-card-actions>
         </form>
       </mat-card>
