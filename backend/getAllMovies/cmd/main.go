@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	moviefeed "mymovielist/platform/moviefeed"
 	"net/http"
+	"strconv"
 
 	"github.com/go-chi/chi"
 	_ "github.com/mattn/go-sqlite3"
@@ -27,7 +28,7 @@ func main() {
 	})
 
 	//for testing of get service
-	/*r.Post("/addMovie", func(w http.ResponseWriter, r *http.Request) {
+	r.Post("/addMovie", func(w http.ResponseWriter, r *http.Request) {
 		res, req := yin.Event(w, r)
 		body := map[string]string{}
 		req.BindBody(&body)
@@ -40,7 +41,20 @@ func main() {
 		}
 		feed.Add(movie)
 		res.SendStatus(204)
-	})*/
+	})
+
+	r.Put("/updateMovieByID", func(w http.ResponseWriter, r *http.Request) {
+		res, req := yin.Event(w, r)
+		body := map[string]string{}
+		req.BindBody(&body)
+		id, _ := strconv.Atoi(body["movieid"])
+		movie := moviefeed.Movie{
+			ID:     id,
+			Rating: body["rating"],
+		}
+		feed.UpdateMovieByID(movie)
+		res.SendStatus(204)
+	})
 
 	http.ListenAndServe(":3000", r)
 

@@ -3,6 +3,7 @@ package moviefeed
 //property injection - abstract the db - it's a good practice
 import (
 	"database/sql"
+	"log"
 )
 
 type Feed struct {
@@ -61,7 +62,7 @@ func NewFeed(db *sql.DB) *Feed {
 }
 
 //for testing of get services
-/*func (feed *Feed) Add(movie Movie) {
+func (feed *Feed) Add(movie Movie) {
 
 	stmt, _ := feed.DB.Prepare(`
 	INSERT INTO movies (name,description,review,rating,genre) values (?,?,?,?,?)
@@ -69,4 +70,23 @@ func NewFeed(db *sql.DB) *Feed {
 
 	stmt.Exec(movie.Name, movie.Desc, movie.Review, movie.Rating, movie.Genre)
 
-}*/
+}
+
+//update a movie by id
+func (feed *Feed) UpdateMovieByID(movie Movie) {
+
+	stmtt, err := feed.DB.Prepare("UPDATE movies SET Rating = ? WHERE ID = ?")
+	checkAndLog(err)
+	stmtt.Exec(movie.Rating, movie.ID)
+	//res, _ := stmtt.Exec("100", 1)
+	//affect, _ := res.RowsAffected()
+	//fmt.Println(affect)
+	//fmt.Println("updated!")
+
+}
+
+func checkAndLog(err error) {
+	if err != nil {
+		log.Fatal(err)
+	}
+}
