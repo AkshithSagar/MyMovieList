@@ -29,7 +29,7 @@
 
 #### The Commands Used to Run the Unit Tests
 
-* go test
+* go test-go test compiles test files that have been declared in a package with the suffix _test.go and then treats it as a separste package and then links them with the main test and then runs them.
 * go test -v
   
 ##### Output
