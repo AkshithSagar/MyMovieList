@@ -65,3 +65,7 @@ https://user-images.githubusercontent.com/46960754/156820285-fe7dc26d-a721-4ce5-
   * On clicking submit for movies tab, validates the form and sends data as object to the back end and logs into the console.
  
 * Unit and Cypress Testing
+  * Cypress test and Unit test for both the forms added which checks the form inputs validity and the object being sent.
+  * to run cypress tests: npx cypress run (or) npx cypress test 
+  * to run unit tests: npm test
+
