@@ -11,7 +11,7 @@ export class AddforumsComponent implements OnInit {
   ngOnInit(): void {
     this.profileForm = this.fromBuilder.group({
       moviename:['',[Validators.required]],
-      description:['']
+      description:['',[Validators.required]]
       // review:[''],
       // rating:['']
     });

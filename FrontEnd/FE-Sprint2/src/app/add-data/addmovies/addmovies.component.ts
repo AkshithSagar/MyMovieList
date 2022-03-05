@@ -9,14 +9,16 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class AddmoviesComponent implements OnInit {
   constructor(private fromBuilder:FormBuilder) { }
   profileForm: FormGroup;
+  
   ngOnInit(): void {
+      const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
       this.profileForm = this.fromBuilder.group({
       moviename:['',[Validators.required,Validators.maxLength(60)]],
       description:[''],
       review:[''],
       rating:['',[Validators.required]],
-      genre:[''],
-      imageURL:['']
+      genre:['',[Validators.required]],
+      imageURL:['',[Validators.pattern(reg)]]
     });
   }
   // profileForm = this.fromBuilder.group({
