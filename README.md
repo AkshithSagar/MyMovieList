@@ -70,6 +70,11 @@ Database |SQLite
 * This is used to return the App pointer that we had declared in the main program
 * The teardown function is used to accept the same pointer and close the database
 
+###### The Commands Used to Run the Unit Tests
+
+* go test
+* go test -v
+
 ## Steps for backend setup on Windows <br />
   * [Download and Install Go]( https://go.dev/doc/install)
   * Install the SQLite browser of your choice, eg - ( "DB Browser for SQLite")
