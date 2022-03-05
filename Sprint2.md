@@ -38,3 +38,15 @@ https://user-images.githubusercontent.com/46960754/156820285-fe7dc26d-a721-4ce5-
  
  https://user-images.githubusercontent.com/46960754/156820296-e85ab393-1977-4a40-809e-c69771b11f94.mp4
 
+## FrontEnd
+* Made the following updates to the front end:
+  * Toolbar now switched to side-nav bar using event liseterners when  the size of the window is reduced
+  * Added routing to the buttons on tool bar.
+  * Tabs added to the home page to accomdate seperate pages for suggested movies and discussion/forums using mat-tab
+  * Allignment of cards displaying movie suggestions.
+  * Added button for user to like and share the suggested movie.
+  * Overall UI of the Add Data/Routing page is updated - used tabs to seperate the movies and discussions.
+  * Added validation to both the forms : Made a few field as required - see in video (turns red) and added pattern validation to URL field.
+  * On clicking submit for movies tab, validates the form and sends data as object to the back end and logs into the console.
+ 
+* Unit and Cytress Testing
