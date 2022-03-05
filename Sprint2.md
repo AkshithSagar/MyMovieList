@@ -5,6 +5,7 @@
   * Fetching a movie based a filter attribute
   * Deletion of a movie based on movie ID
   * Updating a movie based on movie ID (a bug is raied for this to update multiple attribute at once)
+  * Done unit testing at the backend
   
  ## /deleteMovieByID
   * This endpoint deletes a movie from the database based on the movie ID
