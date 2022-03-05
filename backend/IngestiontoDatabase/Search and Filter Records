@@ -1,0 +1,10 @@
+func (a *App) ViewHandler1(w http.ResponseWriter, r *http.Request) {
+	var movies Movie
+	vars := mux.Vars(r)
+
+	a.DB.First(&movies, "genre = ?", vars["genre"])
+	movieJSON, _ := json.Marshal(movies)
+
+	w.WriteHeader(200)
+	w.Write([]byte(movieJSON))
+}
