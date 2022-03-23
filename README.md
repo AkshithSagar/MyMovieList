@@ -4,10 +4,10 @@
 
 **Project Members-** <br />
 
-* **Aarshee Bhattacharya** <br />
-* **Akshith Sagar Ambati** <br />
-* **Dhanush Pakanti** <br />
-* **Ipshita Aggarwal** <br />
+* **Akshith Sagar Ambati** - Frontend <br />
+* **Dhanush Pakanti** - Frontend <br />
+* **Aarshee Bhattacharya** - Backend <br />
+* **Ipshita Aggarwal** - Backend <br />
 
 ### Tech stack <br />
 Platform | Technology
