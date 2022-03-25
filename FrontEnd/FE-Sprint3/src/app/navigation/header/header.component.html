@@ -1,0 +1,66 @@
+<div class="titlebar">
+<mat-toolbar  >
+    <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+        <a routerLink="/home" style="font-size: larger;" >MyMovieList</a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="15px" class="navigation-items" >
+            <li>
+                <a routerLink="/login" class = "loginbutton" >Login</a>
+            </li>
+            <li>
+                <a routerLink="/signup" class="signupbutton">Sign Up</a>
+            </li>
+            <!-- <li>
+                <mat-list-item [matMenuTriggerFor]="menu">
+                    <mat-icon style="color: #0000EE;">unfold_more</mat-icon>
+                   
+                        <a matline style="color: #0000EE;"> Account</a>
+                    
+                    
+                </mat-list-item>           
+                <mat-menu #menu = "matMenu">
+                    <button routerLink="/home">View Profile</button>
+                    <button routerLink ="#">Add Contact</button>
+                </mat-menu> 
+            </li> -->
+            
+        </ul>
+    </div>
+  </mat-toolbar>
+</div>
+  <mat-toolbar color="primary" fxHide.xs class="secondtoolbar">
+    <div fxFlex fxLayout fxLayoutAlign="start" fxHide.xs>
+        <ul fxLayout fxLayoutGap="18px" class="navigation-items" style="font-size: medium;">
+            <li>
+                <a routerLink="/addData" style="color: white;">Add Movies/Discussions</a>
+            </li>
+            <li>
+                <a routerLink="/account" style="color: white;">Find</a>
+            </li>
+            <li>
+                <mat-list-item [matMenuTriggerFor]="menu">
+                    <mat-icon>unfold_more</mat-icon>
+                    <a matline> Account</a>
+                </mat-list-item>           
+                <mat-menu #menu = "matMenu">
+                    <button routerLink="/home">View Profile</button>
+                    <button routerLink ="#">Add Contact</button>
+                </mat-menu> 
+            </li>
+            
+        </ul>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+        <mat-form-field class = "searchbar" style="font-size: medium;">
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput type="search" placeholder=" Search here" class="search-input"  >
+        </mat-form-field>
+    </div>
+  </mat-toolbar>
+  

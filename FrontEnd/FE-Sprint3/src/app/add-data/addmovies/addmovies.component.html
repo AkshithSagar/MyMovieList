@@ -1,0 +1,53 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="600px" fxFlex.xs="100%">
+    <mat-card-title id="titlecard">Create a new  entry</mat-card-title>
+        <form [formGroup]="profileForm" class = "form-container" autocomplete="off"  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <mat-card-content>
+                <mat-form-field>
+                    <input id="nameinput" matInput type="text" placeholder="Movie name" formControlName="moviename" maxlength="60">
+                    <mat-hint align ="end">Not more than 60</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Genre</mat-label>
+                    <mat-select id = "genre" formControlName="genre">
+                      <mat-option value="Action">Action</mat-option>
+                      <mat-option value="Sci-Fi">Sci-Fi</mat-option>
+                      <mat-option value="Anime">Anime</mat-option>
+                      <mat-option value="Family">Family</mat-option>
+                      <mat-option value="Romance">Romance</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label >Give Description</mat-label>
+                    <textarea id = "description" matInput formControlName="description" rows="4"></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Give Review</mat-label>
+                    <textarea id = "review" matInput formControlName="review" rows="5"></textarea>
+                </mat-form-field>
+                
+                
+                <mat-form-field appearance="fill">
+                    <mat-label>Rating</mat-label>
+                    <mat-select id = "rating" formControlName="rating">
+                      <mat-option value="1">1</mat-option>
+                      <mat-option value="2">2</mat-option>
+                      <mat-option value="3">3</mat-option>
+                      <mat-option value="4">4</mat-option>
+                      <mat-option value="5">5</mat-option>
+                    </mat-select>
+     
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill">
+                    <mat-label >Image URL</mat-label>
+                    <textarea id ="imageurl" matInput formControlName="imageURL" rows="1"></textarea>
+                </mat-form-field>
+
+            </mat-card-content>
+            <mat-card-actions align="center">
+                <button id="submitbutton" mat-raised-button color="warn" (click)="onSubmit()">Create</button>
+            </mat-card-actions>
+        </form>
+      </mat-card>
+  </section>
