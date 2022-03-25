@@ -21,7 +21,7 @@ func teardown(app *App) {
 
 func TestCreateHandler(t *testing.T) {
 	app := setup()
-	testStar := &Movies{
+	testMovies := &Movies{
 		ID:          1,
 		Name:        "test/name",
 		Description: "test desc",
