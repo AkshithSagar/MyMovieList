@@ -1,4 +1,4 @@
-# Read Me for Sprint 3
+# Accomplishments
 
 ## Backend
 * There is a continuation from Sprint 2. We are storing and retrieving images to and from our sqlite database
