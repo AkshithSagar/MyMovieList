@@ -1,1 +1,52 @@
-<p>signup works!</p>
+
+  <section fxLayout="row wrap" fxLayoutAlign="center center">
+    <div class= "main-div">
+      <mat-card fxFlex="400px" fxFlex.xs="100%">
+          <mat-card-title align = 'center'>Sign Up</mat-card-title>
+              <form  class = "form-container" autocomplete="off"  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+                  <mat-card-content>
+                      <mat-form-field >
+                          <input  matInput type = "text" maxlength="60" placeholder="Email*">
+                      </mat-form-field>
+                      <mat-form-field >
+                        <input  matInput type = "text" maxlength="60" placeholder="User Name*">
+                    </mat-form-field>
+                      <mat-form-field>
+                          <input matInput type = "password" maxlength="60" placeholder="Password*">
+                      </mat-form-field>
+                      <div class = "securityclass">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Select a security question</mat-label>
+                            <mat-select id = "genre" >
+                              <mat-option value="Action">Name of your first primary school</mat-option>
+                              <mat-option value="Sci-Fi">Name of your first pet</mat-option>
+                              <mat-option value="Anime">Name of your hometown</mat-option>
+                              <mat-option value="Family">Mother's maiden name</mat-option>
+                              <mat-option value="Romance">Name of your hometown</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                      </div>
+                    <mat-form-field >
+                        <input  matInput type = "text" maxlength="60" placeholder="Enter answer">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Birthday*</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                      
+                      
+                
+                
+        
+                      <mat-card-actions align = "center">
+                          <button id="submitbutton" mat-raised-button color = "warn">Create Account</button>
+                      </mat-card-actions>
+                  </mat-card-content>
+                  
+              </form>
+            </mat-card>
+    </div>
+</section>
+ 
