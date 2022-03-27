@@ -1,0 +1,23 @@
+func UserRegistrationFail(test *testing.T) {
+	informationUser := model.User{
+		Username:  "User1",
+		Password:  "Fail",
+		Name: "UserName",
+		Phone:     "0000000000"}
+
+	information, e := json.Marshal(informationUser)
+	if e != nil {
+		test.Fatal(e)
+	}
+	work := httptest.NewRecorder()
+
+	request, e := http.NewRequest("POST", "/register", strings.NewReader(string(information)))
+	if e != nil {
+		test.Fatal(e)
+	}
+	request.Header.Set("Content", "application/json")
+
+	router.ServeHTTP(work, request)
+	assert.Equal(test, 409, work.Code)
+
+}
