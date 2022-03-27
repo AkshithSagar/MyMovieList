@@ -1,8 +1,27 @@
-<section fxLayout="row wrap" fxLayoutAlign="center center">
-    <mat-card fxFlex="600px" fxFlex.xs="100%">
-    <mat-card-title id="titlecard">Login</mat-card-title>
-        <form class = "form-container" autocomplete="off"  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
-            
-        </form>
-      </mat-card>
+
+  <section fxLayout="row wrap" fxLayoutAlign="center center">
+      <div class= "main-div">
+        <mat-card fxFlex="400px" fxFlex.xs="100%">
+            <mat-card-title align = 'center'>Login</mat-card-title>
+                <form  class = "form-container" autocomplete="off"  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+                    <mat-card-content>
+                        <mat-form-field>
+                            <input matInput type = "text" maxlength="60" placeholder="Username*">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput type = "password" maxlength="60" placeholder="Password*">
+                        </mat-form-field>
+                        <mat-card-actions align = "center">
+                            <button id="submitbutton" mat-raised-button color = "warn">Login</button>
+                        </mat-card-actions>
+                    </mat-card-content>
+                    <p class = "forgotlinks">
+                        <a href="#">Forgot Username?</a>
+                        |
+                        <a href="#">Forgot Password?</a>
+                    </p>
+                </form>
+              </mat-card>
+      </div>
+    
   </section>
