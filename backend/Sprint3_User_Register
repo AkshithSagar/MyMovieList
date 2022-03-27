@@ -1,0 +1,23 @@
+func UserRegistrationPass(test *testing.T) {
+	information := model.User{
+		Username:  "User1",
+		Password:  "pass123",
+		Name: "UserName1",
+		Phone:     "0000000000"}
+
+	testing, e := json.Marshal(information)
+	if e != nil {
+		test.Fatal(e)
+	}
+	work := httptest.NewRecorder()
+
+	request, e := http.NewRequest("POST", "/register", strings.NewReader(string(testing)))
+	if e != nil {
+		test.Fatal(e)
+	}
+	request.Header.Set("Content-Type", "application/json")
+
+	router.ServeHTTP(work, request)
+	assert.Equal(test, 200, work.Code)
+
+}
