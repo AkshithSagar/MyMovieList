@@ -1,0 +1,27 @@
+package main
+
+import (
+	"gorm.io/driver/sqlite"
+	"gorm.io/gorm"
+)
+
+var testdb string = "test.db"
+var nameofstore string = "test1"
+var nameofsession string = "test2"
+var allusers []model.User
+var allposts []model.Product
+
+func setupTestDb(testdb string) *gorm.DB {
+
+	database, err := gorm.Open(sqlite.Open(testdb), &gorm.Config{})
+	if err != nil {
+		panic("There was a failure to connect")
+	}
+
+	database.Migrator().DropTable(&model.User{})
+	database.Migrator().DropTable(&model.Product{})
+
+	database.AutoMigrate(&model.User{}, &model.Product{})
+
+	return database
+}
