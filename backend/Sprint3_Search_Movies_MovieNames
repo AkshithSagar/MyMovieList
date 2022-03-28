@@ -1,0 +1,10 @@
+func GetMovieByMovieName(test *testing.T) {
+
+	work := httptest.NewRecorder()
+	request, _ := http.NewRequest("GET", "/movies/testadmin", nil)
+	router.ServeHTTP(work, request)
+
+	assert.Equal(test, 200, work.Code)
+	information, _ := json.Marshal([]model.Movies{movies[0]})
+	assert.Equal(test, string(information), work.Information.String())
+}
