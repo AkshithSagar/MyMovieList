@@ -3,21 +3,21 @@
     <div class= "main-div">
       <mat-card fxFlex="400px" fxFlex.xs="100%">
           <mat-card-title align = 'center'>Sign Up</mat-card-title>
-              <form  class = "form-container" autocomplete="off"  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+              <form [formGroup] = "profileForm" class = "form-container" autocomplete="off"  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
                   <mat-card-content>
                       <mat-form-field >
-                          <input  matInput type = "text" maxlength="60" placeholder="Email*">
+                          <input  matInput type = "text" maxlength="60" placeholder="Email*" formControlName = "email">
                       </mat-form-field>
                       <mat-form-field >
-                        <input  matInput type = "text" maxlength="60" placeholder="User Name*">
+                        <input  matInput type = "text" maxlength="60" placeholder="User Name*" formControlName = "username">
                     </mat-form-field>
                       <mat-form-field>
-                          <input matInput type = "password" maxlength="60" placeholder="Password*">
+                          <input matInput type = "password" maxlength="60" placeholder="Password*" formControlName = "password">
                       </mat-form-field>
                       <div class = "securityclass">
                         <mat-form-field appearance="fill">
                             <mat-label>Select a security question</mat-label>
-                            <mat-select id = "genre" >
+                            <mat-select id = "genre" formControlName = "question">
                               <mat-option value="Action">Name of your first primary school</mat-option>
                               <mat-option value="Sci-Fi">Name of your first pet</mat-option>
                               <mat-option value="Anime">Name of your hometown</mat-option>
@@ -27,21 +27,17 @@
                         </mat-form-field>
                       </div>
                     <mat-form-field >
-                        <input  matInput type = "text" maxlength="60" placeholder="Enter answer">
+                        <input  matInput type = "text" maxlength="60" placeholder="Enter answer" formControlName = "answer">
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Birthday*</mat-label>
-                        <input matInput [matDatepicker]="picker">
+                        <input matInput [matDatepicker]="picker" formControlName = "birthday">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                       </mat-form-field>
-                      
-                      
-                
-                
         
                       <mat-card-actions align = "center">
-                          <button id="submitbutton" mat-raised-button color = "warn">Create Account</button>
+                          <button id="submitbutton" mat-raised-button color = "warn" (click) = "onSubmit()">Create Account</button>
                       </mat-card-actions>
                   </mat-card-content>
                   
