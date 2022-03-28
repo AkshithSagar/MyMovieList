@@ -1,0 +1,8 @@
+func GetMovieNameFailure(test *testing.T) {
+
+	work := httptest.NewRecorder()
+	request, _ := http.NewRequest("GET", "/movies/nomovie", nil)
+	router.ServeHTTP(work, request)
+
+	assert.Equal(test, 404, work.Code)
+}

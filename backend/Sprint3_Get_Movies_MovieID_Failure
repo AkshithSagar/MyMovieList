@@ -1,0 +1,8 @@
+func GetMovieIdFailure(test *testing.T) {
+
+	work := httptest.NewRecorder()
+	request, _ := http.NewRequest("GET", "/Movies/movies/-1", nil)
+	router.ServeHTTP(work, request)
+
+	assert.Equal(test, 404, work.Code)
+}
