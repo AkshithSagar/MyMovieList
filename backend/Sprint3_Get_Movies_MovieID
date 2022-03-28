@@ -1,0 +1,10 @@
+func GetMovieById(test *testing.T) {
+
+	work := httptest.NewRecorder()
+	request, _ := http.NewRequest("GET", "/Movies/movies/1", nil)
+	router.ServeHTTP(work, request)
+
+	assert.Equal(test, 200, work.Code)
+	information, _ := json.Marshal(movies[0])
+	assert.Equal(test, string(information), work.Information.String())
+}
