@@ -3,16 +3,16 @@
       <div class= "main-div">
         <mat-card fxFlex="400px" fxFlex.xs="100%">
             <mat-card-title align = 'center'>Login</mat-card-title>
-                <form  class = "form-container" autocomplete="off"  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <form [formGroup] = "profileForm" class = "form-container" autocomplete="off"  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
                     <mat-card-content>
                         <mat-form-field>
-                            <input matInput type = "text" maxlength="60" placeholder="Username*">
+                            <input matInput type = "text" maxlength="60" placeholder="Username*" formControlName = "username">
                         </mat-form-field>
                         <mat-form-field>
-                            <input matInput type = "password" maxlength="60" placeholder="Password*">
+                            <input matInput type = "password" maxlength="60" placeholder="Password*" formControlName = "password">
                         </mat-form-field>
                         <mat-card-actions align = "center">
-                            <button id="submitbutton" mat-raised-button color = "warn">Login</button>
+                            <button id="submitbutton" mat-raised-button color = "warn" (click)="onSubmit()">Login</button>
                         </mat-card-actions>
                     </mat-card-content>
                     <p class = "forgotlinks">
@@ -20,6 +20,7 @@
                         |
                         <a href="#">Forgot Password?</a>
                     </p>
+                    
                 </form>
               </mat-card>
       </div>
