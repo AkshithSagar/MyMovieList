@@ -10,4 +10,10 @@
 ### User Activities
 * The functionalities that we are implementing for the user are login, register and delete a user
 
+### Filter Based Search from our Database
+* We are searching based on two parameters in this sprint
+* The first paramater is the MovieName
+* The second parameter is the MovieID
+* We are also checking the condition if the movie name or id is not present and displaying messages respectively
+
 
