@@ -16,6 +16,7 @@ import { AddmoviesComponent } from './add-data/addmovies/addmovies.component';
 import { AddforumsComponent } from './add-data/addforums/addforums.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { FindmoviesComponent } from './find/findmovies/findmovies.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { SignupComponent } from './signup/signup.component';
     AddmoviesComponent,
     AddforumsComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    FindmoviesComponent
     
     ],
   imports: [

@@ -5,7 +5,7 @@ import { HomeComponent } from '../home/home.component';
 import { AddDataComponent } from '../add-data/add-data.component';
 import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
-
+import { FindmoviesComponent } from '../find/findmovies/findmovies.component';
 const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'add-data', component: AddDataComponent},
@@ -14,7 +14,9 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'login', redirectTo:'/login', pathMatch:'full'},
   {path:'signup', component: SignupComponent},
-  {path:'signup', redirectTo:'/signup', pathMatch:'full'}
+  {path:'signup', redirectTo:'/signup', pathMatch:'full'},
+  {path:'findmovies',component: FindmoviesComponent},
+  {path:'findmovies',redirectTo:'/findmovies',pathMatch:'full'}
 ]
 
 @NgModule({
