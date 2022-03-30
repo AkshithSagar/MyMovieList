@@ -26,18 +26,22 @@ export class AddmoviesComponent implements OnInit {
     if(this.profileForm.valid){
       // console.log('form data is', this.profileForm.value);
       // console.log('save working');
-      const formData = new FormData();
+      var formData:any = new FormData();
       formData.append("name",this.profileForm.get('name').value);
       formData.append("description",this.profileForm.get('description').value);
       formData.append("genre",this.profileForm.get('genre').value);
       formData.append("rating",this.profileForm.get('rating').value);
       formData.append("review",this.profileForm.get('review').value);
-      this.http.post('http://localhost:3000/addMovie', this.profileForm.value)
+      var object = {};
+      formData.forEach((value, key) => object[key] = value);
+      var json = JSON.stringify(object);
+      console.log(json);
+      this.http.post('http://localhost:3000/addMovie', json)
       .subscribe({
-        next:(response)=> console.log(response),
-        error:(error)=>console.log(error),
+        next:(response)=> {console.log(response)}
+        // error:(error)=>console.log(error),
       });
-
+      
     //write back end code to push form data to database..
       // this.http.post('http://localhost:3000/addMovie',this.profileForm.value)
       // .subscribe((result)=>{

@@ -12,7 +12,6 @@ import (
 )
 //added code here by dhanush
 func enableCors(w *http.ResponseWriter){
-	
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
 //till here
@@ -40,7 +39,6 @@ func main() {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-
 		//ends here
 		res, req := yin.Event(w, r)
 		body := map[string]string{}
