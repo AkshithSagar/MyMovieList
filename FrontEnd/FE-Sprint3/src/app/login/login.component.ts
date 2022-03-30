@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private http:HttpClient) { }
   profileForm: FormGroup;
 
   ngOnInit(): void {
@@ -19,6 +19,13 @@ export class LoginComponent implements OnInit {
     })
   }
   onSubmit(){
+    var formData: any = new FormData();
+    formData.append("username",this.profileForm.get('username').value);
+    formData.append("password",this.profileForm.get('password').value);
+    for(var value of formData.values()){
+      console.log(value);
+    }
+
     if(this.profileForm.valid){
       console.log('form data is', this.profileForm.value);
       console.log('working');
