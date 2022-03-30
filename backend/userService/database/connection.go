@@ -1,15 +1,22 @@
 package database
 
 import (
+	models "userService/models"
+
 	"gorm.io/driver/sqlite" // Sqlite driver based on GGO
 	"gorm.io/gorm"
 )
 
+var DB *gorm.DB
+
 func Connect() {
 
-	_, err := gorm.Open(sqlite.Open("moviedatabase_sprint3.db"), &gorm.Config{})
+	connection, err := gorm.Open(sqlite.Open("UserDatabase_V1.db"), &gorm.Config{})
 	if err != nil {
 		panic("could not connect to db")
 	}
+
+	DB = connection
+	connection.AutoMigrate(&models.User{})
 
 }
