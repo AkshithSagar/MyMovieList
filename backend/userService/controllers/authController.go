@@ -4,9 +4,15 @@ import (
 	database "userService/database"
 	models "userService/models"
 
+	"strconv"
+	"time"
+
+	jwt "github.com/dgrijalva/jwt-go"
 	fiber "github.com/gofiber/fiber/v2"
 	"golang.org/x/crypto/bcrypt"
 )
+
+const SecretKey = "secret"
 
 func Login(c *fiber.Ctx) error {
 	var data map[string]string
@@ -32,7 +38,30 @@ func Login(c *fiber.Ctx) error {
 			"message": "password incorrect!",
 		})
 	}
-	return c.JSON(user)
+
+	expirationTime := time.Now().Add(time.Hour * 24) // *24 referes to 1 day
+
+	claims := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.StandardClaims{
+		Issuer: strconv.Itoa(int(user.Id)),
+
+		//ExpiresAt: time.Now().Add(time.Hour * 24).Unix(), // *24 referes to 1 day
+		//fixed using - https://github.com/dgrijalva/jwt-go/issues/487
+
+		ExpiresAt: expirationTime.Unix(),
+	})
+
+	token, err := claims.SignedString([]byte(SecretKey))
+	if err != nil {
+
+		c.Status(fiber.StatusInternalServerError)
+		return c.JSON(fiber.Map{
+
+			"message": "could not login!",
+		})
+
+	}
+
+	return c.JSON(token)
 }
 
 //generation of test data for login service
