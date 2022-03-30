@@ -29,6 +29,7 @@ export class SignupComponent implements OnInit {
     formData.append("question", this.profileForm.get('question').value);
     formData.append("answer", this.profileForm.get('answer').value);
     formData.append("birthday", this.profileForm.get('birthday').value);
+    
     for(var value of formData.values()){
       console.log(value);
     }

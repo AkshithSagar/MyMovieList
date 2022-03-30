@@ -4,7 +4,7 @@
         <form [formGroup]="profileForm" class = "form-container" autocomplete="off"  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
             <mat-card-content>
                 <mat-form-field>
-                    <input id="nameinput" matInput type="text" placeholder="Movie name" formControlName="moviename" maxlength="60">
+                    <input id="nameinput" matInput type="text" placeholder="Movie name" formControlName="name" maxlength="60">
                     <mat-hint align ="end">Not more than 60</mat-hint>
                 </mat-form-field>
                 <mat-form-field appearance="fill">
@@ -38,11 +38,11 @@
                     </mat-select>
      
                 </mat-form-field>
-                
-                <mat-form-field appearance="fill">
+                <!-- remove comments after testing back end code -->
+                <!-- <mat-form-field appearance="fill">
                     <mat-label >Image URL</mat-label>
                     <textarea id ="imageurl" matInput formControlName="imageURL" rows="1"></textarea>
-                </mat-form-field>
+                </mat-form-field> -->
 
             </mat-card-content>
             <mat-card-actions align="center">
