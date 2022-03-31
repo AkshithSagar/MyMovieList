@@ -60,8 +60,19 @@ func Login(c *fiber.Ctx) error {
 		})
 
 	}
+	cookie := fiber.Cookie{
 
-	return c.JSON(token)
+		Name:     "jwt",
+		Value:    token,
+		Expires:  expirationTime,
+		HTTPOnly: true,
+	}
+
+	c.Cookie(&cookie)
+
+	return c.JSON(fiber.Map{
+		"message": "success",
+	})
 }
 
 //generation of test data for login service
