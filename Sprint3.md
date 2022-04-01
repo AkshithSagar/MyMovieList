@@ -60,3 +60,22 @@ Below you can see a video for these services
 https://user-images.githubusercontent.com/46960754/161304400-9b1a2255-66a4-48ab-9fd3-5b9b3151a595.mp4
 
 
+##FrontEnd
+###How to run the code
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+
+* Integration With BackEnd: Add Movies 
+ * User is able to Add movies from the webpage into the database from the WebPage
+ * User is able to Add Discussions from the webpage
+ * Fetching data by Genre Filter
+
+* Creation of new Login page and Sign up page created with form validation 
+* Added Find page to find new discussions or add movies
+* Routing user to their respective genre pages after selction from Find, from backend
+
+### Testing
+* Unit testing for the login page and signup page done
+* Run tests using npm test
+
