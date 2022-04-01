@@ -1,0 +1,16 @@
+import "image/png" 
+f, err := os.Create("image.png")
+if err != nil {
+    
+}
+defer f.Close()
+
+
+err = png.Encode(f, img)
+if err != nil {
+    
+}
+enc := png.Encoder{
+    CompressionLevel: png.BestSpeed,
+}
+err := enc.Encode(f, img)

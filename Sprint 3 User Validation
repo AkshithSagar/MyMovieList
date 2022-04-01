@@ -1,0 +1,20 @@
+func UserValidation(nameofuser string, password string) bool {
+    var retrievepassword string
+    sqlquery := "select password from user where nameofuser="
+    log.Print("User Validation ", nameofuser)
+    rows := userdatabase.query(sqlquery, nameofuser)
+
+    defer rows.Close()
+    if rows.Next() {
+        e := rows.Scan(&passwordFromDB)
+        if e != nil {
+        return false
+        }
+    }
+    
+    if password == retrievepassword {
+        return true
+    }
+    
+    return false
+}
