@@ -16,8 +16,38 @@
 
 ### User Activities
 The functionalities that we implemented in this sprint for the user are as follows -
-* User Registration with a unique email id and encrypted password
 * User login (authentication) with email id and password - this also generates a session cookie for 24 hours
+The request body for this endpoint is as follows - 
+
+```{
+
+    "email" : "luffy@one-piece.com",
+    "password" : "killKaido"
+
+}
+
+```
+
+And the response is a message whether the login was successfull or not 
+
+```
+{
+    "message": "success"
+}
+
+```
+
+The cookie returned is as follows - 
+
+<img width="892" alt="loginCookie" src="https://user-images.githubusercontent.com/46960754/161305218-f1572235-dadb-4e3e-ab42-1ad05a53fea4.png">
+
+
 * Get user - this is for retrieving the currently logged in user based on the session cookie
+* User Registration with a unique email id and encrypted password
+
+Below you can see a video for these services
+
+
+https://user-images.githubusercontent.com/46960754/161304400-9b1a2255-66a4-48ab-9fd3-5b9b3151a595.mp4
 
 
