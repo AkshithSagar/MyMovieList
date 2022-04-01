@@ -12,7 +12,7 @@
     padding: 0;
     text-indent: 10px;
 }
-.button{
+.submitbutton{
     background-color: #f6f6f6;
     border: #c3c3c3 1px solid;
     border-radius: 0 8px 8px 0;
@@ -26,15 +26,32 @@
     width: 70px;
 }
 
-// background-color: #f6f6f6;
-// border: #c3c3c3 1px solid;
-// border-radius: 0 8px 8px 0;
-// color: #2e51a2;
-// cursor: pointer;
-// display: block;
-// font-family: 'Font Awesome 6 Pro',Avenir,lucida grande,tahoma,verdana,arial,sans-serif;
-// font-size: 16px;
-// font-weight: 700;
-// font-weight: 900;
-// height: 50px;
-// width: 50px;
+.menu-container{
+    padding-top: 10px;
+    border-bottom: 1px solid #bebebe;
+    display: block;
+    
+}
+.button-container{
+    display: block;
+    text-align: left;
+    height: 25px;
+    margin: 5px;
+}
+.button{
+    cursor: pointer;
+    margin-right: 8px;
+    padding: 12px 0 12px 16px;
+    position: relative;
+    text-decoration: none;
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    padding-right: 20px;
+    color:#1d439b;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+}
