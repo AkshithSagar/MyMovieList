@@ -10,10 +10,12 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/qkgo/yin"
 )
+
 //added code here by dhanush
-func enableCors(w *http.ResponseWriter){
+func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 }
+
 //till here
 
 func main() {
@@ -29,6 +31,17 @@ func main() {
 	r.Get("/getAllMovies", func(w http.ResponseWriter, r *http.Request) {
 		res, _ := yin.Event(w, r)
 		movies := feed.GetAllMovies()
+		res.SendJSON(movies)
+	})
+
+	//get by genre
+	r.Get("/getMovieByGenre", func(w http.ResponseWriter, r *http.Request) {
+		res, req := yin.Event(w, r)
+		body := map[string]string{}
+		req.BindBody(&body)
+		genre := body["genre"]
+
+		movies := feed.GetMovieByGenre(genre)
 		res.SendJSON(movies)
 	})
 
