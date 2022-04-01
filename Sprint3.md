@@ -3,6 +3,12 @@
 ## Backend
 ### Filter Based Search from our Database
 * We are searching based on the Genre of the movie in this sprint
+* The video below shows how the filter works. We have assumed the genre as action but in the web api the frontend will be sending the particular genre to the backend for details
+
+
+
+https://user-images.githubusercontent.com/48876044/161323470-fd2c2bcd-9fd1-4527-8812-c4cb64d0c0d6.mp4
+
 
 
 
