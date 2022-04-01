@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./addmovies.component.scss']
 })
 export class AddmoviesComponent implements OnInit {
-  constructor(private fromBuilder:FormBuilder, private http:HttpClient) { }
+  constructor(private fromBuilder:FormBuilder) { }
   profileForm: FormGroup;
   
   ngOnInit(): void {
@@ -24,29 +24,26 @@ export class AddmoviesComponent implements OnInit {
   
   onSubmit(){
     if(this.profileForm.valid){
-      // console.log('form data is', this.profileForm.value);
-      // console.log('save working');
-      var formData:any = new FormData();
-      formData.append("name",this.profileForm.get('name').value);
-      formData.append("description",this.profileForm.get('description').value);
-      formData.append("genre",this.profileForm.get('genre').value);
-      formData.append("rating",this.profileForm.get('rating').value);
-      formData.append("review",this.profileForm.get('review').value);
-      var object = {};
-      formData.forEach((value, key) => object[key] = value);
-      var json = JSON.stringify(object);
-      console.log(json);
-      this.http.post('http://localhost:3000/addMovie', json)
-      .subscribe({
-        next:(response)=> {console.log(response)}
-        // error:(error)=>console.log(error),
-      });
-      
-    //write back end code to push form data to database..
-      // this.http.post('http://localhost:3000/addMovie',this.profileForm.value)
-      // .subscribe((result)=>{
-      //   console.warn("result", result)
+      console.log('form data is', this.profileForm.value);
+      console.log('save working');
+
+
+      // var formData:any = new FormData();
+      // formData.append("name",this.profileForm.get('name').value);
+      // formData.append("description",this.profileForm.get('description').value);
+      // formData.append("genre",this.profileForm.get('genre').value);
+      // formData.append("rating",this.profileForm.get('rating').value);
+      // formData.append("review",this.profileForm.get('review').value);
+      // var object = {};
+      // formData.forEach((value, key) => object[key] = value);
+      // var json = JSON.stringify(object);
+      // console.log(json);
+      // this.http.post('http://localhost:3000/addMovie', json)
+      // .subscribe({
+      //   next:(response)=> {console.log(response)}
+      //   // error:(error)=>console.log(error),
       // });
+
       this.profileForm.reset();
     }
     

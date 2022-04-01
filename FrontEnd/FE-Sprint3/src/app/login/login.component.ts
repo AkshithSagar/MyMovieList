@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private http:HttpClient) { }
+  constructor(private formBuilder: FormBuilder) { }
   profileForm: FormGroup;
 
   ngOnInit(): void {

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private http:HttpClient) { }
+  constructor(private formBuilder: FormBuilder) { }
   profileForm : FormGroup;
 
   ngOnInit(): void {
@@ -18,7 +18,8 @@ export class SignupComponent implements OnInit {
       password: ['',[Validators.required]],
       question: ['',[Validators.required]],
       answer: ['',[Validators.required]],
-      birthday:['',[Validators.required]]
+      //birthday:['',[Validators.required]]
+      birthday:['']
     })
   }
   onSubmit(){
