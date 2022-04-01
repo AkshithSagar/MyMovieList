@@ -56,7 +56,8 @@ import {MatTableModule} from '@angular/material/table';
     FormsModule,
     HttpClientModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }
