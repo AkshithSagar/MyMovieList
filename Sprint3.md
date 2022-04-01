@@ -73,15 +73,37 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 
 * Integration With BackEnd: Add Movies 
- * User is able to Add movies from the webpage into the database from the WebPage
- * User is able to Add Discussions from the webpage
- * Fetching data by Genre Filter
+ * User is able to Add movies from the webpage into the database from the WebPage.
+ * User is able to Add Discussions from the Webpage.
+ 
 
-* Creation of new Login page and Sign up page created with form validation 
-* Added Find page to find new discussions or add movies
-* Routing user to their respective genre pages after selction from Find, from backend
+https://user-images.githubusercontent.com/26251061/161354995-9dfa9958-64f0-4b92-bb81-f6a73053904c.mp4
+
+
+ * Fetching data by Genre Filter and Search through the list.
+
+
+https://user-images.githubusercontent.com/26251061/161355131-b4c2c7a8-82f3-4451-9ddf-1c29366bace1.mov
+
+
+
+* Creation of new Login page and Sign up page created with form validation. 
+
+
+https://user-images.githubusercontent.com/26251061/161355193-4c9a154d-05f9-466a-a921-afbdaa9bf628.mov
+
+
+
+https://user-images.githubusercontent.com/26251061/161355227-900de884-d8d1-47f3-91f8-f4328dad6353.mov
+
+
+
+* Added Find page to find new discussions or add movies.
+* Routing user to their respective genre pages after selction from Find, from backend.
 
 ### Testing
-* Unit testing for the login page and signup page done
-* Run tests using npm test
+* Unit testing for the login page and signup page done.
+* Run tests using npm test.
+
+<img width="1203" alt="Screen Shot 2022-04-01 at 4 47 03 PM" src="https://user-images.githubusercontent.com/26251061/161355250-eaea1d57-e386-42aa-91c8-d045ee04aabf.png">
 
