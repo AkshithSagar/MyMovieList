@@ -12,7 +12,7 @@ const ELEMENT_DATA: Elements[] = [
   {name:'Avengers',rating:5,genre:'Action'},
   {name:'Interstellar',rating:5,genre:'Sci-Fi'},
   {name:'La la land',rating:3,genre:'Romance'},
-  {name:'American Pie',rating:5,genre:'Comedy'},  
+  {name:'One Piece',rating:5,genre:'Anime'},  
 ];
 @Component({
   selector: 'app-displayresults',
