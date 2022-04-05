@@ -106,6 +106,7 @@ https://user-images.githubusercontent.com/26251061/161355227-900de884-d8d1-47f3-
 * Run tests using npm test.
 
 <img width="1203" alt="Screen Shot 2022-04-01 at 4 47 03 PM" src="https://user-images.githubusercontent.com/26251061/161355250-eaea1d57-e386-42aa-91c8-d045ee04aabf.png">
+
 * Cypress Tests for all the pages.
 * run tests using npx cypress run or nps cypress open
 
