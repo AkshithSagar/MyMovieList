@@ -6,28 +6,28 @@
               <form [formGroup] = "profileForm" class = "form-container" autocomplete="off"  fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
                   <mat-card-content>
                       <mat-form-field >
-                          <input  matInput type = "text" maxlength="60" placeholder="Email*" formControlName = "email">
+                          <input id="email" matInput type = "text" maxlength="60" placeholder="Email*" formControlName = "email">
                       </mat-form-field>
                       <mat-form-field >
-                        <input  matInput type = "text" maxlength="60" placeholder="User Name*" formControlName = "username">
+                        <input id="username"  matInput type = "text" maxlength="60" placeholder="User Name*" formControlName = "username">
                     </mat-form-field>
                       <mat-form-field>
-                          <input matInput type = "password" maxlength="60" placeholder="Password*" formControlName = "password">
+                          <input id="password" matInput type = "password" maxlength="60" placeholder="Password*" formControlName = "password">
                       </mat-form-field>
                       <div class = "securityclass">
                         <mat-form-field appearance="fill">
                             <mat-label>Select a security question</mat-label>
-                            <mat-select id = "genre" formControlName = "question">
-                              <mat-option value="Action">Name of your first primary school</mat-option>
-                              <mat-option value="Sci-Fi">Name of your first pet</mat-option>
-                              <mat-option value="Anime">Name of your hometown</mat-option>
-                              <mat-option value="Family">Mother's maiden name</mat-option>
-                              <mat-option value="Romance">Name of your hometown</mat-option>
+                            <mat-select id = "question" formControlName = "question">
+                              <mat-option value="q1">Name of your first primary school</mat-option>
+                              <mat-option value="q2">Name of your first pet</mat-option>
+                              <mat-option value="q3">Name of your hometown</mat-option>
+                              <mat-option value="q4">Mother's maiden name</mat-option>
+                              <mat-option value="q5">Name of your hometown</mat-option>
                             </mat-select>
                         </mat-form-field>
                       </div>
                     <mat-form-field >
-                        <input  matInput type = "text" maxlength="60" placeholder="Enter answer" formControlName = "answer">
+                        <input id="answer" matInput type = "text" maxlength="60" placeholder="Enter answer" formControlName = "answer">
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Birthday</mat-label>

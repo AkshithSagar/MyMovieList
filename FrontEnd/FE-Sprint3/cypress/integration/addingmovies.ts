@@ -11,7 +11,7 @@ describe('Testing page to add data test',()=>{
         cy.get("#description").type("Some description on Harry Potter");
         cy.get("#review").type("Best movie of the decade");
         cy.get("#rating").click().get('mat-option').contains("5").click();
-        cy.get("#imageurl").type("https://m.media-amazon.com/images/I/91BT--NUiKL._AC_UY436_FMwebp_QL65_.jpg");
+        //cy.get("#imageurl").type("https://m.media-amazon.com/images/I/91BT--NUiKL._AC_UY436_FMwebp_QL65_.jpg");
         cy.get("#submitbutton").click();
         cy.get('#mat-tab-label-0-1').click();
         cy.get("#forumname").type("Best movie of this month");
