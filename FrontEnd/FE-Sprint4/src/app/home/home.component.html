@@ -1,0 +1,18 @@
+<section fxLayout="column" fxFlexAlign="stretch">
+    <div fxFlexAlign="center">
+      <p>Welcome to the *********** Application</p>
+    </div>
+<!--   
+    <p>In this application we are going to work with:</p> -->
+    <mat-tab-group (selectedTabChange)="executeSelectedChange($event)">
+      <mat-tab label="Suggested Movies"> 
+        <app-suggestions></app-suggestions>
+      </mat-tab>
+      <mat-tab label="Suggested Discussions">
+          <app-discussions></app-discussions>
+        </mat-tab>
+      <mat-tab label="Additional Funcationality if any">
+         <p>Any additinal functionality to be added later on in the development</p>
+        </mat-tab>
+    </mat-tab-group>
+  </section>
