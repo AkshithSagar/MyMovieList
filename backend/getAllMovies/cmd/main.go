@@ -72,10 +72,61 @@ func main() {
 		body := map[string]string{}
 		req.BindBody(&body)
 		id, _ := strconv.Atoi(body["movieid"])
+
+		oldMovieDetails := feed.GetMovieByID(body["movieid"])
+
 		movie := moviefeed.Movie{
-			ID:     id,
-			Rating: body["rating"],
+			ID: id,
 		}
+		//name
+		if body["name"] == "" {
+
+			movie.Name = oldMovieDetails.Name
+
+		} else {
+
+			movie.Name = body["name"]
+		}
+
+		//description
+		if body["description"] == "" {
+
+			movie.Desc = oldMovieDetails.Desc
+
+		} else {
+
+			movie.Name = body["description"]
+		}
+
+		//Review
+		if body["review"] == "" {
+
+			movie.Review = oldMovieDetails.Review
+
+		} else {
+
+			movie.Review = body["review"]
+		}
+
+		if body["genre"] == "" {
+
+			movie.Genre = oldMovieDetails.Genre
+
+		} else {
+
+			movie.Genre = body["genre"]
+		}
+
+		//Rating
+		if body["rating"] == "" {
+
+			movie.Rating = oldMovieDetails.Rating
+
+		} else {
+
+			movie.Rating = body["rating"]
+		}
+
 		feed.UpdateMovieByID(movie)
 		res.SendStatus(204)
 	})

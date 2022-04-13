@@ -104,14 +104,45 @@ func (feed *Feed) Add(movie Movie) {
 //update a movie by id
 func (feed *Feed) UpdateMovieByID(movie Movie) {
 
-	stmtt, err := feed.DB.Prepare("UPDATE movies SET Rating = ? WHERE ID = ?")
+	stmtt, err := feed.DB.Prepare("UPDATE movies SET name = ?, description = ?, review = ?, rating = ?, genre = ? WHERE ID = ?")
 	checkAndLog(err)
-	stmtt.Exec(movie.Rating, movie.ID)
+	stmtt.Exec(movie.Name, movie.Desc, movie.Review, movie.Rating, movie.Genre, movie.ID)
 	//res, _ := stmtt.Exec("100", 1)
 	//affect, _ := res.RowsAffected()
 	//fmt.Println(affect)
 	//fmt.Println("updated!")
 
+}
+
+//to support update service
+func (feed *Feed) GetMovieByID(movieID string) Movie {
+
+	query := `SELECT * FROM movies WHERE ID =` + movieID
+
+	rows, _ := feed.DB.Query(query)
+
+	movies := []Movie{}
+
+	var id int
+	var name string
+	var rating string
+	var desc string
+	var review string
+	var genre string
+	for rows.Next() {
+		rows.Scan(&id, &name, &desc, &review, &rating, &genre)
+		movie := Movie{
+			ID:     id,
+			Name:   name,
+			Desc:   desc,
+			Review: review,
+			Genre:  genre,
+			Rating: rating,
+		}
+		movies = append(movies, movie)
+	}
+
+	return movies[0]
 }
 
 func (feed *Feed) DeleteMovieByID(movie Movie) {
