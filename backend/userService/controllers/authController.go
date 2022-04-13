@@ -116,3 +116,20 @@ func Register(c *fiber.Ctx) error {
 
 	return c.JSON(user)
 }
+
+//Logout service and removing cookies
+func Logout(c *fiber.Ctx) error {
+	cookie := fiber.Cookie{
+		Name:     "jwt",
+		Value:    "",
+		Expires:  time.Now().Add(-time.Hour), //setting cookie to a time in the past
+		HTTPOnly: true,
+	}
+
+	c.Cookie(&cookie)
+
+	return c.JSON(fiber.Map{
+		"message": "success",
+	})
+
+}
