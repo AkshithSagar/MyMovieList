@@ -107,3 +107,23 @@ https://user-images.githubusercontent.com/26251061/161355227-900de884-d8d1-47f3-
 
 <img width="1203" alt="Screen Shot 2022-04-01 at 4 47 03 PM" src="https://user-images.githubusercontent.com/26251061/161355250-eaea1d57-e386-42aa-91c8-d045ee04aabf.png">
 
+* Cypress Tests for all the pages.
+* run tests using npx cypress run or nps cypress open
+
+
+https://user-images.githubusercontent.com/38401094/161861798-9e54b9c4-cbb9-4045-929b-e9a785034fd7.mp4
+
+
+
+https://user-images.githubusercontent.com/38401094/161861801-d7ed2b5a-91e6-4158-88af-1132cbb778a6.mp4
+
+
+
+https://user-images.githubusercontent.com/38401094/161861802-fb003e4f-bcd3-49e7-a2ba-54a59fbb00dc.mp4
+
+
+
+https://user-images.githubusercontent.com/38401094/161861803-2f4e68a9-7f52-4b40-8ae8-8ebc3f337083.mp4
+
+
+
