@@ -1,0 +1,101 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"net/url"
+
+	"github.com/gorilla/mux"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
+)
+
+type Discussions struct {
+	TopicName   string
+	Description string
+}
+type App struct {
+	database *gorm.DB
+}
+
+func (a *App) Initialize(dbDriver string, dbURI string) {
+	db, err := gorm.Open(dbDriver, dbURI)
+	if err != nil {
+		panic("failed to connect database")
+	}
+	a.database = db
+	a.database.AutoMigrate(&Discussions{})
+}
+
+func (a *App) ListHandler(w http.ResponseWriter, r *http.Request) {
+	var discussions []Discussions
+
+	a.database.Find(&discussions)
+	discussionsJSON, _ := json.Marshal(discussions)
+
+	w.WriteHeader(200)
+	w.Write([]byte(discussionsJSON))
+}
+
+func (a *App) CreateHandler(w http.ResponseWriter, r *http.Request) {
+
+	if err := r.ParseForm(); err != nil {
+		panic("failed in ParseForm() call")
+	}
+
+	discussions := &Discussions{
+		TopicName:   r.PostFormValue("Movie Review"),
+		Description: r.PostFormValue("The ratings of the movie"),
+	}
+	a.database.Create(discussions)
+
+	u, err := url.Parse(fmt.Sprintf("/discussions/%s", discussions.TopicName))
+	if err != nil {
+		panic("failed to form new Discussions URL")
+	}
+	base, err := url.Parse(r.URL.String())
+	if err != nil {
+		panic("failed to parse request URL")
+	}
+
+	w.Header().Set("Location", base.ResolveReference(u).String())
+	w.WriteHeader(201)
+}
+
+func (a *App) ViewHandler(w http.ResponseWriter, r *http.Request) {
+	var discussions Discussions
+	vars := mux.Vars(r)
+
+	a.database.First(&discussions, "TopicName = ?", vars["TopicName"])
+	discussionsJSON, _ := json.Marshal(discussions)
+
+	w.WriteHeader(200)
+	w.Write([]byte(discussionsJSON))
+}
+
+func (a *App) ViewHandler1(w http.ResponseWriter, r *http.Request) {
+	var discussions Discussions
+	vars := mux.Vars(r)
+
+	a.database.First(&discussions, "TopicName = ?", vars["TopicName"])
+	discussionsJSON, _ := json.Marshal(discussions)
+
+	w.WriteHeader(200)
+	w.Write([]byte(discussionsJSON))
+}
+func main() {
+	a := &App{}
+	a.Initialize("sqlite3", "test.db")
+	r := mux.NewRouter()
+	r.HandleFunc("/discussions", a.ListHandler).Methods("GET")
+	http.Handle("/", r)
+	r.HandleFunc("/discussions/{TopicName:.+}", a.ViewHandler).Methods("GET")
+	r.HandleFunc("/discussions", a.CreateHandler).Methods("POST")
+	r.HandleFunc("/discussions/{TopicName:.+}", a.ViewHandler).Methods("GET")
+	r.HandleFunc("/discussions/{Description:.+}", a.ViewHandler).Methods("GET")
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		panic(err)
+	}
+	defer a.database.Close()
+}
