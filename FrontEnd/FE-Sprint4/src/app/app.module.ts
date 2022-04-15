@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { FindmoviesComponent } from './find/findmovies/findmovies.component';
 import { DisplayresultsComponent } from './find/findmovies/displayresults/displayresults.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { DisplayresultsComponent } from './find/findmovies/displayresults/displa
     LoginComponent,
     SignupComponent,
     FindmoviesComponent,
-    DisplayresultsComponent
+    DisplayresultsComponent,
+    UserprofileComponent
     
     ],
   imports: [

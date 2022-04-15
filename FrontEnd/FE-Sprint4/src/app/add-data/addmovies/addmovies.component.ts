@@ -26,8 +26,6 @@ export class AddmoviesComponent implements OnInit {
     if(this.profileForm.valid){
       console.log('form data is', this.profileForm.value);
       console.log('save working');
-
-
       var formData:any = new FormData();
       formData.append("name",this.profileForm.get('name').value);
       formData.append("description",this.profileForm.get('description').value);
