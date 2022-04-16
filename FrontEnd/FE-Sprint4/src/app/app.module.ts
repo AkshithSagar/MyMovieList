@@ -19,6 +19,8 @@ import { SignupComponent } from './signup/signup.component';
 import { FindmoviesComponent } from './find/findmovies/findmovies.component';
 import { DisplayresultsComponent } from './find/findmovies/displayresults/displayresults.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { DisplaymoviesComponent } from './displaymovies/displaymovies.component';
+import { DisplayactionComponent } from './find/displayaction/displayaction.component';
 
 
 @NgModule({
@@ -37,7 +39,10 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     SignupComponent,
     FindmoviesComponent,
     DisplayresultsComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    DisplaymoviesComponent,
+    DisplayactionComponent
+    
     
     ],
   imports: [

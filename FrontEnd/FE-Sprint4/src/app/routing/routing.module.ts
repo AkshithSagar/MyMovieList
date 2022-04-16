@@ -8,6 +8,8 @@ import { SignupComponent } from '../signup/signup.component';
 import { FindmoviesComponent } from '../find/findmovies/findmovies.component';
 import { DisplayresultsComponent } from '../find/findmovies/displayresults/displayresults.component';
 import { UserprofileComponent } from '../userprofile/userprofile.component';
+import { DisplaymoviesComponent } from '../displaymovies/displaymovies.component';
+import { DisplayactionComponent } from '../find/displayaction/displayaction.component';
 const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'add-data', component: AddDataComponent},
@@ -22,7 +24,11 @@ const routes: Routes = [
   {path:'displayresults', component: DisplayresultsComponent},
   {path:'displayresults',redirectTo:'/displayresults',pathMatch:'full'},
   {path:'userprofile', component: UserprofileComponent},
-  {path:'userprofile', redirectTo:'userprofile',pathMatch:'full'}
+  {path:'userprofile', redirectTo:'userprofile',pathMatch:'full'},
+  {path:'displaymovies',component:DisplaymoviesComponent},
+  {path:'displaymovies',redirectTo:'displaymovies',pathMatch:'full'},
+  {path:'displayaction',component:DisplayactionComponent},
+  {path:'displayaction',redirectTo:'displayaction',pathMatch:'full'}
 ]
 
 @NgModule({

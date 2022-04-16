@@ -5,9 +5,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiCallService {
   url="http://localhost:3000/getAllMovies"
+  
   constructor(private httpClient: HttpClient) { }
   getPosts(){
     return this.httpClient.get(this.url);
+  }
+  
+
+  getAction(){
+    var object = {}
+    object["genre"] = "Adventure"
+    var json = JSON.stringify(object)
+    return this.httpClient.get("http://localhost:3000/getMovieByGenre")
   }
 
 }
