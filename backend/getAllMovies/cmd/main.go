@@ -22,9 +22,13 @@ func enableCors(w *http.ResponseWriter) {
 
 func main() {
 
-	db, _ := sql.Open("sqlite3", "./moviedatabase_sprint3.db")
+	db, _ := sql.Open("sqlite3", "../../sprint4.db")
 	//fmt.Println("opened new db!", db)
 	feed := moviefeed.NewFeed(db)
+	//fmt.Println("new db created!")
+
+	//fmt.Println("opened new db!", db)
+	movieStatusdb := moviefeed.NewMovieStatus(db)
 	//fmt.Println("new db created!")
 
 	r := chi.NewRouter()
@@ -146,6 +150,22 @@ func main() {
 			ID: id,
 		}
 		feed.DeleteMovieByID(movie)
+		res.SendStatus(204)
+	})
+
+	//for testing of get service
+	r.Post("/setMovieStatus", func(w http.ResponseWriter, r *http.Request) {
+		res, req := yin.Event(w, r)
+		body := map[string]string{}
+		req.BindBody(&body)
+		uid, _ := strconv.Atoi(body["userid"])
+		mid, _ := strconv.Atoi(body["movieid"])
+		movieStatus := moviefeed.MovieStatus{
+			Userid:  uid,
+			Movieid: mid,
+			Status:  body["status"],
+		}
+		movieStatusdb.SetMovieStatus(movieStatus)
 		res.SendStatus(204)
 	})
 
