@@ -21,6 +21,7 @@ import { DisplayresultsComponent } from './find/findmovies/displayresults/displa
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { DisplaymoviesComponent } from './displaymovies/displaymovies.component';
 import { DisplayactionComponent } from './find/displayaction/displayaction.component';
+import { FindforumsComponent } from './discussions/findforums/findforums.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { DisplayactionComponent } from './find/displayaction/displayaction.compo
     DisplayresultsComponent,
     UserprofileComponent,
     DisplaymoviesComponent,
-    DisplayactionComponent
+    DisplayactionComponent,
+    FindforumsComponent
     
     
     ],

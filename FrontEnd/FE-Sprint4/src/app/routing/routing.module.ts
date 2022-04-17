@@ -10,6 +10,7 @@ import { DisplayresultsComponent } from '../find/findmovies/displayresults/displ
 import { UserprofileComponent } from '../userprofile/userprofile.component';
 import { DisplaymoviesComponent } from '../displaymovies/displaymovies.component';
 import { DisplayactionComponent } from '../find/displayaction/displayaction.component';
+import { FindforumsComponent } from '../discussions/findforums/findforums.component';
 const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'add-data', component: AddDataComponent},
@@ -28,7 +29,12 @@ const routes: Routes = [
   {path:'displaymovies',component:DisplaymoviesComponent},
   {path:'displaymovies',redirectTo:'displaymovies',pathMatch:'full'},
   {path:'displayaction',component:DisplayactionComponent},
-  {path:'displayaction',redirectTo:'displayaction',pathMatch:'full'}
+  {path:'displayaction',redirectTo:'displayaction',pathMatch:'full'},
+  {path:'findforums',component:FindforumsComponent},
+  {path:'findforums',redirectTo:'findforums',pathMatch:'full'}
+  
+
+  
 ]
 
 @NgModule({
