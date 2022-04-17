@@ -11,7 +11,7 @@ var DB *gorm.DB
 
 func Connect() {
 
-	connection, err := gorm.Open(sqlite.Open("UserDatabase_V1.db"), &gorm.Config{})
+	connection, err := gorm.Open(sqlite.Open("../sprint4.db"), &gorm.Config{})
 	if err != nil {
 		panic("could not connect to db")
 	}

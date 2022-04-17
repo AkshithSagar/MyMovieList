@@ -7,7 +7,8 @@ import (
 )
 
 type Feed struct {
-	DB *sql.DB
+	DB       *sql.DB
+	DBMStats *sql.DB
 }
 
 func (feed *Feed) GetAllMovies() []Movie {
@@ -215,6 +216,47 @@ func checkAndLog(err error) {
 	}
 }
 
+
+func NewMovieStatus(db *sql.DB) *Feed {
+
+	execs := []struct {
+		stmt       string
+		shouldFail bool
+	}{
+		{stmt: "PRAGMA foreign_keys = ON"},
+		{stmt: "CREATE TABLE movies_status (userid INTEGER NOT NULL, movieid INTEGER NOT NULL, status TEXT NOT NULL, FOREIGN KEY (userid) REFERENCES users (id), FOREIGN KEY (movieid) REFERENCES movies (ID))"},
+	}
+	for _, exec := range execs {
+		_, err := db.Exec(exec.stmt)
+		hasFailed := err != nil
+		if exec.shouldFail != hasFailed {
+			expected := "succeed"
+			if exec.shouldFail {
+				expected = "fail"
+			}
+			log.Printf("'%s' should have %sed but did not: %s", exec.stmt, expected, err)
+		} else if exec.shouldFail {
+			log.Printf("'%s' failed as expected: %s", exec.stmt, err)
+		}
+	}
+	log.Println("finis")
+
+	return &Feed{
+
+		DBMStats: db,
+	}
+
+}
+
+//updating movie status
+func (feed *Feed) SetMovieStatus(movie MovieStatus) {
+
+	stmt, err1 := feed.DBMStats.Prepare(`INSERT INTO movies_status (userid,movieid,status) values (?,?,?)`)
+	log.Printf("failed as expected1: %s", err1)
+	_, err := stmt.Exec(movie.Userid, movie.Movieid, movie.Status)
+	log.Printf("failed as expected: %s", err)
+
+
 func (feed *Feed) MoviesbyGenre() []Movie {
 	movies := []Movie{}
 	rows, _ := feed.DB.Query(`
@@ -240,4 +282,5 @@ func (feed *Feed) MoviesbyGenre() []Movie {
 	}
 
 	return movies
+
 }
