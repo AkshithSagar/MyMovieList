@@ -59,6 +59,27 @@ func (feed *Feed) GetAllDiscussions() []Discussion {
 
 	return discussions
 }
+func (feed *Feed) GetBestDiscussions() []Discussion {
+	discussions := []Discussion{}
+	rows, _ := feed.DB.Query(`
+		SELECT * FROM discussions ORDER BY random() LIMIT 5
+	`)
+	var ID int
+	var TopicName string
+	var Description string
+
+	for rows.Next() {
+		rows.Scan(&ID, &TopicName, &Description)
+		discs := Discussion{
+			ID:          ID,
+			TopicName:   TopicName,
+			Description: Description,
+		}
+		discussions = append(discussions, discs)
+	}
+
+	return discussions
+}
 
 func (feed *Feed) GetMovieByGenre(findThis string) []Movie {
 

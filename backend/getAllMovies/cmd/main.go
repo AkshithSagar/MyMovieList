@@ -48,7 +48,12 @@ func main() {
 		disc := feed.GetAllDiscussions()
 		res.SendJSON(disc)
 	})
-
+	r.Get("/getBestDiscussions", func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
+		res, _ := yin.Event(w, r)
+		disc := feed.GetBestDiscussions()
+		res.SendJSON(disc)
+	})
 	//get by genre
 	r.Get("/getMovieByGenre", func(w http.ResponseWriter, r *http.Request) {
 		enableCors(&w)
