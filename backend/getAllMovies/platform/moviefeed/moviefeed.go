@@ -380,5 +380,5 @@ func (feed *Feed) BestFiveMovies() []Movie {
 		movies = append(movies, movie)
 	}
 
-	return movies
+return movies
 }
