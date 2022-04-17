@@ -4,6 +4,7 @@ package moviefeed
 import (
 	"database/sql"
 	"log"
+	"strconv"
 )
 
 type Feed struct {
@@ -256,11 +257,12 @@ func (feed *Feed) SetMovieStatus(movie MovieStatus) {
 }
 
 //getting list of movies for a user
-func (feed *Feed) GetMovieStatus(findThisUser string) []MovieStatus {
+func (feed *Feed) GetMovieStatus(findThisUser string) []Movie {
 	query := `SELECT * FROM movies_status WHERE userid =` + findThisUser
 	rows, _ := feed.DBMStats.Query(query)
 
-	moviesStatus := []MovieStatus{}
+	//moviesStatus := []MovieStatus{}
+	movies := []Movie{}
 	var userid int
 	var movieid int
 	var status string
@@ -272,11 +274,35 @@ func (feed *Feed) GetMovieStatus(findThisUser string) []MovieStatus {
 			Movieid: movieid,
 			Status:  status,
 		}
-		moviesStatus = append(moviesStatus, validmovie)
+		//moviesStatus = append(moviesStatus, validmovie)
+		mid := strconv.Itoa(validmovie.Movieid)
+		//fmt.Println(mid)
+		queryMovies := `SELECT * FROM movies WHERE ID =` + mid
+		//fmt.Println(queryMovies)
+		rows, _ := feed.DBMStats.Query(queryMovies)
+		//fmt.Println(rows)
+		var id int
+		var name string
+		var rating string
+		var desc string
+		var review string
+		var genre string
+		for rows.Next() {
+			rows.Scan(&id, &name, &desc, &review, &rating, &genre)
+			movie := Movie{
+				ID:     id,
+				Name:   name,
+				Desc:   desc,
+				Review: review,
+				Genre:  genre,
+				Rating: rating,
+			}
+			movies = append(movies, movie)
+		}
 
 	}
 
-	return moviesStatus
+	return movies
 
 }
 

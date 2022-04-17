@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	moviefeed "mymovielist/platform/moviefeed"
 	"net/http"
 	"strconv"
@@ -144,7 +143,7 @@ func main() {
 		enableCors(&w)
 		res, _ := yin.Event(w, r)
 		userid := r.Header.Get("userid")
-		fmt.Println("*******%s", userid)
+		//fmt.Println("*******%s", userid)
 		movies := movieStatusdb.GetMovieStatus(userid)
 		res.SendJSON(movies)
 	})
