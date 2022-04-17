@@ -1,0 +1,32 @@
+<br/><br/>
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <!-- <div class= "main-div">
+      <mat-card fxFlex="600px" fxFlex.xs="100%">
+          <mat-card-title align = 'center'>Login</mat-card-title>
+            </mat-card>
+    </div> -->
+    <form>
+        <div>
+            <div>
+                <input class="inputtext" type = "text" placeholder="Search movie">
+                <button class = "submitbutton" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+</section>
+<br/>
+<br/>
+<div style="border-bottom: 1px solid black;">
+    Genre
+</div>
+<div class="menu-container">
+    <div class="button-container">
+             <a class="button" id= "allmovieslink" (click)="allMovies()" >All Movies</a>
+             <a class="button" (click)="Action()" >Action</a>
+             <a class="button" (click)="SciFi()">Sci-Fi</a>
+             <a class="button" (click)="Anime()">Anime</a>
+             <a class="button" (click)="Family()">Family</a>
+             <a class="button" (click)="Romance()">Romance</a>
+    </div>
+</div>
+<app-displayresults childmessage = {{parent}}></app-displayresults>

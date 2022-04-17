@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./addmovies.component.scss']
 })
 export class AddmoviesComponent implements OnInit {
-  constructor(private fromBuilder:FormBuilder, private http:HttpClient) { }
+  constructor(private fromBuilder:FormBuilder,private http:HttpClient) { }
   profileForm: FormGroup;
   
   ngOnInit(): void {
@@ -24,8 +24,10 @@ export class AddmoviesComponent implements OnInit {
   
   onSubmit(){
     if(this.profileForm.valid){
-      // console.log('form data is', this.profileForm.value);
-      // console.log('save working');
+      console.log('form data is', this.profileForm.value);
+      console.log('save working');
+
+
       var formData:any = new FormData();
       formData.append("name",this.profileForm.get('name').value);
       formData.append("description",this.profileForm.get('description').value);
@@ -41,12 +43,7 @@ export class AddmoviesComponent implements OnInit {
         next:(response)=> {console.log(response)}
         // error:(error)=>console.log(error),
       });
-      
-    //write back end code to push form data to database..
-      // this.http.post('http://localhost:3000/addMovie',this.profileForm.value)
-      // .subscribe((result)=>{
-      //   console.warn("result", result)
-      // });
+
       this.profileForm.reset();
     }
     
