@@ -226,8 +226,8 @@ func NewMovieStatus(db *sql.DB) *Feed {
 		{stmt: "CREATE TABLE movies_status (userid INTEGER NOT NULL, movieid INTEGER NOT NULL, status TEXT NOT NULL, FOREIGN KEY (userid) REFERENCES users (id), FOREIGN KEY (movieid) REFERENCES movies (ID))"},
 	}
 	for _, exec := range execs {
-		_, err := db.Exec(exec.stmt)
-		hasFailed := err != nil
+		db.Exec(exec.stmt)
+		/*hasFailed := err != nil
 		if exec.shouldFail != hasFailed {
 			expected := "succeed"
 			if exec.shouldFail {
@@ -236,9 +236,9 @@ func NewMovieStatus(db *sql.DB) *Feed {
 			log.Printf("'%s' should have %sed but did not: %s", exec.stmt, expected, err)
 		} else if exec.shouldFail {
 			log.Printf("'%s' failed as expected: %s", exec.stmt, err)
-		}
+		}*/
 	}
-	log.Println("finis")
+	//log.Println("finis")
 
 	return &Feed{
 
@@ -250,10 +250,33 @@ func NewMovieStatus(db *sql.DB) *Feed {
 //updating movie status
 func (feed *Feed) SetMovieStatus(movie MovieStatus) {
 
-	stmt, err1 := feed.DBMStats.Prepare(`INSERT INTO movies_status (userid,movieid,status) values (?,?,?)`)
-	log.Printf("failed as expected1: %s", err1)
-	_, err := stmt.Exec(movie.Userid, movie.Movieid, movie.Status)
-	log.Printf("failed as expected: %s", err)
+	stmt, _ := feed.DBMStats.Prepare(`INSERT INTO movies_status (userid,movieid,status) values (?,?,?)`)
+	stmt.Exec(movie.Userid, movie.Movieid, movie.Status)
+
+}
+
+//getting list of movies for a user
+func (feed *Feed) GetMovieStatus(findThisUser string) []MovieStatus {
+	query := `SELECT * FROM movies_status WHERE userid =` + findThisUser
+	rows, _ := feed.DBMStats.Query(query)
+
+	moviesStatus := []MovieStatus{}
+	var userid int
+	var movieid int
+	var status string
+	for rows.Next() {
+
+		rows.Scan(&userid, &movieid, &status)
+		validmovie := MovieStatus{
+			Userid:  userid,
+			Movieid: movieid,
+			Status:  status,
+		}
+		moviesStatus = append(moviesStatus, validmovie)
+
+	}
+
+	return moviesStatus
 
 }
 

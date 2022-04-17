@@ -16,7 +16,7 @@ import (
 func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 	(*w).Header().Set("Content-Type", "text/html; charset=utf-8")
-	
+
 	(*w).Header().Set("Access-Control-Allow-Headers", "Content-Type")
 }
 
@@ -24,7 +24,7 @@ func enableCors(w *http.ResponseWriter) {
 
 func main() {
 
-	db, _ := sql.Open("sqlite3", "../../sprint4_v2.db")
+	db, _ := sql.Open("sqlite3", "../../sprint4_v2_ip.db")
 	//fmt.Println("opened new db!", db)
 	feed := moviefeed.NewFeed(db)
 	//fmt.Println("new db created!")
@@ -55,7 +55,7 @@ func main() {
 		enableCors(&w)
 		res, _ := yin.Event(w, r)
 		genre := r.Header.Get("genre")
-		fmt.Println("*******%s", genre)
+		//fmt.Println("*******%s", genre)
 		movies := feed.GetMovieByGenre(genre)
 		res.SendJSON(movies)
 	})
@@ -137,6 +137,16 @@ func main() {
 		}
 		movieStatusdb.SetMovieStatus(movieStatus)
 		res.SendStatus(204)
+	})
+
+	//get movie status based on user ID
+	r.Get("/getMovieStatus", func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
+		res, _ := yin.Event(w, r)
+		userid := r.Header.Get("userid")
+		fmt.Println("*******%s", userid)
+		movies := movieStatusdb.GetMovieStatus(userid)
+		res.SendJSON(movies)
 	})
 
 	r.Get("/MoviesbyGenre", func(w http.ResponseWriter, r *http.Request) {
