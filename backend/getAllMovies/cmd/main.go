@@ -15,6 +15,9 @@ import (
 //added code here by dhanush
 func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+	(*w).Header().Set("Content-Type", "text/html; charset=utf-8")
+	
+	(*w).Header().Set("Access-Control-Allow-Headers", "Content-Type")
 }
 
 //till here
@@ -34,12 +37,14 @@ func main() {
 	r.Use(yin.SimpleLogger)
 	//fmt.Println("at get movie!")
 	r.Get("/getAllMovies", func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		res, _ := yin.Event(w, r)
 		movies := feed.GetAllMovies()
 		res.SendJSON(movies)
 	})
 
 	r.Get("/getAllDiscussions", func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		res, _ := yin.Event(w, r)
 		disc := feed.GetAllDiscussions()
 		res.SendJSON(disc)
@@ -47,6 +52,7 @@ func main() {
 
 	//get by genre
 	r.Get("/getMovieByGenre", func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		res, _ := yin.Event(w, r)
 		genre := r.Header.Get("genre")
 		fmt.Println("*******%s", genre)
@@ -134,6 +140,7 @@ func main() {
 	})
 
 	r.Get("/MoviesbyGenre", func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		res, _ := yin.Event(w, r)
 		movies := feed.MoviesbyGenre()
 		res.SendJSON(movies)
