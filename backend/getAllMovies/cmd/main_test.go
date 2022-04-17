@@ -135,3 +135,54 @@ func TestUpdateMovies(t *testing.T) {
 	})
 
 }
+
+func TestSetMovieStatus(t *testing.T) {
+
+	db, _ := sql.Open("sqlite3", "./moviedatabaseV3.db")
+	movieStatusdb := moviefeed.NewDiscussionFeed(db)
+	r := chi.NewRouter()
+	r.Use(yin.SimpleLogger)
+	r.Post("/setMovieStatus", func(w http.ResponseWriter, r *http.Request) {
+		res, req := yin.Event(w, r)
+		body := map[string]string{}
+		req.BindBody(&body)
+		uid, _ := strconv.Atoi(body["userid"])
+		mid, _ := strconv.Atoi(body["movieid"])
+		movieStatus := moviefeed.MovieStatus{
+			Userid:  uid,
+			Movieid: mid,
+			Status:  body["status"],
+		}
+		movieStatusdb.SetMovieStatus(movieStatus)
+		res.SendStatus(204)
+	})
+}
+
+func TestGetMovieStatus(t *testing.T) {
+
+	db, _ := sql.Open("sqlite3", "./moviedatabaseV3.db")
+	movieStatusdb := moviefeed.NewDiscussionFeed(db)
+	r := chi.NewRouter()
+	r.Use(yin.SimpleLogger)
+	r.Get("/getMovieStatus", func(w http.ResponseWriter, r *http.Request) {
+		res, _ := yin.Event(w, r)
+		userid := r.Header.Get("userid")
+		//fmt.Println("*******%s", userid)
+		movies := movieStatusdb.GetMovieStatus(userid)
+		res.SendJSON(movies)
+	})
+}
+
+func TestGetMovieByGenre(t *testing.T) {
+
+	db, _ := sql.Open("sqlite3", "./moviedatabaseV3.db")
+	feed := moviefeed.NewFeed(db)
+	r := chi.NewRouter()
+	r.Use(yin.SimpleLogger)
+	r.Get("/getMovieByGenre", func(w http.ResponseWriter, r *http.Request) {
+		res, _ := yin.Event(w, r)
+		genre := r.Header.Get("genre")
+		movies := feed.GetMovieByGenre(genre)
+		res.SendJSON(movies)
+	})
+}
