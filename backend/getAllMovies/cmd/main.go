@@ -33,7 +33,11 @@ func main() {
 		movies := feed.GetAllMovies()
 		res.SendJSON(movies)
 	})
-
+	r.Get("/getAllDiscussions", func(w http.ResponseWriter, r *http.Request) {
+		res, _ := yin.Event(w, r)
+		disc := feed.GetAllDiscussions()
+		res.SendJSON(disc)
+	})
 	//for testing of get service
 	r.Post("/addMovie", func(w http.ResponseWriter, r *http.Request) {
 		//Added by dhanush: starts here
@@ -53,6 +57,23 @@ func main() {
 			Genre:  body["genre"],
 		}
 		feed.Add(movie)
+		res.SendStatus(204)
+	})
+	r.Post("/addD", func(w http.ResponseWriter, r *http.Request) {
+		//Added by dhanush: starts here
+		// enableCors(&w)
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+		//ends here
+		res, req := yin.Event(w, r)
+		body := map[string]string{}
+		req.BindBody(&body)
+		discussion := moviefeed.Discussion{
+			TopicName:   body["TopicName"],
+			Description: body["Description"],
+		}
+		feed.AddD(discussion)
 		res.SendStatus(204)
 	})
 

@@ -36,10 +36,60 @@ func (feed *Feed) GetAllMovies() []Movie {
 
 	return movies
 }
+func (feed *Feed) GetAllDiscussions() []Discussion {
+	discussions := []Discussion{}
+	rows, _ := feed.DB.Query(`
+		SELECT * FROM discussions
+	`)
+	var ID int
+	var TopicName string
+	var Description string
+
+	for rows.Next() {
+		rows.Scan(&ID, &TopicName, &Description)
+		discs := Discussion{
+			ID:          ID,
+			TopicName:   TopicName,
+			Description: Description,
+		}
+		discussions = append(discussions, discs)
+	}
+
+	return discussions
+}
 
 func NewFeed(db *sql.DB) *Feed {
 	stmt, _ := db.Prepare(`
 	CREATE TABLE IF NOT EXISTS "movies" (
+		"ID"	INTEGER NOT NULL UNIQUE,
+		"name"	TEXT NOT NULL,
+		"description" TEXT,
+		"review" TEXT,
+		"rating"	TEXT,
+		"genre" TEXT,
+		PRIMARY KEY("ID" AUTOINCREMENT)
+	);
+
+	`)
+
+	stmt.Exec()
+	//fmt.Println("new db created!")
+	stmt1, _ := db.Prepare(`CREATE TABLE IF NOT EXISTS "discussions" ( "ID"	INTEGER NOT NULL UNIQUE, 
+"TopicName" TEXT NOT NULL,
+"Description" TEXT NOT NULL,
+PRIMARY KEY("ID" AUTOINCREMENT)
+ );`)
+	stmt1.Exec()
+
+	return &Feed{
+
+		DB: db,
+	}
+
+}
+func NewDiscussionFeed(db *sql.DB) *Feed {
+	stmt, _ := db.Prepare(`
+	CREATE TABLE IF NOT EXISTS "discussions" (
 		"ID"	INTEGER NOT NULL UNIQUE,
 		"name"	TEXT NOT NULL,
 		"description" TEXT,
@@ -70,6 +120,12 @@ func (feed *Feed) Add(movie Movie) {
 
 	stmt.Exec(movie.Name, movie.Desc, movie.Review, movie.Rating, movie.Genre)
 
+}
+func (feed *Feed) AddD(discussion Discussion) {
+	stmt, _ := feed.DB.Prepare(`
+	INSERT INTO discussions (TopicName,Description) values (?,?)
+	`)
+	stmt.Exec(discussion.TopicName, discussion.Description)
 }
 
 //update a movie by id
