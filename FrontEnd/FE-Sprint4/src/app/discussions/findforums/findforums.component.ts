@@ -4,11 +4,8 @@ import { Router } from '@angular/router';
 import { ApiCallService } from 'src/app/api-call.service';
 
 export interface Element{
-  Name: string;
-  Rating: number;
-  Genre: string;
-  Desc: string;
-  Review: string;
+  TopicName: number;
+  Description: string;
   ID: string;
 }
 
@@ -29,7 +26,7 @@ export class FindforumsComponent implements OnInit {
   }
   getAllValues(){
     
-    this.getapi.getPosts().subscribe((results)=>{
+    this.getapi.getdiscussions().subscribe((results)=>{
       console.log(results)
       //console.warn("result",results)
       //this.data=results
@@ -41,7 +38,7 @@ export class FindforumsComponent implements OnInit {
       //console.log(ELEMENT_DATA)
     })
   }
-  displayedColumns: string[] = ['Name', 'Rating', 'Genre'];
+  displayedColumns: string[] = ['TopicName', 'Description'];
   //dataSource = new MatTableDataSource(this.data);
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

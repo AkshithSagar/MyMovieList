@@ -10,7 +10,9 @@ export class ApiCallService {
   getPosts(){
     return this.httpClient.get(this.url);
   }
-  
+  getdiscussions(){
+    return this.httpClient.get("http://localhost:3000/getAllDiscussions");
+  }
 
   getAction(){
     var object = {}
