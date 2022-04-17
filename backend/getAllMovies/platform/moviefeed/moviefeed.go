@@ -284,3 +284,31 @@ func (feed *Feed) MoviesbyGenre() []Movie {
 	return movies
 
 }
+func (feed *Feed) BestFiveMovies() []Movie {
+	movies := []Movie{}
+	rows, _ := feed.DB.Query(`
+	SELECT *
+	FROM movies ORDER BY rating DESC
+	LIMIT 5
+	`)
+	var id int
+	var name string
+	var rating string
+	var desc string
+	var review string
+	var genre string
+	for rows.Next() {
+		rows.Scan(&id, &name, &desc, &review, &rating, &genre)
+		movie := Movie{
+			ID:     id,
+			Name:   name,
+			Desc:   desc,
+			Review: review,
+			Genre:  genre,
+			Rating: rating,
+		}
+		movies = append(movies, movie)
+	}
+
+	return movies
+}
