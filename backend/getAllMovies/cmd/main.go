@@ -14,8 +14,6 @@ import (
 //added code here by dhanush
 func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
-	(*w).Header().Set("Content-Type", "text/html; charset=utf-8")
-	(*w).Header().Set("Access-Control-Allow-Headers", "Content-Type")
 }
 
 //till here
@@ -35,26 +33,15 @@ func main() {
 	r.Use(yin.SimpleLogger)
 	//fmt.Println("at get movie!")
 	r.Get("/getAllMovies", func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
-		// w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		// w.Header().Set("Access-Control-Allow-Origin", "*")
-		// w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		res, _ := yin.Event(w, r)
 		movies := feed.GetAllMovies()
 		res.SendJSON(movies)
 	})
-
-	//get by genre
-	r.Get("/getMovieByGenre", func(w http.ResponseWriter, r *http.Request) {
-		res, req := yin.Event(w, r)
-		body := map[string]string{}
-		req.BindBody(&body)
-		genre := body["genre"]
-
-		movies := feed.GetMovieByGenre(genre)
-		res.SendJSON(movies)
+	r.Get("/getAllDiscussions", func(w http.ResponseWriter, r *http.Request) {
+		res, _ := yin.Event(w, r)
+		disc := feed.GetAllDiscussions()
+		res.SendJSON(disc)
 	})
-
 	//for testing of get service
 	r.Post("/addMovie", func(w http.ResponseWriter, r *http.Request) {
 		//Added by dhanush: starts here
@@ -76,67 +63,33 @@ func main() {
 		feed.Add(movie)
 		res.SendStatus(204)
 	})
+	r.Post("/addD", func(w http.ResponseWriter, r *http.Request) {
+		//Added by dhanush: starts here
+		// enableCors(&w)
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+		//ends here
+		res, req := yin.Event(w, r)
+		body := map[string]string{}
+		req.BindBody(&body)
+		discussion := moviefeed.Discussion{
+			TopicName:   body["TopicName"],
+			Description: body["Description"],
+		}
+		feed.AddD(discussion)
+		res.SendStatus(204)
+	})
 
 	r.Put("/updateMovieByID", func(w http.ResponseWriter, r *http.Request) {
 		res, req := yin.Event(w, r)
 		body := map[string]string{}
 		req.BindBody(&body)
 		id, _ := strconv.Atoi(body["movieid"])
-
-		oldMovieDetails := feed.GetMovieByID(body["movieid"])
-
 		movie := moviefeed.Movie{
-			ID: id,
+			ID:     id,
+			Rating: body["rating"],
 		}
-		//name
-		if body["name"] == "" {
-
-			movie.Name = oldMovieDetails.Name
-
-		} else {
-
-			movie.Name = body["name"]
-		}
-
-		//description
-		if body["description"] == "" {
-
-			movie.Desc = oldMovieDetails.Desc
-
-		} else {
-
-			movie.Name = body["description"]
-		}
-
-		//Review
-		if body["review"] == "" {
-
-			movie.Review = oldMovieDetails.Review
-
-		} else {
-
-			movie.Review = body["review"]
-		}
-
-		if body["genre"] == "" {
-
-			movie.Genre = oldMovieDetails.Genre
-
-		} else {
-
-			movie.Genre = body["genre"]
-		}
-
-		//Rating
-		if body["rating"] == "" {
-
-			movie.Rating = oldMovieDetails.Rating
-
-		} else {
-
-			movie.Rating = body["rating"]
-		}
-
 		feed.UpdateMovieByID(movie)
 		res.SendStatus(204)
 	})
@@ -169,6 +122,12 @@ func main() {
 		res.SendStatus(204)
 	})
 
+	r.Get("/MoviesbyGenre", func(w http.ResponseWriter, r *http.Request) {
+		res, _ := yin.Event(w, r)
+		movies := feed.MoviesbyGenre()
+		res.SendJSON(movies)
+	})
+  
 	http.ListenAndServe(":3000", r)
 
 }

@@ -1,7 +1,21 @@
-<mat-form-field apperance = "standard">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-</mat-form-field>
+
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <!-- <div class= "main-div">
+      <mat-card fxFlex="600px" fxFlex.xs="100%">
+          <mat-card-title align = 'center'>Login</mat-card-title>
+            </mat-card>
+    </div> -->
+    <form>
+        <div>
+            <div>
+                <input class = "inputtext" matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+                <!-- <input class="inputtext" type = "text" placeholder="Search movie"> -->
+                <button class = "submitbutton" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+</section>
+<br/>
 <table mat-table [dataSource] = "dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="Name">
         <th mat-header-cell *matHeaderCellDef> Name</th>
@@ -22,4 +36,3 @@
         <td class="mat-cell" colspan="3">No data matching the filter "{{input.value}}"</td>
       </tr>
 </table>
-from parent:{{childmessage}}

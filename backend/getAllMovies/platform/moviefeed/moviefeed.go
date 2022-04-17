@@ -37,6 +37,27 @@ func (feed *Feed) GetAllMovies() []Movie {
 
 	return movies
 }
+func (feed *Feed) GetAllDiscussions() []Discussion {
+	discussions := []Discussion{}
+	rows, _ := feed.DB.Query(`
+		SELECT * FROM discussions
+	`)
+	var ID int
+	var TopicName string
+	var Description string
+
+	for rows.Next() {
+		rows.Scan(&ID, &TopicName, &Description)
+		discs := Discussion{
+			ID:          ID,
+			TopicName:   TopicName,
+			Description: Description,
+		}
+		discussions = append(discussions, discs)
+	}
+
+	return discussions
+}
 
 func (feed *Feed) GetMovieByGenre(findThis string) []Movie {
 
@@ -83,6 +104,35 @@ func NewFeed(db *sql.DB) *Feed {
 
 	stmt.Exec()
 	//fmt.Println("new db created!")
+	stmt1, _ := db.Prepare(`CREATE TABLE IF NOT EXISTS "discussions" ( "ID"	INTEGER NOT NULL UNIQUE, 
+"TopicName" TEXT NOT NULL,
+"Description" TEXT NOT NULL,
+PRIMARY KEY("ID" AUTOINCREMENT)
+ );`)
+	stmt1.Exec()
+
+	return &Feed{
+
+		DB: db,
+	}
+
+}
+func NewDiscussionFeed(db *sql.DB) *Feed {
+	stmt, _ := db.Prepare(`
+	CREATE TABLE IF NOT EXISTS "discussions" (
+		"ID"	INTEGER NOT NULL UNIQUE,
+		"name"	TEXT NOT NULL,
+		"description" TEXT,
+		"review" TEXT,
+		"rating"	TEXT,
+		"genre" TEXT,
+		PRIMARY KEY("ID" AUTOINCREMENT)
+	);
+
+	`)
+
+	stmt.Exec()
+	//fmt.Println("new db created!")
 
 	return &Feed{
 
@@ -100,6 +150,12 @@ func (feed *Feed) Add(movie Movie) {
 
 	stmt.Exec(movie.Name, movie.Desc, movie.Review, movie.Rating, movie.Genre)
 
+}
+func (feed *Feed) AddD(discussion Discussion) {
+	stmt, _ := feed.DB.Prepare(`
+	INSERT INTO discussions (TopicName,Description) values (?,?)
+	`)
+	stmt.Exec(discussion.TopicName, discussion.Description)
 }
 
 //update a movie by id
@@ -160,6 +216,7 @@ func checkAndLog(err error) {
 	}
 }
 
+
 func NewMovieStatus(db *sql.DB) *Feed {
 
 	execs := []struct {
@@ -198,5 +255,32 @@ func (feed *Feed) SetMovieStatus(movie MovieStatus) {
 	log.Printf("failed as expected1: %s", err1)
 	_, err := stmt.Exec(movie.Userid, movie.Movieid, movie.Status)
 	log.Printf("failed as expected: %s", err)
+
+
+func (feed *Feed) MoviesbyGenre() []Movie {
+	movies := []Movie{}
+	rows, _ := feed.DB.Query(`
+		SELECT * FROM movies WHERE genre='Action'
+	`)
+	var id int
+	var name string
+	var rating string
+	var desc string
+	var review string
+	var genre string
+	for rows.Next() {
+		rows.Scan(&id, &name, &desc, &review, &rating, &genre)
+		movie := Movie{
+			ID:     id,
+			Name:   name,
+			Desc:   desc,
+			Review: review,
+			Genre:  genre,
+			Rating: rating,
+		}
+		movies = append(movies, movie)
+	}
+
+	return movies
 
 }

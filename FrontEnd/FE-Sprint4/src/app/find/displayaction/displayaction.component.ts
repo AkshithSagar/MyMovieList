@@ -1,9 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+
 import { ApiCallService } from 'src/app/api-call.service';
-import { DataService } from 'src/app/sharing/data.service';
 
 export interface Element{
   Name: string;
@@ -13,32 +11,24 @@ export interface Element{
   Review: string;
   ID: string;
 }
-
 @Component({
-  selector: 'app-displayresults',
-  templateUrl: './displayresults.component.html',
-  styleUrls: ['./displayresults.component.scss']
+  selector: 'app-displayaction',
+  templateUrl: './displayaction.component.html',
+  styleUrls: ['./displayaction.component.scss']
 })
-
-export class DisplayresultsComponent implements OnInit {
-  @Input() childmessage:string;
+export class DisplayactionComponent implements OnInit {
   private data:any = []
   tabdata: MatTableDataSource<Element>;
   dataSource: MatTableDataSource<Element>;
-  constructor(private getapi: ApiCallService, private dataservice: DataService, private router:Router) { 
-  }
-/////
-  ngOnInit(){
-    console.log(this.childmessage)
+  constructor(private getapi: ApiCallService) { }
+
+  ngOnInit(): void {
+    
     
     this.getAllValues();
-    
-  }  
-//////
+  }
   getAllValues(){
-    if(this.childmessage == "AllMovies"){
-      
-    }
+    
     this.getapi.getPosts().subscribe((results)=>{
       console.log(results)
       //console.warn("result",results)
@@ -56,8 +46,6 @@ export class DisplayresultsComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-  }  
-  ngOnDestroy(){
   }
 
 }
