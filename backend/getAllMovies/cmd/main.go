@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	moviefeed "mymovielist/platform/moviefeed"
 	"net/http"
 	"strconv"
@@ -20,7 +21,7 @@ func enableCors(w *http.ResponseWriter) {
 
 func main() {
 
-	db, _ := sql.Open("sqlite3", "../../sprint4.db")
+	db, _ := sql.Open("sqlite3", "../../sprint4_v2.db")
 	//fmt.Println("opened new db!", db)
 	feed := moviefeed.NewFeed(db)
 	//fmt.Println("new db created!")
@@ -37,10 +38,20 @@ func main() {
 		movies := feed.GetAllMovies()
 		res.SendJSON(movies)
 	})
+
 	r.Get("/getAllDiscussions", func(w http.ResponseWriter, r *http.Request) {
 		res, _ := yin.Event(w, r)
 		disc := feed.GetAllDiscussions()
 		res.SendJSON(disc)
+	})
+
+	//get by genre
+	r.Get("/getMovieByGenre", func(w http.ResponseWriter, r *http.Request) {
+		res, _ := yin.Event(w, r)
+		genre := r.Header.Get("genre")
+		fmt.Println("*******%s", genre)
+		movies := feed.GetMovieByGenre(genre)
+		res.SendJSON(movies)
 	})
 	//for testing of get service
 	r.Post("/addMovie", func(w http.ResponseWriter, r *http.Request) {
@@ -127,7 +138,7 @@ func main() {
 		movies := feed.MoviesbyGenre()
 		res.SendJSON(movies)
 	})
-  
+
 	http.ListenAndServe(":3000", r)
 
 }

@@ -11,12 +11,13 @@ var DB *gorm.DB
 
 func Connect() {
 
-	connection, err := gorm.Open(sqlite.Open("../sprint4.db"), &gorm.Config{})
+	connection, err := gorm.Open(sqlite.Open("../sprint4_v2.db"), &gorm.Config{})
 	if err != nil {
 		panic("could not connect to db")
 	}
 
 	DB = connection
+	//connection.Create(&models.User{})
 	connection.AutoMigrate(&models.User{})
 
 }

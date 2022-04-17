@@ -216,7 +216,6 @@ func checkAndLog(err error) {
 	}
 }
 
-
 func NewMovieStatus(db *sql.DB) *Feed {
 
 	execs := []struct {
@@ -256,6 +255,7 @@ func (feed *Feed) SetMovieStatus(movie MovieStatus) {
 	_, err := stmt.Exec(movie.Userid, movie.Movieid, movie.Status)
 	log.Printf("failed as expected: %s", err)
 
+}
 
 func (feed *Feed) MoviesbyGenre() []Movie {
 	movies := []Movie{}
