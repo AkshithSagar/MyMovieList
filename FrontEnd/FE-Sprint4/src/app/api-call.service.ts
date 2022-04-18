@@ -16,15 +16,16 @@ export class ApiCallService {
   getSuggestedDiscussions(){
     return this.httpClient.get("http://localhost:3000/getBestDiscussions");
   }
-
   getAction(){
     var object = {}
     object["genre"] = "Adventure"
     var json = JSON.stringify(object)
     return this.httpClient.get("http://localhost:3000/getMovieByGenre")
   }
-  
   getTopFiveMovies(){
     return this.httpClient.get("http://localhost:3000/BestFiveMovies");
+  }
+  getMovieByGenre(genre:string){
+    return this.httpClient.get("http://localhost:3000/getMovieByGenre")
   }
 }

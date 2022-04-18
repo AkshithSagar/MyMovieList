@@ -1,7 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import {MatTableDataSource} from '@angular/material/table';
 import { Subscription } from 'rxjs';
+import { ApiCallService } from 'src/app/api-call.service';
 import { DataService } from 'src/app/sharing/data.service';
+
+export interface Element{
+  Name: string;
+  Rating: number;
+  Genre: string;
+  Desc: string;
+  Review: string;
+  ID: string;
+}
 
 @Component({
   selector: 'app-moviebygenre',
@@ -10,17 +21,29 @@ import { DataService } from 'src/app/sharing/data.service';
 })
 export class MoviebygenreComponent implements OnInit,OnDestroy {
   message:string;
-  subscription: Subscription
-  constructor(private data: DataService,private http:HttpClient) { }
+  subscription: Subscription;
+  dataSource: MatTableDataSource<Element>;
+  constructor(private dataservice: DataService,private http:HttpClient,private getapi: ApiCallService) { }
 
   ngOnInit() {
-    this.subscription = this.data.currentMessage.subscribe(message=>this.message = message)
+    this.subscription = this.dataservice.currentMessage.subscribe(message=>this.message = message)
     console.log(this.message)
-    const headers = {"Content-Type":"application/json","genre":"Thriller"}
-    this.http.get("http://localhost:3000/getMovieByGenre",{headers}).subscribe(response=>{
-      console.log(response)
-    })
+    const headers = {"genre":"Thriller"}
+    this.getAllValues();
 
+  }
+  getAllValues(){
+    this.getapi.getMovieByGenre("Action").subscribe((results)=>{
+      console.log(results)
+      this.dataSource = new MatTableDataSource(<any>results);
+      
+    })
+  }
+  displayedColumns: string[] = ['Name', 'Rating', 'Genre'];
+
+  applyFilter(event:Event){
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { ApiCallService } from 'src/app/api-call.service';
 import { DataService } from 'src/app/sharing/data.service';
 
