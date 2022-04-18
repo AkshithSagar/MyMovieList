@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { DataService } from '../sharing/data.service';
 
 @Component({
   selector: 'app-userprofile',
   templateUrl: './userprofile.component.html',
   styleUrls: ['./userprofile.component.scss']
 })
-export class UserprofileComponent implements OnInit {
+export class UserprofileComponent implements OnInit, OnDestroy {
+  message:string;
+  subscription: Subscription;
+  constructor(private data: DataService) { }
 
-  constructor() { }
+  ngOnInit(){
+    this.subscription = this.data.currentMessage.subscribe(message=>this.message = message)
+    console.log(this.message)
 
-  ngOnInit(): void {
   }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+  
 
 }

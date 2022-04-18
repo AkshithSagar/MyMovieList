@@ -22,11 +22,12 @@
 <div class="menu-container">
     <div class="button-container">
              <a class="button" id= "allmovieslink" (click)="allMovies()" >All Movies</a>
-             <a class="button" (click)="Action()" >Action</a>
-             <a class="button" (click)="SciFi()">Sci-Fi</a>
-             <a class="button" (click)="Anime()">Anime</a>
-             <a class="button" (click)="Family()">Family</a>
-             <a class="button" (click)="Romance()">Romance</a>
+             <a class="button" (click)="getAction()" >Action</a>
+             <a class="button" (click)="getSciFi()">Sci-Fi</a>
+             <a class="button" (click)="getAnime()">Anime</a>
+             <a class="button" (click)="getFamily()">Family</a>
+             <a class="button" (click)="getRomance()">Romance</a>
+             <a class="button" (click)="getAdventure()">Adventure</a>
+
     </div>
 </div>
-<app-displayresults childmessage = {{parent}}></app-displayresults>

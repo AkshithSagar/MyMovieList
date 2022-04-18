@@ -3,12 +3,10 @@ export class Suggestions{
     public subtitle: string
     public description: string;
     public imagePath: string;
-    public backimg: string;
-    constructor(name: string, subtitle: string, desc: string, imagePath: string, backimg: string){
+    constructor(name: string, subtitle: string, desc: string, imagePath: string){
         this.name = name;
         this.subtitle = subtitle;
         this.description =  desc;
         this.imagePath=imagePath;
-        this.backimg = backimg;
     }
 }
