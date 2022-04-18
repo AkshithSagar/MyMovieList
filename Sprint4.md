@@ -9,10 +9,13 @@
 ### User Logout
 * In the last sprint, we logged in a user and generated a cookie for it. In this sprint, we implemented the logout functionality. 
 * A user will automatically log out after 24 hours, but a logout can also be manually triggered. 
-* There is no request body for this endpoint as it automatically finds the cookie from the system and deletes it. The endpoint is http://localhost:3000/logout
+* There is no request body for this endpoint as it automatically finds the cookie from the system and deletes it. 
+* The endpoint is http://localhost:3000/logout
 * Video - 
-https://user-images.githubusercontent.com/46960754/163884871-a32ef3a3-3fb9-435d-9897-e69c07e2dd8a.mp4
 
+
+
+https://user-images.githubusercontent.com/46960754/163886638-224c881b-a871-4a14-86de-4fe3478fa450.mp4
 
 ## User and Movie mapping
 Until the last sprint we were maintaining the user and movie data, there was no link between the two tables. In this sprint, we created a movies_status table that maintains the unique user ID, the corresponding unique movie ID and the status of that movie for the user (completed, watching, plan to watch, etc). The two IDs act as foreign keys and link the movies_status table to the user table as well as the movie table. Based on this, the following services have developed this sprint - 
@@ -29,8 +32,9 @@ Until the last sprint we were maintaining the user and movie data, there was no 
 }
 ```
 ### Get Movie Status
-* This service retrieves all the movies and thier status for the user provided as a part of the request.
+* This service retrieves all the movies and the status for the user that is provided as a part of the request.
 * The header key is "userid" and the value is the ID of the user for which the movies have to be fetched
+* The GET endpoint is http://localhost:3000/getMovieStatus
 * The response is as follows - 
 
 ```
@@ -53,4 +57,40 @@ https://user-images.githubusercontent.com/46960754/163886554-59af3d55-1fb7-453d-
 
 
 
-###
+### Get movie by genre (updated)
+* In the last sprint, the get-movie-by-genre endpoint was a POST request, this sprint we changed it to a GET request with a header to comply with coding standards. 
+* The header key is "genre" and the value is the genre with respect to which you want to fetch the movies
+* The GET endpoint is http://localhost:3000/getMovieByGenre
+* The response is a list of movies as follows - 
+
+```
+[
+    {
+        "ID": 5, //movie id
+        "Name": "movie name",
+        "Desc": "Description of the movie",
+        "Review": "Movie Review",
+        "Rating": "Movie Rating",
+        "Genre": "Movie genres"
+    },
+    
+    
+    {
+        "ID": 6, //movie id
+        "Name": "movie name",
+        "Desc": "Description of the movie",
+        "Review": "Movie Review",
+        "Rating": "Movie Rating",
+        "Genre": "Movie genres"
+    },
+]
+
+```
+* Video - 
+
+https://user-images.githubusercontent.com/46960754/163888046-599314a9-2918-4706-a50e-fe66146a6da0.mp4
+
+### Backend Testing screenshot - 
+
+![image](https://user-images.githubusercontent.com/46960754/163888182-289fefe3-36b4-4f6a-94ba-303ad36538f5.png)
+
