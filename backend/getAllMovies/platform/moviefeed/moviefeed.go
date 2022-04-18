@@ -380,7 +380,7 @@ func (feed *Feed) BestFiveMovies() []Movie {
 		movies = append(movies, movie)
 	}
 
-	return movies
+return movies
 }
 func (feed *Feed) GetMovieByName(findThis string) []Movie {
 
