@@ -63,6 +63,14 @@ func main() {
 		movies := feed.GetMovieByGenre(genre)
 		res.SendJSON(movies)
 	})
+	r.Get("/getMovieByName", func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
+		res, _ := yin.Event(w, r)
+		name := r.Header.Get("name")
+		//fmt.Println("*******%s", genre)
+		movies := feed.GetMovieByName(name)
+		res.SendJSON(movies)
+	})
 	//for testing of get service
 	r.Post("/addMovie", func(w http.ResponseWriter, r *http.Request) {
 		//Added by dhanush: starts here

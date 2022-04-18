@@ -382,3 +382,31 @@ func (feed *Feed) BestFiveMovies() []Movie {
 
 	return movies
 }
+func (feed *Feed) GetMovieByName(findThis string) []Movie {
+
+	movies := []Movie{}
+	query := `SELECT * FROM movies WHERE name like "%` + findThis + `%"`
+
+	rows, _ := feed.DB.Query(query)
+
+	var id int
+	var name string
+	var rating string
+	var desc string
+	var review string
+	var genre string
+	for rows.Next() {
+		rows.Scan(&id, &name, &desc, &review, &rating, &genre)
+		movie := Movie{
+			ID:     id,
+			Name:   name,
+			Desc:   desc,
+			Review: review,
+			Genre:  genre,
+			Rating: rating,
+		}
+		movies = append(movies, movie)
+	}
+
+	return movies
+}
