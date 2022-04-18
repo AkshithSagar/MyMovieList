@@ -16,6 +16,8 @@ func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 	(*w).Header().Set("Content-Type", "text/html; charset=utf-8")
 	(*w).Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	(*w).Header().Set("Access-Control-Allow-Methods", "OPTIONS, POST, GET")
+
 }
 
 //till here
@@ -212,6 +214,7 @@ func main() {
 	})
 
 	r.Get("/MoviesbyGenre", func(w http.ResponseWriter, r *http.Request) {
+		// w.Header().Set("Access-Control-Allow-Origin", "*")
 		enableCors(&w)
 		res, _ := yin.Event(w, r)
 		movies := feed.MoviesbyGenre()
