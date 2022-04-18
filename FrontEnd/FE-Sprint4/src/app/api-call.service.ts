@@ -20,5 +20,8 @@ export class ApiCallService {
     var json = JSON.stringify(object)
     return this.httpClient.get("http://localhost:3000/getMovieByGenre")
   }
-
+  
+  getTopFiveMovies(){
+    return this.httpClient.get("http://localhost:3000/BestFiveMovies");
+  }
 }
