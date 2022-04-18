@@ -13,6 +13,9 @@ export class ApiCallService {
   getdiscussions(){
     return this.httpClient.get("http://localhost:3000/getAllDiscussions");
   }
+  getSuggestedDiscussions(){
+    return this.httpClient.get("http://localhost:3000/getBestDiscussions");
+  }
 
   getAction(){
     var object = {}
