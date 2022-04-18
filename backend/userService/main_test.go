@@ -68,3 +68,71 @@ func TestLogin(t *testing.T) {
 	})
 
 }
+
+func TestLogout(t *testing.T) {
+	app := fiber.New()
+	app.Post("/logout", func(c *fiber.Ctx) error {
+
+		cookie := fiber.Cookie{
+			Name:     "jwt",
+			Value:    "",
+			Expires:  time.Now().Add(-time.Hour), //setting cookie to a time in the past
+			HTTPOnly: true,
+		}
+
+		c.Cookie(&cookie)
+
+		return nil
+	})
+
+}
+
+func TestReg(t *testing.T) {
+	app := fiber.New()
+	app.Post("/register", func(c *fiber.Ctx) error {
+
+		var data map[string]string
+		if err := c.BodyParser(&data); err != nil {
+			return err
+		}
+
+		password, err := bcrypt.GenerateFromPassword([]byte(data["password"]), 14)
+
+		user := models.User{
+			Name:     data["name"],
+			Email:    data["email"],
+			Password: password,
+		}
+
+		database.DB.Create(&user)
+		return err
+	})
+
+}
+
+func TestGetUser(t *testing.T) {
+	app := fiber.New()
+	app.Post("/user", func(c *fiber.Ctx) error {
+
+		cookie := c.Cookies("jwt")
+
+		token, err := jwt.ParseWithClaims(cookie, &jwt.StandardClaims{}, func(*jwt.Token) (interface{}, error) {
+
+			return []byte(SecretKey), nil
+
+		})
+
+		if err != nil {
+			c.Status(fiber.StatusUnauthorized)
+			return c.JSON(fiber.Map{
+				"message": "unauthenticated",
+			})
+
+		}
+		claims := token.Claims.(*jwt.StandardClaims)
+		var user models.User
+		database.DB.Where("id = ?", claims.Issuer).First(&user)
+		return err
+	})
+
+}
