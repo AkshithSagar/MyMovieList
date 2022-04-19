@@ -58,15 +58,21 @@ func main() {
 	r.Get("/getMovieByGenre", func(w http.ResponseWriter, r *http.Request) {
 		enableCors(&w)
 		res, _ := yin.Event(w, r)
-		genre := r.Header.Get("genre")
-		//fmt.Println("*******%s", genre)
+		keys, _ := r.URL.Query()["genre"]
+
+		//genre1 :=r.URL.Query()["genre"]
+		//genre := r.Header.Get("genre")
+		genre := keys[0]
+		//fmt.Println("*******%s", keys[0], "******%s", ok)
 		movies := feed.GetMovieByGenre(genre)
 		res.SendJSON(movies)
 	})
 	r.Get("/getMovieByName", func(w http.ResponseWriter, r *http.Request) {
 		enableCors(&w)
 		res, _ := yin.Event(w, r)
-		name := r.Header.Get("name")
+		keys, _ := r.URL.Query()["name"]
+		name := keys[0]
+		//name := r.Header.Get("name")
 		//fmt.Println("*******%s", genre)
 		movies := feed.GetMovieByName(name)
 		res.SendJSON(movies)
