@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [],
@@ -37,7 +38,8 @@ import {MatTableModule} from '@angular/material/table';
     HttpClientModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressBarModule
     
   ],
   exports: [
@@ -57,7 +59,8 @@ import {MatTableModule} from '@angular/material/table';
     HttpClientModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialModule { }

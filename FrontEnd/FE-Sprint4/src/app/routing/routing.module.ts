@@ -15,7 +15,7 @@ import { MoviedetailsComponent } from '../display/moviedetails/moviedetails.comp
 const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'add-data', component: AddDataComponent},
-  {path:'', redirectTo:'/home',pathMatch:'full'},
+  {path:'', redirectTo:'/login',pathMatch:'full'},
   {path:'addData', redirectTo:'/add-data', pathMatch:'full'},
   {path:'login', component: LoginComponent},
   {path:'login', redirectTo:'/login', pathMatch:'full'},

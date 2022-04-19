@@ -25,9 +25,16 @@ export class SuggestionsComponent implements OnInit {
       //this.suggestions.push()
       //let user = new User()
       //this.suggestions.push(new Suggestions(JSON.stringify(results[2]["Name"]),JSON.stringify(results[0]["Genre"]), JSON.stringify(results[0]["Desc"])  , 'https://m.media-amazon.com/images/I/91BT--NUiKL._AC_UY436_FMwebp_QL65_.jpg','https://material.angular.io/assets/img/examples/shiba1.jpg'))
-      for(var counter:number =0;counter<5;counter++){
-        this.suggestions.push(new Suggestions(JSON.stringify(results[counter]["Name"]),JSON.stringify(results[counter]["Genre"]), JSON.stringify(results[counter]["Desc"])  , 'https://m.media-amazon.com/images/I/91BT--NUiKL._AC_UY436_FMwebp_QL65_.jpg'))
-      }
+      // for(var counter:number =0;counter<5;counter++){
+      //   this.suggestions.push(new Suggestions(JSON.stringify(results[counter]["Name"]),JSON.stringify(results[counter]["Genre"]), JSON.stringify(results[counter]["Desc"])  , 'https://m.media-amazon.com/images/I/91BT--NUiKL._AC_UY436_FMwebp_QL65_.jpg'))
+      // }
+      this.suggestions.push(new Suggestions(JSON.stringify(results[0]["Name"]),JSON.stringify(results[0]["Genre"]), JSON.stringify(results[0]["Desc"])  , 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy99-JIoQD_tDXwVlktYQVhmWUZPAVX92Tq4FIssNpJ9WDQYrP'))
+      this.suggestions.push(new Suggestions(JSON.stringify(results[1]["Name"]),JSON.stringify(results[1]["Genre"]), JSON.stringify(results[1]["Desc"])  , 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS5uxkfEsqCe-oN5gfCK0jE2FiXlntNoYuyNmookn5PBBMTV5Yj'))
+      this.suggestions.push(new Suggestions(JSON.stringify(results[2]["Name"]),JSON.stringify(results[2]["Genre"]), JSON.stringify(results[2]["Desc"])  , 'https://m.media-amazon.com/images/I/91BT--NUiKL._AC_UY436_FMwebp_QL65_.jpg'))
+      this.suggestions.push(new Suggestions(JSON.stringify(results[3]["Name"]),JSON.stringify(results[3]["Genre"]), JSON.stringify(results[3]["Desc"])  , 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy99-JIoQD_tDXwVlktYQVhmWUZPAVX92Tq4FIssNpJ9WDQYrP'))
+      this.suggestions.push(new Suggestions(JSON.stringify(results[4]["Name"]),JSON.stringify(results[4]["Genre"]), JSON.stringify(results[4]["Desc"])  , 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZhbU5pWXmpsBxgV6PFL-kAxVAihDFPueGh0n2HoUbWZdFp_AC'))
+
+
 
     })
   }

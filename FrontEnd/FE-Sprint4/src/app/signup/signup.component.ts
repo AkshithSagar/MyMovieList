@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private router:Router) { }
   profileForm : FormGroup;
 
   ngOnInit(): void {
@@ -22,23 +23,27 @@ export class SignupComponent implements OnInit {
       birthday:['']
     })
   }
-  onSubmit(){
-    var formData: any = new FormData();
-    formData.append("email", this.profileForm.get('email').value);
-    formData.append("username", this.profileForm.get('username').value);
-    formData.append("password", this.profileForm.get('password').value);
-    formData.append("question", this.profileForm.get('question').value);
-    formData.append("answer", this.profileForm.get('answer').value);
-    formData.append("birthday", this.profileForm.get('birthday').value);
+  sendDetails(){
+    // var formData: any = new FormData();
+    // formData.append("email", this.profileForm.get('email').value);
+    // formData.append("username", this.profileForm.get('username').value);
+    // formData.append("password", this.profileForm.get('password').value);
+    // formData.append("question", this.profileForm.get('question').value);
+    // formData.append("answer", this.profileForm.get('answer').value);
+    // formData.append("birthday", this.profileForm.get('birthday').value);
     
-    for(var value of formData.values()){
-      console.log(value);
-    }
-    if(this.profileForm.valid){
-      console.log('signup data is', this.profileForm.value);
-      console.log('working');
-      this.profileForm.reset();
-    }
+    // for(var value of formData.values()){
+    //   console.log(value);
+    // }
+    
+    // if(this.profileForm.valid){
+    //   console.log('signup data is', this.profileForm.value);
+    //   console.log('working');
+      
+    //   //this.profileForm.reset();
+    // }
+    console.log("Click")
+    this.router.navigate['login'];
   }
-
+  
 }
