@@ -22,6 +22,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { FindforumsComponent } from './discussions/findforums/findforums.component';
 import { DataService } from './sharing/data.service';
 import { MoviebygenreComponent } from './display/moviebygenre/moviebygenre.component';
+import { MoviedetailsComponent } from './display/moviedetails/moviedetails.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { MoviebygenreComponent } from './display/moviebygenre/moviebygenre.compo
     DisplayresultsComponent,
     UserprofileComponent,
     FindforumsComponent,
-    MoviebygenreComponent
+    MoviebygenreComponent,
+    MoviedetailsComponent
     
     
     ],
