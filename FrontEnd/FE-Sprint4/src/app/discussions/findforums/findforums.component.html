@@ -8,7 +8,7 @@
     <form>
         <div>
             <div>
-                <input class = "inputtext" matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+                <input id="keyword" class = "inputtext" matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
                 <!-- <input class="inputtext" type = "text" placeholder="Search movie"> -->
                 <button class = "submitbutton" type="submit">Search</button>
             </div>
@@ -16,7 +16,7 @@
     </form>
 </section>
 <br/>
-<table mat-table [dataSource] = "dataSource" class="mat-elevation-z8">
+<table id="table" mat-table [dataSource] = "dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="TopicName">
         <th mat-header-cell *matHeaderCellDef> TopicName</th>
         <td mat-cell *matCellDef="let element"> <a href="displayresults" class="reference">{{element.TopicName}}</a> </td>
