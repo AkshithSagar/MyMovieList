@@ -23,12 +23,11 @@ Database |SQLite
 * MyMovieList web application is a movie and show cataloging web application where the users can use a list-like system to track and score movies and shows.<br />
 * It can also be used as a discussion forum and a movie/show search database. <br />
 * Below are some of the features that we plan to implement (they have not been prioritized yet)-<br />
-  * Users can add movies/shows to their list and mark them as completed/currently watching/plan to watch.<br />
-  * Users can add scores to the movies/shows and add a small review.<br />
-  * Users can search for movies and shows based on genre and score.<br />
-  * Users can see all reviews of the movies and shows that they search for new user profiles can be created.<br />
-  * Users can search for other users based on their username and share their lists, discussions, reviews and comments.<br />
-  * The application will provide average scores to movies and shows based on scores.<br />
+  * Users can see suggested movies and discussions based on ratings.<br/>
+  * Users can add new movie data or a new discussions to the database.
+  * Users can search for movies and shows based on name, genre.<br />
+  * Users can see reviews of the movies and shows that they search.<br />
+  * The application allows for user signup, login and authentication.
 
 ##### Backend Setup
 
@@ -86,6 +85,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Demo Video Functionality
+
+## Cypress test video
+
 
 
   
