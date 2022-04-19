@@ -33,7 +33,7 @@ export class MoviebygenreComponent implements OnInit,OnDestroy {
 
   }
   getAllValues(){
-    this.getapi.getMovieByGenre("Action").subscribe((results)=>{
+    this.getapi.getMovieByGenre(this.message).subscribe((results)=>{
       console.log(results)
       this.dataSource = new MatTableDataSource(<any>results);
       

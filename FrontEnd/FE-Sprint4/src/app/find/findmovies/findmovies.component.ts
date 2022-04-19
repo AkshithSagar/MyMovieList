@@ -51,6 +51,10 @@ export class FindmoviesComponent implements OnInit {
     this.data.changeMessage("Romance")
     this.router.navigate(['moviebygenre'])
   }
+  getThriller(){
+    this.data.changeMessage("Thriller")
+    this.router.navigate(['moviebygenre'])
+  }
 
  
 }
