@@ -28,4 +28,7 @@ export class ApiCallService {
   getMovieByGenre(genre:string){
     return this.httpClient.get("http://localhost:3000/getMovieByGenre?genre="+genre)
   }
+  getMovieByName(name:string){
+    return this.httpClient.get("http://localhost:3000/getMovieByName?name="+name)
+  }
 }

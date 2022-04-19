@@ -6,7 +6,13 @@
 <table mat-table [dataSource] = "dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="Name">
         <th mat-header-cell *matHeaderCellDef> Name</th>
+<<<<<<< Updated upstream
         <td mat-cell *matCellDef="let element"> <a href="displayresults" class="reference">{{element.Name}}</a> </td>
+=======
+        <td mat-cell *matCellDef="let element"> 
+            <a #ce (click) = "movieDetails(ce)"class="reference">{{element.Name}}</a>
+         </td>
+>>>>>>> Stashed changes
     </ng-container>
     <ng-container matColumnDef="Rating">
         <th mat-header-cell *matHeaderCellDef> Rating </th>
