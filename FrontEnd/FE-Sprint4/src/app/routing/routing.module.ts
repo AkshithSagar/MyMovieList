@@ -10,6 +10,7 @@ import { DisplayresultsComponent } from '../find/findmovies/displayresults/displ
 import { UserprofileComponent } from '../userprofile/userprofile.component';
 import { FindforumsComponent } from '../discussions/findforums/findforums.component';
 import { MoviebygenreComponent } from '../display/moviebygenre/moviebygenre.component';
+import { MoviedetailsComponent } from '../display/moviedetails/moviedetails.component';
 
 const routes: Routes = [
   {path:'home', component: HomeComponent},
@@ -29,7 +30,9 @@ const routes: Routes = [
   {path:'findforums',component:FindforumsComponent},
   {path:'findforums',redirectTo:'findforums',pathMatch:'full'},
   {path:'moviebygenre',component:MoviebygenreComponent},
-  {path:'moviebygenre',redirectTo:'moviebygenre',pathMatch:'full'}
+  {path:'moviebygenre',redirectTo:'moviebygenre',pathMatch:'full'},
+  {path:'moviedetails',component:MoviedetailsComponent},
+  {path:'moviedetails',redirectTo:'moviedetails',pathMatch:'full'}
 
   
 

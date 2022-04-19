@@ -6,11 +6,22 @@ export class DataService {
   private messageSource = new BehaviorSubject('default message');
   currentMessage = this.messageSource.asObservable();
 
+  private nameSource = new BehaviorSubject('default message');
+  selectedMovie = this.nameSource.asObservable();
+
   constructor() { }
+
   changeMessage(message:string){
     this.messageSource.next(message)
   }
   getMessage(){
     return this.currentMessage;
+  }
+
+  selectMovie(message:string){
+    this.nameSource.next(message)
+  }
+  getSelectedMovie(){
+    return this.selectMovie;
   }
 }
