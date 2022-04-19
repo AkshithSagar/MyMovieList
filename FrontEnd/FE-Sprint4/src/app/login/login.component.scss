@@ -22,3 +22,36 @@ mat-card-title{
 .mat-card{
     border: 0.5em solid #e1e7f5;
 }
+.signupnow{
+    color: #1d439b;
+}
+.signupbutton{
+    background-color: #2e51a2;
+    color: #fff;
+    border: #2e51a2 2px solid;
+    border-radius: 2px;
+    display: inline-block;
+    font-family: Avenir,lucida grande,tahoma,verdana,arial,sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    margin-left: 8px;
+    padding: 4px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 90px
+}
+.submitbutton{
+    border: #2e51a2 2px solid;
+    border-radius: 2px;
+    display: inline-block;
+    font-family: Avenir,lucida grande,tahoma,verdana,arial,sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    margin-left: 8px;
+    padding: 4px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+}
