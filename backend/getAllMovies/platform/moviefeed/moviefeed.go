@@ -59,6 +59,39 @@ func (feed *Feed) GetAllDiscussions() []Discussion {
 
 	return discussions
 }
+func (feed *Feed) GetSignup(username1 string, password1 string) string {
+	//s := []Signup{}
+	query := `SELECT * FROM signup WHERE username like "%` + username1 + `%" AND password like"%` + password1 + `%"`
+	rows, _ := feed.DB.Query(query)
+	var ID int
+	var email string
+	var username string
+	var password string
+	var security string
+	var answer string
+	var birthday string
+	for rows.Next() {
+		rows.Scan(&ID, &email, &username, &password, &security, &answer, &birthday)
+		s1 := Signup{
+			ID:       ID,
+			Email:    email,
+			Username: username,
+			Password: password,
+			Security: security,
+			Answer:   answer,
+			Birthday: birthday,
+		}
+		if s1.Username == "" {
+			return "false"
+		} else {
+			return "true"
+			//fmt.Printf("%s", s1.ID)
+			//s = append(s, s1)
+		}
+	}
+	return "false"
+	//return s
+}
 func (feed *Feed) GetBestDiscussions() []Discussion {
 	discussions := []Discussion{}
 	rows, _ := feed.DB.Query(`
@@ -132,7 +165,16 @@ func NewFeed(db *sql.DB) *Feed {
 PRIMARY KEY("ID" AUTOINCREMENT)
  );`)
 	stmt1.Exec()
-
+	stmt2, _ := db.Prepare(`CREATE TABLE IF NOT EXISTS "signup" ( "ID"	INTEGER NOT NULL UNIQUE, 
+	"email" TEXT NOT NULL,
+	"username" TEXT NOT NULL,
+	"password" TEXT NOT NULL,
+	"security" TEXT NOT NULL,
+	"answer" TEXT NOT NULL,
+	"birthday" TEXT NOT NULL,
+	PRIMARY KEY("ID" AUTOINCREMENT)
+	 );`)
+	stmt2.Exec()
 	return &Feed{
 
 		DB: db,
@@ -178,6 +220,12 @@ func (feed *Feed) AddD(discussion Discussion) {
 	INSERT INTO discussions (TopicName,Description) values (?,?)
 	`)
 	stmt.Exec(discussion.TopicName, discussion.Description)
+}
+func (feed *Feed) AddS(s Signup) {
+	stmt, _ := feed.DB.Prepare(`
+	INSERT INTO signup (email,username,password,security,answer,birthday) values (?,?,?,?,?,?)
+	`)
+	stmt.Exec(s.Email, s.Username, s.Password, s.Security, s.Answer, s.Birthday)
 }
 
 //update a movie by id
