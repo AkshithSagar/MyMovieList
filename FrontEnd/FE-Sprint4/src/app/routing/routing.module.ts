@@ -8,9 +8,9 @@ import { SignupComponent } from '../signup/signup.component';
 import { FindmoviesComponent } from '../find/findmovies/findmovies.component';
 import { DisplayresultsComponent } from '../find/findmovies/displayresults/displayresults.component';
 import { UserprofileComponent } from '../userprofile/userprofile.component';
-import { DisplaymoviesComponent } from '../displaymovies/displaymovies.component';
-import { DisplayactionComponent } from '../find/displayaction/displayaction.component';
 import { FindforumsComponent } from '../discussions/findforums/findforums.component';
+import { MoviebygenreComponent } from '../display/moviebygenre/moviebygenre.component';
+
 const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'add-data', component: AddDataComponent},
@@ -26,12 +26,11 @@ const routes: Routes = [
   {path:'displayresults',redirectTo:'/displayresults',pathMatch:'full'},
   {path:'userprofile', component: UserprofileComponent},
   {path:'userprofile', redirectTo:'userprofile',pathMatch:'full'},
-  {path:'displaymovies',component:DisplaymoviesComponent},
-  {path:'displaymovies',redirectTo:'displaymovies',pathMatch:'full'},
-  {path:'displayaction',component:DisplayactionComponent},
-  {path:'displayaction',redirectTo:'displayaction',pathMatch:'full'},
   {path:'findforums',component:FindforumsComponent},
-  {path:'findforums',redirectTo:'findforums',pathMatch:'full'}
+  {path:'findforums',redirectTo:'findforums',pathMatch:'full'},
+  {path:'moviebygenre',component:MoviebygenreComponent},
+  {path:'moviebygenre',redirectTo:'moviebygenre',pathMatch:'full'}
+
   
 
   

@@ -8,32 +8,48 @@ import { Router } from '@angular/router';
   styleUrls: ['./findmovies.component.scss']
 })
 export class FindmoviesComponent implements OnInit {
+  //
+  message:string;
+  subscription: Subscription;
+  //
   constructor(private data: DataService, private router: Router) { }
   parent:string = null;
-  ngOnInit():void{
-    
+  ngOnInit(){
+    this.subscription= this.data.currentMessage.subscribe(message=>this.message = message)
   }
   public allMovies():void{
     this.parent = "AllMovies";
     //this.router.navigate(['displayresults'], { state: { example: 'bar' } });
     this.router.navigate(['displayresults'])
   }
-  public Action():void {
-    this.parent = "Action";
-    this.router.navigate(['displayaction'])
-
+ 
+  newMessage(){
+    this.data.changeMessage("Action Movies")
+    this.router.navigate(['moviebygenre'])
   }
-  public SciFi():void{
-    this.parent = "SciFi";
+  getAction(){
+    this.data.changeMessage("Action")
+    this.router.navigate(['moviebygenre'])
   }
-  public Anime():void{
-    this.parent = "Anime";
+  getAdventure(){
+    this.data.changeMessage("Adventure")
+    this.router.navigate(['moviebygenre'])
   }
-  public Family():void{
-    this.parent = "Family";
+  getAnime(){
+    this.data.changeMessage("Anime")
+    this.router.navigate(['moviebygenre'])
   }
-  public Romance():void{
-    this.parent = "Romance";
+  getFamily(){
+    this.data.changeMessage("Family")
+    this.router.navigate(['moviebygenre'])
+  }
+  getSciFi(){
+    this.data.changeMessage("SciFi")
+    this.router.navigate(['moviebygenre'])
+  }
+  getRomance(){
+    this.data.changeMessage("Romance")
+    this.router.navigate(['moviebygenre'])
   }
 
  

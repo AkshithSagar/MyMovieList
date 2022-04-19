@@ -19,9 +19,9 @@ import { SignupComponent } from './signup/signup.component';
 import { FindmoviesComponent } from './find/findmovies/findmovies.component';
 import { DisplayresultsComponent } from './find/findmovies/displayresults/displayresults.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
-import { DisplaymoviesComponent } from './displaymovies/displaymovies.component';
-import { DisplayactionComponent } from './find/displayaction/displayaction.component';
 import { FindforumsComponent } from './discussions/findforums/findforums.component';
+import { DataService } from './sharing/data.service';
+import { MoviebygenreComponent } from './display/moviebygenre/moviebygenre.component';
 
 
 @NgModule({
@@ -41,9 +41,8 @@ import { FindforumsComponent } from './discussions/findforums/findforums.compone
     FindmoviesComponent,
     DisplayresultsComponent,
     UserprofileComponent,
-    DisplaymoviesComponent,
-    DisplayactionComponent,
-    FindforumsComponent
+    FindforumsComponent,
+    MoviebygenreComponent
     
     
     ],
@@ -54,7 +53,7 @@ import { FindforumsComponent } from './discussions/findforums/findforums.compone
     FlexLayoutModule,
     RoutingModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
