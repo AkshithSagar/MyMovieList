@@ -45,5 +45,5 @@ export class SignupComponent implements OnInit {
     console.log("Click")
     this.router.navigate['login'];
   }
-
+  
 }
