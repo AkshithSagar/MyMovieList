@@ -78,6 +78,18 @@ func main() {
 		movies := feed.GetMovieByName(name)
 		res.SendJSON(movies)
 	})
+	r.Get("/getSignupByUsername", func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
+		res, _ := yin.Event(w, r)
+		keys, _ := r.URL.Query()["username"]
+		keys2, _ := r.URL.Query()["password"]
+		username := keys[0]
+		password := keys2[0]
+		//name := r.Header.Get("name")
+		//fmt.Println("*******%s", genre)
+		signups := feed.GetSignup(username, password)
+		res.SendJSON(signups)
+	})
 	//for testing of get service
 	r.Post("/addMovie", func(w http.ResponseWriter, r *http.Request) {
 		//Added by dhanush: starts here
@@ -100,12 +112,11 @@ func main() {
 		res.SendStatus(204)
 	})
 	r.Post("/addD", func(w http.ResponseWriter, r *http.Request) {
-		//Added by dhanush: starts here
-		// enableCors(&w)
+
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-		//ends here
+
 		res, req := yin.Event(w, r)
 		body := map[string]string{}
 		req.BindBody(&body)
@@ -114,6 +125,27 @@ func main() {
 			Description: body["Description"],
 		}
 		feed.AddD(discussion)
+		res.SendStatus(204)
+	})
+	r.Post("/addS", func(w http.ResponseWriter, r *http.Request) {
+
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+		res, req := yin.Event(w, r)
+		body := map[string]string{}
+		req.BindBody(&body)
+		s := moviefeed.Signup{
+			Email:    body["email"],
+			Username: body["username"],
+			Password: body["password"],
+			Security: body["security"],
+			Answer:   body["answer"],
+			Birthday: body["birthday"],
+		}
+
+		feed.AddS(s)
 		res.SendStatus(204)
 	})
 
@@ -232,6 +264,6 @@ func main() {
 		movies := feed.BestFiveMovies()
 		res.SendJSON(movies)
 	})
-http.ListenAndServe(":3000", r)
+	http.ListenAndServe(":3000", r)
 
 }
