@@ -177,11 +177,36 @@ This group contains endpoints that support adding, deleting and viewing of movie
 ## User Related Services 
 The group of endpoints contain services that support the user and their account.
 
+### POST - signup
+* This endpoint is for user signup in which all the details are taken from the user-email, username, password, security, answer and birthday and are stored in the database 
+* The POST endpoint is - http://localhost:3000/addS
+* The request body for the endpoint is as follows-
+```
+{
+
+    "email" : "luffy@one-piece.com",
+    "username":"pirate",
+    "password" : "pirateKing",
+    "security" :"where do you live ",
+    "answer":"Gainesville",
+    "birthday":" 20th April"
+
+}
+```
+### GET - signup
+* This endpoint is used to get the details from the database and even validate the user by returning either true or false
+* The GET endpoint is - localhost:3000/getSignupByUsername?username=pirate&password=pirateKing
+* The response body is as follows-
+```
+{
+   "true"
+}
+```
+
 ### POST - login
 * This endpoint is for user login (authentication) with email id and password - this also generates a session cookie for 24 hours
 * It can be accessed directily using the POST service - http://localhost:3000/login
-* The request body for this endpoint is as follows - 
-
+* The request body for the endpoint is as follows-
 ```
 {
 
