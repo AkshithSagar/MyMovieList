@@ -136,6 +136,8 @@ https://user-images.githubusercontent.com/26251061/164310670-087ebc1e-2231-4ae0-
 ### A movie page with all the details for that movie added, will work for all movies added.
 https://user-images.githubusercontent.com/38401094/164299476-229f2e0e-6377-479b-8a0d-8b8e40b058fd.mov
 
+### Unit tests
+<img width="1203" alt="Screen Shot 2022-04-01 at 4 47 03 PM" src="https://user-images.githubusercontent.com/26251061/161355250-eaea1d57-e386-42aa-91c8-d045ee04aabf.png">
 
 ### Cypress test for frontend. 
 
