@@ -31,4 +31,8 @@ export class ApiCallService {
   getMovieByName(name:string){
     return this.httpClient.get("http://localhost:3000/getMovieByName?name="+name)
   }
+  checkLogin(name:string, pwd:string){
+    return this.httpClient.get("http://localhost:3000/getSignupByUsername?username="+name+"&password="+pwd)
+  }
+ 
 }

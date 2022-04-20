@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ApiCallService } from '../api-call.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder,private router:Router) { }
+  constructor(private formBuilder: FormBuilder,private router:Router,
+    private getapi:ApiCallService, private http: HttpClient) { }
   profileForm : FormGroup;
 
   ngOnInit(): void {
@@ -24,26 +26,34 @@ export class SignupComponent implements OnInit {
     })
   }
   sendDetails(){
-    // var formData: any = new FormData();
-    // formData.append("email", this.profileForm.get('email').value);
-    // formData.append("username", this.profileForm.get('username').value);
-    // formData.append("password", this.profileForm.get('password').value);
-    // formData.append("question", this.profileForm.get('question').value);
-    // formData.append("answer", this.profileForm.get('answer').value);
-    // formData.append("birthday", this.profileForm.get('birthday').value);
+    var formData: any = new FormData();
     
-    // for(var value of formData.values()){
-    //   console.log(value);
-    // }
-    
-    // if(this.profileForm.valid){
-    //   console.log('signup data is', this.profileForm.value);
-    //   console.log('working');
+
+  
+    if(this.profileForm.valid){
+      formData.append("email", this.profileForm.get('email').value);
+      formData.append("username", this.profileForm.get('username').value);
+      formData.append("password", this.profileForm.get('password').value);
+      formData.append("question", this.profileForm.get('question').value);
+      formData.append("answer", this.profileForm.get('answer').value);
+      formData.append("birthday", this.profileForm.get('birthday').value);
+      for(var value of formData.values()){
+        console.log(value);
+      }
+      var object = {};
+      formData.forEach((value,key)=>object[key]=value);
+      var json = JSON.stringify(object);
+      console.log("string data",json);
+      this.http.post('http://localhost:3000/addS',json).subscribe({
+        next:(response)=>{
+          console.log(response)
+        }
+      })
       
-    //   //this.profileForm.reset();
-    // }
-    console.log("Click")
-    this.router.navigate['login'];
+      this.profileForm.reset();
+    }
+    
+    
   }
   
 }

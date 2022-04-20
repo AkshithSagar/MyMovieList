@@ -12,8 +12,9 @@
                             <input id="password" matInput type = "password" maxlength="60" placeholder="Password*" formControlName = "password">
                         </mat-form-field>
                         <mat-card-actions align = "center">
-                            <button id="submitbutton" mat-raised-button color = "warn" (click)="onSubmit()">Login</button>
+                            <a  mat-raised-button color = "warn" (click)="onSubmit()">Login</a>
                         </mat-card-actions>
+                    
                     </mat-card-content>
                     <p class = "forgotlinks">
                         <a href="#">Forgot Username?</a>
@@ -21,9 +22,8 @@
                         <a href="#">Forgot Password?</a>
                     </p>
                     <a routerLink="/signup" class="signupbutton">Sign Up</a>
-                    
+                    <p #ce class="alert"></p>
                 </form>
               </mat-card>
       </div>
-    
   </section>

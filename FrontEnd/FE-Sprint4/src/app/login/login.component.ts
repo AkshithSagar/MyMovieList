@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ApiCallService } from '../api-call.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +10,12 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private formBuilder: FormBuilder) { }
+  @ViewChild('ce') ce: ElementRef;
+  uname:string;
+  pwd:string;
+  accepted:string;
+  constructor(private formBuilder: FormBuilder, private getapi: ApiCallService,
+    private router:Router) { }
   profileForm: FormGroup;
 
   ngOnInit(): void {
@@ -20,18 +26,23 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(){
     var formData: any = new FormData();
-    formData.append("username",this.profileForm.get('username').value);
-    formData.append("password",this.profileForm.get('password').value);
-    for(var value of formData.values()){
-      console.log(value);
-    }
+    this.uname = this.profileForm.get('username').value;
+    this.pwd = this.profileForm.get('password').value;
 
-    if(this.profileForm.valid){
-      console.log('form data is', this.profileForm.value);
-      console.log('working');
-      this.profileForm.reset();
-      
-    }
+    
+    this.getapi.checkLogin(this.uname,this.pwd).subscribe(results=>{
+      this.accepted = results["Body"]
+      console.log("rsult is",this.accepted)
+      if(this.accepted === 'true'){
+        console.log("line bedore home")
+        this.router.navigate(['/home']);
+      }
+      else{
+        this.ce.nativeElement.innerHTML = 'Incorrect username or password. Please try again.'
+      }
+    })
+    
+    console.log("outside",this.accepted)
   }
 
 }
