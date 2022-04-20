@@ -2,8 +2,10 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	moviefeed "mymovielist/platform/moviefeed"
 	"net/http"
+	"reflect"
 	"strconv"
 
 	"github.com/go-chi/chi"
@@ -80,9 +82,7 @@ func main() {
 	})
 	r.Get("/getSignupByUsername", func(w http.ResponseWriter, r *http.Request) {
 		enableCors(&w)
-		type send struct {
-			flag string
-		}
+
 		res, _ := yin.Event(w, r)
 		keys, _ := r.URL.Query()["username"]
 		keys2, _ := r.URL.Query()["password"]
@@ -91,8 +91,14 @@ func main() {
 		//name := r.Header.Get("name")
 		//fmt.Println("*******%s", genre)
 		//signups := feed.GetSignup(username, password)
-		signups := send{feed.GetSignup(username, password)}
-		res.SendJSON(signups)
+		signups := feed.GetSignup(username, password)
+		fmt.Printf("%+v\n", signups)
+		fmt.Printf("%+v\n", reflect.TypeOf(signups))
+		type Message struct {
+			Body string
+		}
+		m := Message{signups.Flag}
+		res.SendJSON(m)
 	})
 	//for testing of get service
 	r.Post("/addMovie", func(w http.ResponseWriter, r *http.Request) {

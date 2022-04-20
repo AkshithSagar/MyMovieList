@@ -3,6 +3,7 @@ package moviefeed
 //property injection - abstract the db - it's a good practice
 import (
 	"database/sql"
+	"fmt"
 	"log"
 	"strconv"
 )
@@ -59,8 +60,9 @@ func (feed *Feed) GetAllDiscussions() []Discussion {
 
 	return discussions
 }
-func (feed *Feed) GetSignup(username1 string, password1 string) string {
+func (feed *Feed) GetSignup(username1 string, password1 string) send {
 	//s := []Signup{}
+	//flags := []send{}
 	query := `SELECT * FROM signup WHERE username like "%` + username1 + `%" AND password like"%` + password1 + `%"`
 	rows, _ := feed.DB.Query(query)
 	var ID int
@@ -82,14 +84,27 @@ func (feed *Feed) GetSignup(username1 string, password1 string) string {
 			Birthday: birthday,
 		}
 		if s1.Username == "" {
-			return "false"
+			flag1 := send{Flag: "false"}
+			fmt.Printf("%+v\n", flag1)
+
+			//flags = append(flags, flag)
+			return flag1
 		} else {
-			return "true"
+			flag1 := send{Flag: "true"}
+			fmt.Printf("%+v\n", flag1)
+
+			//flags = append(flags, flag)
+			return flag1
 			//fmt.Printf("%s", s1.ID)
 			//s = append(s, s1)
 		}
 	}
-	return "false"
+	flag1 := send{Flag: "false"}
+	fmt.Printf("%+v\n", flag1)
+
+	//flags = append(flags, flag)
+	return flag1
+	//return "false"
 	//return s
 }
 func (feed *Feed) GetBestDiscussions() []Discussion {
