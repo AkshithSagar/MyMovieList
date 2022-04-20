@@ -1,10 +1,34 @@
 # MyMovieList API Documentation <br />
 
-The document covers the technical aspects of the backend APIs. All services developed have been covered in this document -
+The document covers the technical aspects of the backend APIs. All services developed have been covered in this document. 
+There are 4 groups of services developed - 
+  1) Movie related services
+  2) User Related services
+  3) Discussions 
+  4) User and Movie Status
 
-## GET - getAllMovies
+*Prerequisite - backend setup completed from the README*
+
+## Movie Related Services 
+This group contains endpoints that support adding, deleting and viewing of movie(s).
+
+### POST - addMovie
+ * This service adds a movie to the "movies" database
+  * It can be tested using http://localhost:3000/addMovie on postman or any browser. 
+  * Sample Input -
+  
+ ```json
+   {
+        "name": "One Piece",
+        "description": "The world's greatest exposition of the pirates, by the pirates, for the pirates—the Pirates Festival.",
+        "review": "movie review",
+        "rating": "10",
+        "genre": "Action, Shonen"
+    }
+   ```   
+
+### GET - getAllMovies
   * This endpoint returns all the movies stored in the database and their respective attributes
-  * Run the go program in the directory backend/getAllMovies/ using the command - go run .\cmd\main.go
   * It can be tested using http://localhost:3000/getAllMovies on postman or any browser. 
   * Sample Result - 
   ```json
@@ -26,10 +50,10 @@ The document covers the technical aspects of the backend APIs. All services deve
     }
    ```
    
-  ### Get movie by genre (updated)
-* In the last sprint, the get-movie-by-genre endpoint was a POST request, this sprint we changed it to a GET request with a header to comply with coding standards. 
+### Get - getMovieByGenre
+* This endpoint is for getting all movies as per the genre  
 * The header key is "genre" and the value is the genre with respect to which you want to fetch the movies
-* The GET endpoint is http://localhost:3000/getMovieByGenre
+* It can be tested using http://localhost:3000/getMovieByGenre on postman or any browser
 * The response is a list of movies as follows - 
 
 ```
@@ -56,7 +80,7 @@ The document covers the technical aspects of the backend APIs. All services deve
 
 ```
    
-    ## /deleteMovieByID
+  ### POST- deleteMovieByID
   * This endpoint deletes a movie from the database based on the movie ID
   * The sample input is shown below - 
   ```json
@@ -67,6 +91,7 @@ The document covers the technical aspects of the backend APIs. All services deve
   * Run the go program in the directory backend/getAllMovies/ using the command - go run .\cmd\main.go
   * It can be tested using http://localhost:3000/deleteMovieByID on postman or any browser. 
 
+## USer Related Services 
 
 ## POST - login
 * User login (authentication) with email id and password - this also generates a session cookie for 24 hours
