@@ -79,7 +79,90 @@ This group contains endpoints that support adding, deleting and viewing of movie
 ]
 
 ```
-   
+
+### Get - GetMovieByName
+* This endpoint is for getting all movies as per the name  
+* The header key is "name" and the value is the name with respect to which you want to fetch the movies
+* It can be tested using http://localhost:3000/getMovieByName on postman or any browser
+* The response is a list of movies as follows - 
+
+```
+[
+    {
+        "ID": 5, //movie id
+        "Name": "movie name", //this is the movie name specicified in the url
+        "Desc": "Description of the movie",
+        "Review": "Movie Review",
+        "Rating": "Movie Rating",
+        "Genre": "Movie genres"
+    },
+    
+    
+    {
+        "ID": 6, //movie id
+        "Name": "movie name", //this is the movie name specicified in the url
+        "Desc": "Description of the movie",
+        "Review": "Movie Review",
+        "Rating": "Movie Rating",
+        "Genre": "Movie genres"
+    },
+]
+
+```
+### Get - BestFiveMovies
+* This endpoint is for getting top five movies as per the ratings
+* It can be tested using http://localhost:3000/BestFiveMovies on postman or any browser
+* This should be noted these movies will be having the largest ratings from the datbase
+* The response is a list of movies as follows - 
+
+```
+[
+    {
+        "ID": 5, //movie id
+        "Name": "movie name", 
+        "Desc": "Description of the movie",
+        "Review": "Movie Review",
+        "Rating": "Movie Rating", 
+        "Genre": "Movie genres"
+    },
+    
+    
+    {
+        "ID": 6, //movie id
+        "Name": "movie name", 
+        "Desc": "Description of the movie",
+        "Review": "Movie Review",
+        "Rating": "Movie Rating",
+        "Genre": "Movie genres"
+    },
+    {
+        "ID": 11, //movie id
+        "Name": "movie name", 
+        "Desc": "Description of the movie",
+        "Review": "Movie Review",
+        "Rating": "Movie Rating",
+        "Genre": "Movie genres"
+    },
+    {
+        "ID": 9, //movie id
+        "Name": "movie name", 
+        "Desc": "Description of the movie",
+        "Review": "Movie Review",
+        "Rating": "Movie Rating",
+        "Genre": "Movie genres"
+    },
+    {
+        "ID": 4, //movie id
+        "Name": "movie name", 
+        "Desc": "Description of the movie",
+        "Review": "Movie Review",
+        "Rating": "Movie Rating",
+        "Genre": "Movie genres"
+    },
+]
+
+```
+
  ### POST- deleteMovieByID
   * This endpoint deletes a movie from the database based on the movie ID
   * The sample input is shown below - 
@@ -173,6 +256,49 @@ After creating the users and movies, the next step is to map the user to their r
         "Review": "Movie Review",
         "Rating": "Movie Rating",
         "Genre": "Movie genres"
+    }
+]
+
+```
+## Discussions
+
+### Add Discussions
+* This service is used to add discussions to our database and will be visibe in the discussion board of our api
+* The POST endpoint is http://localhost:3000/addD
+* The request body for this endpoint is as follows-
+```
+{
+       "ID": "2",
+       "TopicName": "Spiderman",
+       "Description": "It is a Marvel movie with excellent review"
+}
+```
+### Get All Discussions
+* This service is used to retrieve all the discussions from the database
+* The GET endpoint is http://localhost:3000/getAllDiscussions
+* The response is as follows-
+```
+[
+    {
+        "ID": 5, //discussion id
+        "TopicName": "discussion name",
+        "Description": "Discussions regarding the movie",
+       
+    }
+]
+
+```
+### Get Top Five Discussions
+* This service is used to retrieve the top five discussions from the database
+* The GET endpoint is http://localhost:3000/getBestDiscussions
+* The response is as follows-
+```
+[
+    {
+        "ID": 5, //discussion id
+        "TopicName": "discussion name",
+        "Description": "Discussions regarding the movie",
+       
     }
 ]
 
