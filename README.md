@@ -16,7 +16,7 @@ Front End|Angular
 Back End |Golang
 Database |SQLite
 
-## Description <br />
+## Summary <br />
 * MyMovieList web application is a movie and show cataloguing web application where the users can use a list-like system to track and score movies and shows.
 * It can also be used as a discussion forum and a movie/show search database.
 * Below are some of the features that we have implemented-
