@@ -9,6 +9,10 @@ export class DataService {
   private nameSource = new BehaviorSubject('default message');
   selectedMovie = this.nameSource.asObservable();
 
+  private loginSource = new BehaviorSubject('Login');
+  loginUser = this.loginSource.asObservable();
+
+
   constructor() { }
 
   changeMessage(message:string){
@@ -24,4 +28,12 @@ export class DataService {
   getSelectedMovie(){
     return this.selectMovie;
   }
+  
+  setLogin(message:string){
+    this.loginSource.next(message);
+  }
+  getLogin(){
+    return this.loginUser;
+  }
+
 }
