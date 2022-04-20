@@ -16,7 +16,7 @@ Front End|Angular
 Back End |Golang
 Database |SQLite
 
-#### Description <br />
+## Summary <br />
 * MyMovieList web application is a movie and show cataloguing web application where the users can use a list-like system to track and score movies and shows.
 * It can also be used as a discussion forum and a movie/show search database.
 * Below are some of the features that we have implemented-
@@ -31,6 +31,19 @@ Database |SQLite
     * The login section is simple and it is helpful in removing the hassle of duplicate user signups. 
     * The authentication is to validate the users by checking their username and password.
 * The discussion board is open to all users where they can share their thoughts. We have an additional feature here as well where a new user can filter out the top five discussions
+
+### Project Board -
+
+https://github.com/AkshithSagar/MyMovieList/projects/1
+
+### API Documentation -
+
+https://github.com/AkshithSagar/MyMovieList/blob/main/API_Documentation.md#mymovielist-api-documentation-
+
+
+### Sprint 4 Deliverables -
+
+https://github.com/AkshithSagar/MyMovieList/blob/main/Sprint4.md#accomplishments-in-sprint-4
 
 
 ## Backend Setup
@@ -78,10 +91,28 @@ Run `ng generate component component-name` to generate a new component. You can 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Demo Video Functionality
+https://user-images.githubusercontent.com/38401094/164327023-dc818875-c51d-43c6-aed8-2178fdde2a8c.mp4
 
-## Cypress test video
+## Cypress test videos
+
+https://user-images.githubusercontent.com/26251061/164312331-ce202801-cd3d-4c20-96a3-7608270ba008.mp4
+
+https://user-images.githubusercontent.com/26251061/164312346-740b0fbb-e33a-4a8b-a400-a3e373150b55.mp4
+
+https://user-images.githubusercontent.com/26251061/164312365-6808ed96-7460-4ab5-9be6-5ad0899405c2.mp4
+
+https://user-images.githubusercontent.com/26251061/164312370-37405c87-6578-48f9-b91f-29fbc9a982d9.mp4
+
+https://user-images.githubusercontent.com/26251061/164312381-37153996-de21-4c12-b9d1-11b19a4bb984.mp4
+
+https://user-images.githubusercontent.com/26251061/164312383-6e94e0ba-1a35-4413-84a4-b0112fc24078.mp4
+
+https://user-images.githubusercontent.com/26251061/164312386-75e7416e-86d8-4dbe-8960-5620c974edf8.mp4
 
 
+## Backend test video
 
-  
+https://user-images.githubusercontent.com/46960754/164321885-a6d7aecb-6fda-4183-9a2d-c232139558e2.mp4
+
+
    
