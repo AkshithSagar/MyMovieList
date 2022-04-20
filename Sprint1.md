@@ -37,6 +37,22 @@ https://user-images.githubusercontent.com/38401094/152626951-9666a38b-e4bf-44e6-
 * curl http://localhost:8080/movies 
 * The command displays all the records of the particular table
 
+
+
+## POST - addMovie
+ * This service adds a movie to the "movies" database
+  * It can be tested using http://localhost:3000/addMovie on postman or any browser. 
+  * Sample Input -
+  
+ ```json
+   {
+        "name": "One Piece",
+        "description": "The world's greatest exposition of the pirates, by the pirates, for the pirates—the Pirates Festival.",
+        "review": "movie review",
+        "rating": "10",
+        "genre": "Action, Shonen"
+    }
+
 ## GET - getAllMovies
   * This endpoint returns all the movies stored in the database and their respective attributes
   * Run the go program in the directory backend/getAllMovies/ using the command - go run .\cmd\main.go
