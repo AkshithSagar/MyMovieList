@@ -4,7 +4,13 @@
 
 ## Discussions Table 
 * Added a new table named discussions and linked it with the other tables, users and movies
-* Functionalities added for the discussions table- add discussions to the table and get all discussions
+* Functionalities added for the discussions table- add discussions to the table and get all discussions. Addtioanlly, we have even implemented the code for displaying the best fivr discussions for user readability
+* Video-
+
+
+https://user-images.githubusercontent.com/48876044/164313536-d2c8403b-028e-477c-ac0c-38c1cd897297.mp4
+
+
 
 ### User Logout
 * In the last sprint, we logged in a user and generated a cookie for it. In this sprint, we implemented the logout functionality. 
@@ -89,6 +95,14 @@ https://user-images.githubusercontent.com/46960754/163886554-59af3d55-1fb7-453d-
 * Video - 
 
 https://user-images.githubusercontent.com/46960754/163888046-599314a9-2918-4706-a50e-fe66146a6da0.mp4
+
+### Top Five Movies Based on Ratings-
+* Video-
+
+
+https://user-images.githubusercontent.com/48876044/164313684-c7ced9a3-5172-4a3f-9d65-6792302be317.mp4
+
+
 
 ### Backend Testing screenshot - 
 
