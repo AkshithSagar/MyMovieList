@@ -94,3 +94,16 @@ https://user-images.githubusercontent.com/46960754/163888046-599314a9-2918-4706-
 
 ![image](https://user-images.githubusercontent.com/46960754/163888182-289fefe3-36b4-4f6a-94ba-303ad36538f5.png)
 
+
+
+## Front End
+
+### Home page updated with Movies and Images. 
+### Integrated "Add Discussions" and Display the disussions in "Find discussions".
+### Search movie bar updated to work with all the movies and Search discussions updated to work with all discussions. 
+### Navigation with Dynamic Data passing through various components. 
+### Added Signup and Login Functionaility for Users.
+### A movie page with all the details for that movie added, will work for all movies added.
+### Cypress test for frontend. 
+
+
