@@ -6,11 +6,11 @@ describe('Testing page to add data test',()=>{
         cy.title().should('equal','My Movie List');
     });
     it('clicks the add movies/discussions tab',()=>{
-        cy.get('#nameinput').type("Harry Potter ");
+        cy.get('#nameinput').type("Test Movie Name");
         cy.get("#genre").click().get('mat-option').contains("Action").click();
-        cy.get("#description").type("Some description on Harry Potter");
-        cy.get("#review").type("Best movie of the decade");
-        cy.get("#rating").click().get('mat-option').contains("5").click();
+        cy.get("#description").type("Some description to test the application");
+        cy.get("#review").type("Best movie of the decade, could be..");
+        cy.get("#rating").click().get('mat-option').contains("1").click();
         //cy.get("#imageurl").type("https://m.media-amazon.com/images/I/91BT--NUiKL._AC_UY436_FMwebp_QL65_.jpg");
         cy.get("#submitbutton").click();
         cy.get('#mat-tab-label-0-1').click();
