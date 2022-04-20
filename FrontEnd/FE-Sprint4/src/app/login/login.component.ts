@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         this.ce.nativeElement.innerHTML = 'Incorrect username or password. Please try again.'
       }
     })
-    
+    this.profileForm.reset();
     console.log("outside",this.accepted)
   }
 

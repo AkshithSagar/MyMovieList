@@ -13,6 +13,6 @@ describe('Testing page for signup',()=>{
 
         cy.get("#answer").type("Hanmakonda");
         cy.get("#submitbutton").click();
-        
+        cy.get('.loginbutton').click();
     })
 });
