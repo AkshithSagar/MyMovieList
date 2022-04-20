@@ -114,6 +114,11 @@ https://user-images.githubusercontent.com/38401094/164299257-5aead76b-5cd6-43f7-
 
 ### Added Signup and Login Functionaility for Users.
 
+https://user-images.githubusercontent.com/26251061/164310508-1b3605f4-0152-4db6-bf66-9f5b1324590b.mov
+
+https://user-images.githubusercontent.com/26251061/164310670-087ebc1e-2231-4ae0-8695-dba092550793.mp4
+
+
 ### A movie page with all the details for that movie added, will work for all movies added.
 https://user-images.githubusercontent.com/38401094/164299476-229f2e0e-6377-479b-8a0d-8b8e40b058fd.mov
 
