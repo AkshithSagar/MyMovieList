@@ -52,12 +52,15 @@ https://user-images.githubusercontent.com/38401094/152626951-9666a38b-e4bf-44e6-
         "rating": "10",
         "genre": "Action, Shonen"
     }
+```
 
 ## GET - getAllMovies
   * This endpoint returns all the movies stored in the database and their respective attributes
   * Run the go program in the directory backend/getAllMovies/ using the command - go run .\cmd\main.go
   * It can be tested using http://localhost:3000/getAllMovies on postman or any browser. 
   * Sample Result - 
+  
+  
   ```json
    {
         "ID": 1,
