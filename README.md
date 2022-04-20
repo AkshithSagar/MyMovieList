@@ -16,7 +16,7 @@ Front End|Angular
 Back End |Golang
 Database |SQLite
 
-#### Description <br />
+## Description <br />
 * MyMovieList web application is a movie and show cataloguing web application where the users can use a list-like system to track and score movies and shows.
 * It can also be used as a discussion forum and a movie/show search database.
 * Below are some of the features that we have implemented-
@@ -31,6 +31,19 @@ Database |SQLite
     * The login section is simple and it is helpful in removing the hassle of duplicate user signups. 
     * The authentication is to validate the users by checking their username and password.
 * The discussion board is open to all users where they can share their thoughts. We have an additional feature here as well where a new user can filter out the top five discussions
+
+### Project Board -
+
+https://github.com/AkshithSagar/MyMovieList/projects/1
+
+### API Documentation -
+
+https://github.com/AkshithSagar/MyMovieList/blob/main/API_Documentation.md#mymovielist-api-documentation-
+
+
+## Sprint 4 Deliverables -
+
+https://github.com/AkshithSagar/MyMovieList/blob/main/Sprint4.md#accomplishments-in-sprint-4
 
 
 ## Backend Setup
@@ -81,7 +94,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Cypress test video
 
+## Backend test video
+
+https://user-images.githubusercontent.com/46960754/164321885-a6d7aecb-6fda-4183-9a2d-c232139558e2.mp4
 
 
-  
    
