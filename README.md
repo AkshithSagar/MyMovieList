@@ -33,7 +33,7 @@ Database |SQLite
 * The discussion board is open to all users where they can share their thoughts. We have an additional feature here as well where a new user can filter out the top five discussions
 
 
-#### Backend Setup
+## Backend Setup
 
 ###### Setting up the environment
 
