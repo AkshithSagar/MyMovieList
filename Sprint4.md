@@ -93,7 +93,7 @@ https://user-images.githubusercontent.com/46960754/163888046-599314a9-2918-4706-
 ### Backend Testing screenshot - 
 
 ![image](https://user-images.githubusercontent.com/46960754/163888182-289fefe3-36b4-4f6a-94ba-303ad36538f5.png)
-
+![004EE0C1-8F9F-409C-BD8F-16C6852F67E6](https://user-images.githubusercontent.com/48876044/164309917-4cf6bc79-4981-43e4-9a40-1f42b155a473.jpeg)
 
 
 ## Front End
@@ -114,11 +114,29 @@ https://user-images.githubusercontent.com/38401094/164299257-5aead76b-5cd6-43f7-
 
 ### Added Signup and Login Functionaility for Users.
 
+https://user-images.githubusercontent.com/26251061/164310508-1b3605f4-0152-4db6-bf66-9f5b1324590b.mov
+
+https://user-images.githubusercontent.com/26251061/164310670-087ebc1e-2231-4ae0-8695-dba092550793.mp4
+
+
 ### A movie page with all the details for that movie added, will work for all movies added.
 https://user-images.githubusercontent.com/38401094/164299476-229f2e0e-6377-479b-8a0d-8b8e40b058fd.mov
 
 
 ### Cypress test for frontend. 
 
+https://user-images.githubusercontent.com/26251061/164312331-ce202801-cd3d-4c20-96a3-7608270ba008.mp4
+
+https://user-images.githubusercontent.com/26251061/164312346-740b0fbb-e33a-4a8b-a400-a3e373150b55.mp4
+
+https://user-images.githubusercontent.com/26251061/164312365-6808ed96-7460-4ab5-9be6-5ad0899405c2.mp4
+
+https://user-images.githubusercontent.com/26251061/164312370-37405c87-6578-48f9-b91f-29fbc9a982d9.mp4
+
+https://user-images.githubusercontent.com/26251061/164312381-37153996-de21-4c12-b9d1-11b19a4bb984.mp4
+
+https://user-images.githubusercontent.com/26251061/164312383-6e94e0ba-1a35-4413-84a4-b0112fc24078.mp4
+
+https://user-images.githubusercontent.com/26251061/164312386-75e7416e-86d8-4dbe-8960-5620c974edf8.mp4
 
 

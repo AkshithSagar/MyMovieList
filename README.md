@@ -19,15 +19,21 @@ Database |SQLite
 **Note-The server and the databse needs to be decided as the project proceeds.**
 
 #### Description <br />
+* MyMovieList web application is a movie and show cataloguing web application where the users can use a list-like system to track and score movies and shows.
+* It can also be used as a discussion forum and a movie/show search database.
+* Below are some of the features that we have implemented-
+* Users can add new movie data or new discussions to the database.
+* Users can search for movies and shows based on id,name and genre-
+    * If the users are not aware of the complete id,name or genre they just need to enter a letter and all the related suggestions will appear. 
+* Users can see reviews of the movies and shows that they search-
+    * This will help them to filter out the best rated movies. 
+    * Additionally, we have implemented the code for listing out the top five movies from the database based on the ratings.
+* The application allows for user signup, login and authentication-
+    * In the signup section we ask users to enter their credentials and save it in our database. 
+    * The login section is simple and it is helpful in removing the hassle of duplicate user signups. 
+    * The authentication is to validate the users by checking their username and password.
+* The discussion board is open to all users where they can share their thoughts. We have an additional feature here as well where a new user can filter out the top five discussions
 
-* MyMovieList web application is a movie and show cataloging web application where the users can use a list-like system to track and score movies and shows.<br />
-* It can also be used as a discussion forum and a movie/show search database. <br />
-* Below are some of the features that we plan to implement (they have not been prioritized yet)-<br />
-  * Users can see suggested movies and discussions based on ratings.<br/>
-  * Users can add new movie data or a new discussions to the database.
-  * Users can search for movies and shows based on name, genre.<br />
-  * Users can see reviews of the movies and shows that they search.<br />
-  * The application allows for user signup, login and authentication.
 
 ##### Backend Setup
 
