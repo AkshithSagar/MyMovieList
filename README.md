@@ -16,8 +16,6 @@ Front End|Angular
 Back End |Golang
 Database |SQLite
 
-**Note-The server and the databse needs to be decided as the project proceeds.**
-
 #### Description <br />
 * MyMovieList web application is a movie and show cataloguing web application where the users can use a list-like system to track and score movies and shows.
 * It can also be used as a discussion forum and a movie/show search database.
@@ -37,7 +35,11 @@ Database |SQLite
 
 ##### Backend Setup
 
-###### Steps for connecting to the database on mac
+###### Setting up the environment
+
+* The IDE we used is Visual Studio Code and we just install the extension of go language on the IDE.
+
+###### Steps for backend setup on mac
 
 * Database-SQLite
 * Backend Programming Language
@@ -47,24 +49,6 @@ Database |SQLite
 * The next step is to install go using homebrew using the command brew install golang
 * Then we need to setup the database and we have chosen sqlite3 so we install it by using the command brew install golang
 
-###### Setting up the environment
-
-* The IDE we used is Visual Studio Code and we just install the extension of go language on the IDE.
-
-###### Services Performed
-
-* Service 1- [Ingestion of movies into the database](https://github.com/AkshithSagar/MyMovieList/tree/main/backend/IngestiontoDatabase)
-* Create Handler - IngestAllMovies
-* This function is used to create new columns for movies and ingest them to the database.
-* Service 2- [Retrieval of movies from the database](https://github.com/AkshithSagar/MyMovieList/tree/main/backend/getAllMovies)
-
-###### Testing
-
-* The testing of the API is done through the command line itself using the following commands-
-* curl http://localhost:8080
-* This command shows if the API is running correctly or not
-* curl http://localhost:8080/movies 
-* The command displays all the records of the particular table
 
 ## Steps for backend setup on Windows <br />
   * [Download and Install Go]( https://go.dev/doc/install)
@@ -74,6 +58,7 @@ Database |SQLite
   * Install any packages for go using this gcc toolchain 
   * The go program that you are willing to run must also be done through the gcc toolchain
   * You can either use a text editor to see the source code or an IDE (we used VScode to develop the package)
+  * You can use DB Browser(sqlite3) for viewing your data in sqlite3
 
 
 ### FrontEnd
