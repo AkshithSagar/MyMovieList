@@ -46,7 +46,7 @@ describe("SignupComponent", () => {
         component.profileForm.controls['answer'].setValue("Ruthwik");
         expect(component.profileForm.valid).toBeTruthy();
         let adder: SignupComponent;
-        component.onSubmit();
+        component.sendDetails();
       })
     
     });
