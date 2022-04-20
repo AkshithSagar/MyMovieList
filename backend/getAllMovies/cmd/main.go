@@ -80,6 +80,9 @@ func main() {
 	})
 	r.Get("/getSignupByUsername", func(w http.ResponseWriter, r *http.Request) {
 		enableCors(&w)
+		type send struct {
+			flag string
+		}
 		res, _ := yin.Event(w, r)
 		keys, _ := r.URL.Query()["username"]
 		keys2, _ := r.URL.Query()["password"]
@@ -87,7 +90,8 @@ func main() {
 		password := keys2[0]
 		//name := r.Header.Get("name")
 		//fmt.Println("*******%s", genre)
-		signups := feed.GetSignup(username, password)
+		//signups := feed.GetSignup(username, password)
+		signups := send{feed.GetSignup(username, password)}
 		res.SendJSON(signups)
 	})
 	//for testing of get service
