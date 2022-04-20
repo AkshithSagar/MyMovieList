@@ -80,7 +80,7 @@ This group contains endpoints that support adding, deleting and viewing of movie
 
 ```
    
-  ### POST- deleteMovieByID
+ ### POST- deleteMovieByID
   * This endpoint deletes a movie from the database based on the movie ID
   * The sample input is shown below - 
   ```json
@@ -91,10 +91,11 @@ This group contains endpoints that support adding, deleting and viewing of movie
   * Run the go program in the directory backend/getAllMovies/ using the command - go run .\cmd\main.go
   * It can be tested using http://localhost:3000/deleteMovieByID on postman or any browser. 
 
-## USer Related Services 
+## User Related Services 
+The group of endpoints contain services that support the user and their account.
 
-## POST - login
-* User login (authentication) with email id and password - this also generates a session cookie for 24 hours
+### POST - login
+* This endpoint is for user login (authentication) with email id and password - this also generates a session cookie for 24 hours
 * It can be accessed directily using the POST service - http://localhost:3000/login
 * The request body for this endpoint is as follows - 
 
@@ -102,7 +103,7 @@ This group contains endpoints that support adding, deleting and viewing of movie
 {
 
     "email" : "luffy@one-piece.com",
-    "password" : "killKaido"
+    "password" : "pirateKing"
 
 }
 ```
@@ -118,9 +119,10 @@ The cookie returned is as follows -
 
 <img width="892" alt="loginCookie" src="https://user-images.githubusercontent.com/46960754/161305218-f1572235-dadb-4e3e-ab42-1ad05a53fea4.png">
 
-## GET - user
+### GET - user
 * Get user - this is for retrieving the currently logged in user based on the session cookie
-There is no request body for this as this service looks for the current session cookie and provides a response. The response looks as follows - 
+* It can be accessed directily using the GET endpoint - http://localhost:3000/user
+* There is no request body for this as this service looks for the current session cookie and provides a response. The response looks as follows - 
 
 ```
 {
@@ -135,18 +137,17 @@ The cookie returned is as follows -
 
 <img width="935" alt="getUserCookie" src="https://user-images.githubusercontent.com/46960754/161306194-9903382e-a94b-4d63-82c5-cef5baf99a49.png">
 
-It can be accessed directily using the GET service - http://localhost:3000/user
 
-## User Logout
-* In the last sprint, we logged in a user and generated a cookie for it. In this sprint, we implemented the logout functionality. 
+### POST - Logout
+* This endpoint is for logging out a user.
 * A user will automatically log out after 24 hours, but a logout can also be manually triggered. 
-* There is no request body for this endpoint as it automatically finds the cookie from the system and deletes it. 
+* There is no request body for this endpoint as it automatically retrieves the cookie from the system and deletes it. 
 * The endpoint is http://localhost:3000/logout
 
-## User and Movie mapping
-Until the last sprint we were maintaining the user and movie data, there was no link between the two tables. In this sprint, we created a movies_status table that maintains the unique user ID, the corresponding unique movie ID and the status of that movie for the user (completed, watching, plan to watch, etc). The two IDs act as foreign keys and link the movies_status table to the user table as well as the movie table. Based on this, the following services have developed this sprint - 
+## User and Movie Mapping
+After creating the users and movies, the next step is to map the user to their respective movie. We created a movies_status table that maintains the unique user ID, the corresponding unique movie ID and the status of that movie for the user (completed, watching, plan to watch, etc). The two IDs act as foreign keys and link the movies_status table to the user table as well as the movie table. 
 
-### Set Movie Status (for the user)
+### POST - setMovieStatus
 * This service adds the user id and movie id as well as the current status of the movie for the user to the database. 
 * The POST endpoint is http://localhost:3000/setMovieStatus
 * The request body for this endpoint is as follows - 
@@ -157,7 +158,7 @@ Until the last sprint we were maintaining the user and movie data, there was no 
         "status": "Completed"
 }
 ```
-### Get Movie Status
+### Get - getMovieStatus
 * This service retrieves all the movies and the status for the user that is provided as a part of the request.
 * The header key is "userid" and the value is the ID of the user for which the movies have to be fetched
 * The GET endpoint is http://localhost:3000/getMovieStatus
