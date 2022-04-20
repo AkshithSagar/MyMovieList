@@ -22,7 +22,21 @@ https://user-images.githubusercontent.com/38401094/152626951-9666a38b-e4bf-44e6-
 * Created two services in Go which connect to SQLite
   * Ingestion of Movie
   * Retrieval of all Movies
-  * 
+
+###### Services Performed
+
+* Service 1- [Ingestion of movies into the database](https://github.com/AkshithSagar/MyMovieList/tree/main/backend/IngestiontoDatabase)
+* Create Handler - IngestAllMovies
+* This function is used to create new columns for movies and ingest them to the database.
+* Service 2- [Retrieval of movies from the database](https://github.com/AkshithSagar/MyMovieList/tree/main/backend/getAllMovies)
+
+###### Testing
+* The testing of the API is done through the command line itself using the following commands-
+* curl http://localhost:8080
+* This command shows if the API is running correctly or not
+* curl http://localhost:8080/movies 
+* The command displays all the records of the particular table
+
 ## GET - getAllMovies
   * This endpoint returns all the movies stored in the database and their respective attributes
   * Run the go program in the directory backend/getAllMovies/ using the command - go run .\cmd\main.go
