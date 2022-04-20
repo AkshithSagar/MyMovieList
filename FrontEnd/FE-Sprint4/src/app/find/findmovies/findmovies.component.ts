@@ -49,7 +49,7 @@ export class FindmoviesComponent implements OnInit {
     this.router.navigate(['moviebygenre'])
   }
   getSciFi(){
-    this.data.changeMessage("SciFi")
+    this.data.changeMessage("Sci-Fi")
     this.router.navigate(['moviebygenre'])
   }
   getRomance(){
