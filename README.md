@@ -41,7 +41,7 @@ https://github.com/AkshithSagar/MyMovieList/projects/1
 https://github.com/AkshithSagar/MyMovieList/blob/main/API_Documentation.md#mymovielist-api-documentation-
 
 
-## Sprint 4 Deliverables -
+### Sprint 4 Deliverables -
 
 https://github.com/AkshithSagar/MyMovieList/blob/main/Sprint4.md#accomplishments-in-sprint-4
 
