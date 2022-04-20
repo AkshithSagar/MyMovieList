@@ -111,15 +111,22 @@ https://user-images.githubusercontent.com/48876044/164313536-d2c8403b-028e-477c-
 
 
 ## Front End
+### How to run the code
+* Install NVM 0.39.1, Node 10.13.0 and Angular CLI 10.2.1
+* Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ### Home page updated with Movies and Images. 
+* User is able to see the home page with suggested movies and their images uploaded.
 https://user-images.githubusercontent.com/38401094/164296820-b34c79aa-d51c-44bc-918f-908f9d03b6fe.mp4
 
 ### Integrated "Add Discussions" and Display the disussions in "Find discussions".
+* Add discussions and View discussions are integrated so they can check the added movies and discussions.
 https://user-images.githubusercontent.com/38401094/164297881-6949e7ba-77e4-40dd-ac74-3c3b00064f8b.mov
 
 
 ### Search movie bar updated to work with all the movies and Search discussions updated to work with all discussions. 
+* User is able to search for movies by genre, by name or rating and even keywords from description.
 https://user-images.githubusercontent.com/38401094/164299042-c0e065bb-e424-4301-9d86-91fac0052e67.mov
 
 
