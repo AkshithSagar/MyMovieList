@@ -53,7 +53,7 @@ export class DisplayresultsComponent implements OnInit {
     this.router.navigate(['moviedetails'])
   }
   ngOnDestroy(){
-
+    this.subscription.unsubscribe();
   }
 
 }

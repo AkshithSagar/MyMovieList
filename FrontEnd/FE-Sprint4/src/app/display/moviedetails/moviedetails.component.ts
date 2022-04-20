@@ -41,5 +41,7 @@ export class MoviedetailsComponent implements OnInit {
     })
   }
 
-
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
+  }
 }
