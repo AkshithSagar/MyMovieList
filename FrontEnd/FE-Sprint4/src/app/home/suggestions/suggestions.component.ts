@@ -42,7 +42,7 @@ export class SuggestionsComponent implements OnInit {
       this.suggestions.push(new Suggestions(JSON.stringify(results[1]["Name"]),JSON.stringify(results[1]["Genre"]), JSON.stringify(results[1]["Review"])  , 'https://m.media-amazon.com/images/I/91BT--NUiKL._AC_UY436_FMwebp_QL65_.jpg'))
       this.suggestions.push(new Suggestions(JSON.stringify(results[2]["Name"]),JSON.stringify(results[2]["Genre"]), JSON.stringify(results[2]["Review"])  , 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQXGJJq9ioEIztF_HSvK0fnX4UMKjcnEaEsg_WHbGJOeAf3uwft'))
       this.suggestions.push(new Suggestions(JSON.stringify(results[3]["Name"]),JSON.stringify(results[3]["Genre"]), JSON.stringify(results[3]["Review"])  , 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQUw076GR7JpnfExoBLTMpiE9otUzk518SylUdC1roF6Ah63NS9'))
-      this.suggestions.push(new Suggestions(JSON.stringify(results[4]["Name"]),JSON.stringify(results[4]["Genre"]), JSON.stringify(results[4]["Review"])  , 'https://m.media-amazon.com/images/M/MV5BMTc3NjI2MjU0Nl5BMl5BanBnXkFtZTgwNDk3ODYxMTE@._V1_FMjpg_UX1000_.jpg'))
+      this.suggestions.push(new Suggestions(JSON.stringify(results[4]["Name"]),JSON.stringify(results[4]["Genre"]), JSON.stringify(results[4]["Review"])  , 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRGHhTyXCrXrHa0wWxaN5HGknW3Gzuz9WhGfxWbzK2YCVNQEHEP'))
     })
   }
   getMovieDetails(element){

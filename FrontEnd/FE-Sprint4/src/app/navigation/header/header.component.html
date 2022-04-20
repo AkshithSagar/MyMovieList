@@ -11,7 +11,7 @@
     <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
         <ul fxLayout fxLayoutGap="15px" class="navigation-items" >
             <li>
-                <a routerLink="/login" class = "loginbutton" >Login</a>
+                <button routerLink="/login" [disabled]="isDisabled" class = "loginbutton" >{{message}}</button>
             </li>
             <!-- <li>
                 <a routerLink="/signup" class="signupbutton">Sign Up</a>
