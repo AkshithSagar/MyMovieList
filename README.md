@@ -74,7 +74,8 @@ https://github.com/AkshithSagar/MyMovieList/blob/main/Sprint4.md#accomplishments
   * You can use DB Browser(sqlite3) for viewing your data in sqlite3
 
 
-### FrontEnd
+## FrontEnd Setup
+   * Install NVM 0.39.1, Node 10.13.0 and Angular CLI 10.2.1
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.1.
 
