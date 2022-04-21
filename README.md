@@ -74,7 +74,8 @@ https://github.com/AkshithSagar/MyMovieList/blob/main/Sprint4.md#accomplishments
   * You can use DB Browser(sqlite3) for viewing your data in sqlite3
 
 
-### FrontEnd
+## FrontEnd Setup
+   * Install NVM 0.39.1, Node 10.13.0 and Angular CLI 10.2.1
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.1.
 
@@ -114,5 +115,11 @@ https://user-images.githubusercontent.com/26251061/164312386-75e7416e-86d8-4dbe-
 
 https://user-images.githubusercontent.com/46960754/164321885-a6d7aecb-6fda-4183-9a2d-c232139558e2.mp4
 
+## Frontend Deployment
 
-   
+URL: https://curious-douhua-70ede4.netlify.app/home
+Note: Start backend before opening the URL.
+
+https://user-images.githubusercontent.com/38401094/164345812-b7cded67-d00a-44e9-85a2-412451903757.mp4
+
+
