@@ -117,7 +117,7 @@ https://user-images.githubusercontent.com/46960754/164321885-a6d7aecb-6fda-4183-
 
 ## Frontend Deployment
 
-URL: https://curious-douhua-70ede4.netlify.app/home
+URL: https://curious-douhua-70ede4.netlify.app/
 Note: Start backend before opening the URL.
 
 https://user-images.githubusercontent.com/38401094/164345812-b7cded67-d00a-44e9-85a2-412451903757.mp4
